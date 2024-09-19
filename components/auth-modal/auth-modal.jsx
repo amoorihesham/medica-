@@ -1,8 +1,7 @@
 'use client';
 import { Box, Button, ButtonGroup, Modal, Typography } from '@mui/material';
 import { useState } from 'react';
-import SignupPopup from '../sign-up-form/sign-up-popup';
-import LoginForm from '../login-form/login-form';
+import { SignupForm, LoginForm } from '../index';
 
 const AuthModal = () => {
   const [open, setOpen] = useState(false);
@@ -13,6 +12,7 @@ const AuthModal = () => {
   const style = {
     modal: {
       position: 'absolute',
+      minHeight: '100vh',
       top: '50%',
       left: '50%',
       transform: 'translate(-50%, -50%)',
@@ -77,7 +77,7 @@ const AuthModal = () => {
               Register
             </Button>
           </ButtonGroup>
-          {login ? <LoginForm /> : <SignupPopup />}
+          {login ? <LoginForm /> : <SignupForm />}
         </Box>
       </Modal>
     </Box>

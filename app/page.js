@@ -1,9 +1,9 @@
-import AuthModal from './(components)/auth-modal/auth-modal';
+import { ProductCard } from '@/components';
 
 export default function Home() {
   return (
     <>
-      <AuthModal />
+      <ProductCard />
     </>
   );
 }

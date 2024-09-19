@@ -1,6 +1,21 @@
-import { Box, Button, Stack, TextField, Typography } from '@mui/material';
+'use client';
+import {
+  Box,
+  Button,
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Select,
+  Stack,
+  TextField,
+  Typography,
+} from '@mui/material';
+import { useState } from 'react';
 
 const SignupForm = () => {
+  const [gov, setGov] = useState('');
+  const [area, setArea] = useState('');
+  const [pharmacy, setPharmacy] = useState('');
   return (
     <Box
       sx={{ width: '100%', textAlign: 'left' }}
@@ -13,47 +28,123 @@ const SignupForm = () => {
         marginTop={5}
         spacing={3}
       >
-        <TextField
+        <FormControl
           sx={{ backgroundColor: '#FFF7F7', width: '60%' }}
           variant='outlined'
-          id='username'
-          placeholder='Full Name'
           size='small'
           required
-        />
-        <TextField
+        >
+          <TextField
+            id='fullName'
+            label='Full name'
+            placeholder='Full name'
+            size='small'
+            value={pharmacy}
+            onChange={(e) => setPharmacy(e.target.value)}
+          />
+        </FormControl>
+        <FormControl
           sx={{ backgroundColor: '#FFF7F7', width: '60%' }}
           variant='outlined'
-          id='phone'
-          placeholder='Phone number'
           size='small'
           required
-        />
-        <TextField
+        >
+          <TextField
+            id='phone'
+            label='Phone'
+            placeholder='Phone'
+            size='small'
+            value={pharmacy}
+            onChange={(e) => setPharmacy(e.target.value)}
+          />
+        </FormControl>
+        <FormControl
           sx={{ backgroundColor: '#FFF7F7', width: '60%' }}
           variant='outlined'
-          id='password'
-          placeholder='Password'
           size='small'
           required
-        />
-        <TextField
+        >
+          <TextField
+            id='password'
+            label='Password'
+            placeholder='Password'
+            size='small'
+            value={pharmacy}
+            onChange={(e) => setPharmacy(e.target.value)}
+          />
+        </FormControl>
+        <FormControl
+          sx={{ width: '60%', backgroundColor: '#FFF7F7' }}
+          variant='outlined'
+          size='small'
+          required
+        >
+          <InputLabel id='government'>Government</InputLabel>
+          <Select
+            labelId='government'
+            id='government'
+            label='government'
+            value={gov}
+            onChange={(event) => setGov(event.target.value)}
+            size='small'
+            required
+          >
+            <MenuItem value='cairo'>Cairo</MenuItem>
+          </Select>
+        </FormControl>
+        <FormControl
+          sx={{ width: '60%', backgroundColor: '#FFF7F7' }}
+          variant='outlined'
+          size='small'
+          required
+        >
+          <InputLabel id='area'>Area</InputLabel>
+          <Select
+            labelId='area'
+            id='area'
+            label='area'
+            value={area}
+            onChange={(event) => setArea(event.target.value)}
+          >
+            <MenuItem value='cairo'>Cairo</MenuItem>
+          </Select>
+        </FormControl>
+        <FormControl
           sx={{ backgroundColor: '#FFF7F7', width: '60%' }}
           variant='outlined'
-          id='pharmacyName'
-          placeholder='Pharmacy name'
           size='small'
           required
-        />
-        <TextField
+        >
+          <TextField
+            id='pharmacyName'
+            label='Pharmacy name'
+            placeholder='Pharmacy name'
+            size='small'
+            value={pharmacy}
+            onChange={(e) => setPharmacy(e.target.value)}
+          />
+        </FormControl>
+        <FormControl
           sx={{ backgroundColor: '#FFF7F7', width: '60%' }}
           variant='outlined'
-          id='pharmacyPhone'
-          placeholder='Pharmacy phone'
           size='small'
           required
-        />
-        <Button variant='contained'>Sign Up</Button>
+        >
+          <TextField
+            id='pharmacyPhone'
+            label='Pharmacy phone'
+            placeholder='Pharmacy phone'
+            size='small'
+            value={pharmacy}
+            onChange={(e) => setPharmacy(e.target.value)}
+          />
+        </FormControl>
+        <Button
+          variant='contained'
+          sx={{ bgcolor: '#164B60', width: '50%', margin: 'auto' }}
+        >
+          Sign Up
+        </Button>
       </Stack>
     </Box>
   );
