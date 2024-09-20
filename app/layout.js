@@ -1,3 +1,4 @@
+
 import { Header, RedLine } from '@/components';
 import './globals.css';
 

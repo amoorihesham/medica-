@@ -1,9 +1,9 @@
-import { ProductCard } from '@/components';
+import { ProductList } from '@/sections';
 
 export default function Home() {
   return (
     <>
-      <ProductCard />
+      <ProductList/>
     </>
   );
 }
