@@ -1,12 +1,17 @@
 import Image from 'next/image';
 import { Flex, Card } from 'antd';
 import { Box, Typography } from '@mui/material';
-import { FavoriteBorderOutlined } from '@mui/icons-material';
+import {
+  AddShoppingCartOutlined,
+  FavoriteBorderOutlined,
+  VisibilityOffOutlined,
+} from '@mui/icons-material';
 import productImg from '@/assets/product/product.png';
+import './style.css';
 
-const ProductCard = () => {
+const ProductCard = ({ product }) => {
   return (
-    <Card style={{ width: '200px' }}>
+    <Card style={{ width: '237px', height: '234px' }}>
       <Flex justify='space-between'>
         <Image
           src={productImg}
@@ -17,8 +22,27 @@ const ProductCard = () => {
         <FavoriteBorderOutlined />
       </Flex>
       <Box sx={{ margin: '1rem 0' }}>
-        <Typography>Title</Typography>
-        <Typography>Description</Typography>
+        <Typography
+          sx={{
+            color: '#363839',
+            fontSize: '14px',
+            fontWeight: '500',
+            lineHeight: '34px',
+            letterSpacing: '1px',
+          }}
+        >
+          {product.title.toUpperCase()}
+        </Typography>
+        <Flex
+          justify='space-between'
+          align='center'
+          style={{ margin: '1rem 0' }}
+        >
+          <Typography sx={{ color: '#595D5F', fontWeight: '300', fontSize: '16px' }}>
+            Price: <VisibilityOffOutlined />
+          </Typography>
+          <AddShoppingCartOutlined />
+        </Flex>
       </Box>
     </Card>
   );

@@ -8,6 +8,9 @@ import SearchInput from './globals/search-input/search-input';
 import Header from './header/header';
 import RedLine from './globals/red-line/red-line';
 import ProductCard from './globals/product-card/product-card';
+import CategoryCard from './globals/category-card/category-card';
+import Slider from './globals/slider/slider';
+import Footer from './footer/footer';
 
 export {
   LoginForm,
@@ -20,4 +23,7 @@ export {
   Header,
   RedLine,
   ProductCard,
+  CategoryCard,
+  Slider,
+  Footer
 };
