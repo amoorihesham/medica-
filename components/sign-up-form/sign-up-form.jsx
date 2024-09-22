@@ -8,7 +8,6 @@ import {
   Select,
   Stack,
   TextField,
-  Typography,
 } from '@mui/material';
 import { useState } from 'react';
 

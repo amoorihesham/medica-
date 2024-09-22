@@ -1,3 +1,4 @@
+'use client';
 import Image from 'next/image';
 import { Flex, Card } from 'antd';
 import { Box, Typography } from '@mui/material';
@@ -8,6 +9,7 @@ import {
 } from '@mui/icons-material';
 import productImg from '@/assets/product/product.png';
 import './style.css';
+import Link from 'next/link';
 
 const ProductCard = ({ product }) => {
   return (
@@ -22,17 +24,19 @@ const ProductCard = ({ product }) => {
         <FavoriteBorderOutlined />
       </Flex>
       <Box sx={{ margin: '1rem 0' }}>
-        <Typography
-          sx={{
-            color: '#363839',
-            fontSize: '14px',
-            fontWeight: '500',
-            lineHeight: '34px',
-            letterSpacing: '1px',
-          }}
-        >
-          {product.title.toUpperCase()}
-        </Typography>
+        <Link href={`/product/${product.id}`}>
+          <Typography
+            sx={{
+              color: '#363839',
+              fontSize: '14px',
+              fontWeight: '500',
+              lineHeight: '34px',
+              letterSpacing: '1px',
+            }}
+          >
+            {product.title.toUpperCase()}
+          </Typography>
+        </Link>
         <Flex
           justify='space-between'
           align='center'

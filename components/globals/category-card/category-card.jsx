@@ -2,7 +2,6 @@ import { Box, Typography } from '@mui/material';
 import Pulse from '@/assets/categories/pulse.png';
 import Image from 'next/image';
 const CategoryCard = ({ category }) => {
-  console.log(category);
   return (
     <Box sx={{ display: 'flex', justifyContent: 'center' }}>
       <Box>

@@ -9,6 +9,9 @@ import Header from './header/header';
 import RedLine from './globals/red-line/red-line';
 import ProductCard from './globals/product-card/product-card';
 import CategoryCard from './globals/category-card/category-card';
+import PartnerCard from './globals/partner-card/partner-card';
+import HotDealCard from './globals/hot-deal-card/hot-deal-card';
+import CategoriesNavbar from './globals/categories-navbar/categories-navbar';
 import Slider from './globals/slider/slider';
 import Footer from './footer/footer';
 
@@ -24,6 +27,9 @@ export {
   RedLine,
   ProductCard,
   CategoryCard,
+  PartnerCard,
+  HotDealCard,
+  CategoriesNavbar,
   Slider,
-  Footer
+  Footer,
 };

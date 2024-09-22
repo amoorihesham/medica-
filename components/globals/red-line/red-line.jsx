@@ -6,7 +6,9 @@ const RedLine = () => {
       sx={{ bgcolor: '#FF4646', height: '40px' }}
     >
       <Container maxWidth='xl'>
-        <Typography color='white'>Hello There.</Typography>
+        <Box sx={{ display: 'flex', alignItems: 'center', height: '40px' }}>
+          <Typography color='white'>Hello There.</Typography>
+        </Box>
       </Container>
     </Box>
   );
