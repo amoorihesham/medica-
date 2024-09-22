@@ -41,7 +41,7 @@ const RegisterLoginBtn = () => {
           component='h1'
           sx={{ textAlign: 'center', marginTop: '1rem' }}
         >
-          Let's Get Started
+          Lets Get Started
         </Typography>
         <Box sx={{ marginY: '1rem', display: 'flex', justifyContent: 'center' }}>
           <Button
