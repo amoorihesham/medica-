@@ -11,7 +11,7 @@ const ProductList = ({ productList, title }) => {
       <Grid2
         container
         sx={{ marginTop: '1rem' }}
-        spacing={3}
+        spacing={2}
         siz={{ xs: 12, md: 4, lg: 2 }}
       >
         {productList?.map((product) => (

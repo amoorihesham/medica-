@@ -16,6 +16,7 @@ import SectionHeading from './globals/section-heading/section-heading';
 import SeeMoreBtn from './globals/see-more-btn/see-more-btn';
 import Slider from './globals/slider/slider';
 import Footer from './footer/footer';
+import CartItem from './cart-item/cart-item';
 
 export {
   LoginForm,
@@ -36,4 +37,5 @@ export {
   SectionHeading,
   Slider,
   Footer,
+  CartItem,
 };

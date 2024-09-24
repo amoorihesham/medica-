@@ -1,5 +1,5 @@
-'use client'
-import { redirect } from 'next/navigation';
+'use client';
+import Link from 'next/link';
 import { Box, Button } from '@mui/material';
 
 const SeeMoreBtn = ({ url }) => {
@@ -8,9 +8,8 @@ const SeeMoreBtn = ({ url }) => {
       <Button
         variant='contained'
         sx={{ bgcolor: '#164B60' }}
-        onClick={() => redirect(url)}
       >
-        See More
+        <Link href={url}>See More</Link>
       </Button>
     </Box>
   );

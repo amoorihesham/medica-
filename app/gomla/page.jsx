@@ -1,4 +1,4 @@
-import { CategoriesNavbar, RedLine, Slider } from '@/components';
+import { CategoriesNavbar, RedLine, Slider, SeeMoreBtn } from '@/components';
 import { CategoriesList, ProductList } from '@/sections';
 
 const productsList = [
@@ -93,6 +93,7 @@ const Gomla = () => {
         productList={productsList}
         title='All Products'
       />
+      <SeeMoreBtn url='/products' />
     </>
   );
 };

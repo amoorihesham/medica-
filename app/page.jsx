@@ -1,5 +1,5 @@
 import { HotDealsList, PartnersList, ProductList, CategoriesList } from '@/sections';
-import { CategoriesNavbar, RedLine, Slider, SeeMoreBtn } from '@/components';
+import { RedLine, Slider, SeeMoreBtn, CategoriesNavbar } from '@/components';
 
 const productsList = [
   {
@@ -49,7 +49,8 @@ const categoriesList = [
 export default function Home() {
   return (
     <>
-      <RedLine />
+      <CategoriesNavbar />
+      <RedLine title='Your Account Need To Be Activated.' />
       <Slider />
       <CategoriesList categoriesList={categoriesList} />
       <HotDealsList />

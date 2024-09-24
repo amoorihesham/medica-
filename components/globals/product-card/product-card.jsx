@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Flex, Card } from 'antd';
-import { Box, Typography } from '@mui/material';
+import { Box, Typography, Divider } from '@mui/material';
 import {
   AddShoppingCartOutlined,
   FavoriteBorderOutlined,
@@ -14,7 +14,14 @@ import './style.css';
 const ProductCard = ({ product }) => {
   const user = true;
   return (
-    <Card style={{ width: '237px', height: '234px', position: 'relative' }}>
+    <Card
+      style={{
+        width: '237px',
+        height: '234px',
+        position: 'relative',
+        boxShadow: '5px 0px 10px 0px #00000024',
+      }}
+    >
       {product.discount?.hasDiscount && (
         <Typography
           sx={{
@@ -43,8 +50,9 @@ const ProductCard = ({ product }) => {
 
         <FavoriteBorderOutlined />
       </Flex>
+      <Divider />
       <Box sx={{ margin: '1rem 0' }}>
-        <Link href={`/product/${product.id}`}>
+        <Link href={`/products/${product.id}`}>
           <Typography
             sx={{
               color: '#363839',

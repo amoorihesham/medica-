@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { ProductList } from '@/sections';
+import { CategoriesNavbar } from '@/components';
 import { Button, Flex } from 'antd';
 import { Box, Container, Typography, Divider } from '@mui/material';
 import { Add, FavoriteOutlined } from '@mui/icons-material';
@@ -44,10 +45,9 @@ const productsList = [
 ];
 
 const Product = ({ params }) => {
-  
   return (
     <Box>
-      
+      <CategoriesNavbar />
       <Container
         maxWidth='xl'
         sx={{ marginTop: '2rem' }}
