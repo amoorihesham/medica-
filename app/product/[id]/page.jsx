@@ -1,25 +1,66 @@
 import Image from 'next/image';
-import { CategoriesNavbar } from '@/components';
-import { Flex } from 'antd';
+import { ProductList } from '@/sections';
+import { Button, Flex } from 'antd';
 import { Box, Container, Typography, Divider } from '@mui/material';
-import { FavoriteOutlined } from '@mui/icons-material';
-import product from '@/assets/product/OIP.png';
+import { Add, FavoriteOutlined } from '@mui/icons-material';
+import { colors } from '@/styles';
+import productImage from '@/assets/product/OIP.png';
+const productsList = [
+  {
+    id: 1,
+    title: 'Paracetamole',
+    description: 'lorem ipsum dolor sit ',
+    price: 50,
+    discount: { hasDiscount: true, value: '70' },
+  },
+  {
+    id: 2,
+    title: 'Paracetamole',
+    description: 'lorem ipsum dolor sit ',
+    price: 50,
+    discount: { hasDiscount: true, value: '70' },
+  },
+  {
+    id: 3,
+    title: 'Paracetamole',
+    description: 'lorem ipsum dolor sit ',
+    price: 50,
+    discount: { hasDiscount: true, value: '70' },
+  },
+  {
+    id: 4,
+    title: 'Paracetamole',
+    description: 'lorem ipsum dolor sit ',
+    price: 50,
+    discount: { hasDiscount: true, value: '70' },
+  },
+  {
+    id: 5,
+    title: 'Paracetamole',
+    description: 'lorem ipsum dolor sit ',
+    price: 50,
+    discount: { hasDiscount: false, value: '70' },
+  },
+];
 
 const Product = ({ params }) => {
-  console.log(params);
+  
   return (
     <Box>
-      <CategoriesNavbar />
+      
       <Container
         maxWidth='xl'
         sx={{ marginTop: '2rem' }}
       >
-        <Flex gap={100}>
+        <Flex
+          gap={100}
+          justify='center'
+        >
           <Box sx={{ display: 'flex' }}>
             <Image
-              src={product}
+              src={productImage}
               alt='Product'
-              width={500}
+              width={350}
               height={519}
             />
             <FavoriteOutlined />
@@ -79,7 +120,7 @@ const Product = ({ params }) => {
                 margin: '1rem 0',
               }}
             >
-              <Typography sx={{ fontSize: '26px', fontWeight: '700', color: '#1B6B93' }}>
+              <Typography sx={{ fontSize: '26px', fontWeight: '700', color: colors.primary }}>
                 EGP 800
               </Typography>
               <Typography
@@ -96,8 +137,34 @@ const Product = ({ params }) => {
               </Typography>
             </Box>
             <Divider />
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: '.5rem', marginTop: '1rem' }}>
+              <Button icon={<Add />}></Button>
+              <Typography>1</Typography>
+              <Button icon={<Add />}></Button>
+            </Box>
+            <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+              <Button
+                variant='contained'
+                style={{
+                  backgroundColor: colors.primary,
+                  color: colors.primaryText,
+                  width: '300px',
+                  margin: '2rem auto',
+                }}
+              >
+                Add To Cart
+              </Button>
+            </Box>
           </Box>
         </Flex>
+        <ProductList
+          title='Similar To Active Ingrediants'
+          productList={productsList}
+        />
+        <ProductList
+          title='Explore More'
+          productList={productsList}
+        />
       </Container>
     </Box>
   );

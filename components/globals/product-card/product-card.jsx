@@ -1,4 +1,5 @@
 'use client';
+import Link from 'next/link';
 import Image from 'next/image';
 import { Flex, Card } from 'antd';
 import { Box, Typography } from '@mui/material';
@@ -9,11 +10,29 @@ import {
 } from '@mui/icons-material';
 import productImg from '@/assets/product/product.png';
 import './style.css';
-import Link from 'next/link';
 
 const ProductCard = ({ product }) => {
+  const user = true;
   return (
-    <Card style={{ width: '237px', height: '234px' }}>
+    <Card style={{ width: '237px', height: '234px', position: 'relative' }}>
+      {product.discount?.hasDiscount && (
+        <Typography
+          sx={{
+            color: 'white',
+            backgroundColor: 'green',
+            padding: '8px 10px',
+            position: 'absolute',
+            top: '0',
+            left: '0',
+            width: 'fit-content',
+            fontSize: '14px',
+            borderRaduis: '20px',
+          }}
+        >
+          10% Discount
+        </Typography>
+      )}
+
       <Flex justify='space-between'>
         <Image
           src={productImg}
@@ -21,6 +40,7 @@ const ProductCard = ({ product }) => {
           width={100}
           height={200}
         />
+
         <FavoriteBorderOutlined />
       </Flex>
       <Box sx={{ margin: '1rem 0' }}>
@@ -43,7 +63,7 @@ const ProductCard = ({ product }) => {
           style={{ margin: '1rem 0' }}
         >
           <Typography sx={{ color: '#595D5F', fontWeight: '300', fontSize: '16px' }}>
-            Price: <VisibilityOffOutlined />
+            Price: {user ? '500' : <VisibilityOffOutlined />}
           </Typography>
           <AddShoppingCartOutlined />
         </Flex>

@@ -12,6 +12,8 @@ import CategoryCard from './globals/category-card/category-card';
 import PartnerCard from './globals/partner-card/partner-card';
 import HotDealCard from './globals/hot-deal-card/hot-deal-card';
 import CategoriesNavbar from './globals/categories-navbar/categories-navbar';
+import SectionHeading from './globals/section-heading/section-heading';
+import SeeMoreBtn from './globals/see-more-btn/see-more-btn';
 import Slider from './globals/slider/slider';
 import Footer from './footer/footer';
 
@@ -29,7 +31,9 @@ export {
   CategoryCard,
   PartnerCard,
   HotDealCard,
+  SeeMoreBtn,
   CategoriesNavbar,
+  SectionHeading,
   Slider,
   Footer,
 };

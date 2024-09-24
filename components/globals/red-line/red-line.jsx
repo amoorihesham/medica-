@@ -1,5 +1,5 @@
 import { Box, Container, Typography } from '@mui/material';
-const RedLine = () => {
+const RedLine = ({ title }) => {
   return (
     <Box
       component='div'
@@ -7,7 +7,7 @@ const RedLine = () => {
     >
       <Container maxWidth='xl'>
         <Box sx={{ display: 'flex', alignItems: 'center', height: '40px' }}>
-          <Typography color='white'>Hello There.</Typography>
+          <Typography color='white'>{title}</Typography>
         </Box>
       </Container>
     </Box>

@@ -1,51 +1,44 @@
-import { HotDealCard } from '@/components';
-import { Typography, Grid2, Box, Container } from '@mui/material';
+import { HotDealCard, SectionHeading } from '@/components';
+import { Grid2, Box, Container } from '@mui/material';
 
 const HotDealsList = () => {
   return (
-    <Box>
-      <Container
-        maxWidth='xl'
-        sx={{ marginTop: '2rem' }}
+    <Container
+      maxWidth='xl'
+      sx={{ marginTop: '3rem' }}
+    >
+      <SectionHeading title='Hot Deals' />
+      <Grid2
+        container
+        justifyContent='space-between'
+        sx={{ marginTop: '1rem' }}
       >
-        <Typography
-          variant='h4'
-          component='h1'
-          sx={{ margin: '1rem 0', color: '#164B60', fontSize: '40px', fontWeight: '500' }}
-        >
-          Hot Deals
-        </Typography>
-        <Grid2
-          container
-          justifyContent='space-between'
-        >
-          <Grid2>
-            <HotDealCard sx={{ marginTop: '2rem' }} />
-          </Grid2>
-          <Grid2>
-            <HotDealCard sx={{ marginTop: '2rem' }} />
-          </Grid2>
-          <Grid2>
-            <HotDealCard sx={{ marginTop: '2rem' }} />
-          </Grid2>
-          <Grid2>
-            <HotDealCard sx={{ marginTop: '2rem' }} />
-          </Grid2>
-          <Grid2>
-            <HotDealCard sx={{ marginTop: '2rem' }} />
-          </Grid2>
-          <Grid2>
-            <HotDealCard sx={{ marginTop: '2rem' }} />
-          </Grid2>
-          <Grid2>
-            <HotDealCard sx={{ marginTop: '2rem' }} />
-          </Grid2>
-          <Grid2>
-            <HotDealCard sx={{ marginTop: '2rem' }} />
-          </Grid2>
+        <Grid2>
+          <HotDealCard />
         </Grid2>
-      </Container>
-    </Box>
+        <Grid2>
+          <HotDealCard />
+        </Grid2>
+        <Grid2>
+          <HotDealCard />
+        </Grid2>
+        <Grid2>
+          <HotDealCard />
+        </Grid2>
+        <Grid2>
+          <HotDealCard />
+        </Grid2>
+        <Grid2>
+          <HotDealCard />
+        </Grid2>
+        <Grid2>
+          <HotDealCard />
+        </Grid2>
+        <Grid2>
+          <HotDealCard />
+        </Grid2>
+      </Grid2>
+    </Container>
   );
 };
 

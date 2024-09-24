@@ -1,29 +1,21 @@
-import { ProductCard } from '@/components';
-import { Container, Grid2, Typography } from '@mui/material';
+import { ProductCard, SectionHeading } from '@/components';
+import { Container, Grid2 } from '@mui/material';
 
-const ProductList = ({ title, productList }) => {
+const ProductList = ({ productList, title }) => {
   return (
     <Container
       maxWidth='xl'
-      sx={{ marginTop: '2rem' }}
+      sx={{ marginTop: '3rem' }}
     >
-      <Typography
-        variant='h4'
-        component='h1'
-        sx={{ margin: '1rem 0', color: '#164B60', fontSize: '40px', fontWeight: '500' }}
-      >
-        {title}
-      </Typography>
+      <SectionHeading title={title} />
       <Grid2
         container
-        justifyContent='space-between'
-        rowSpacing={5}
+        sx={{ marginTop: '1rem' }}
+        spacing={3}
+        siz={{ xs: 12, md: 4, lg: 2 }}
       >
         {productList?.map((product) => (
-          <Grid2
-            size={{ xs: 12, md: 4, lg: 2 }}
-            key={product.id}
-          >
+          <Grid2 key={product.id}>
             <ProductCard product={product} />
           </Grid2>
         ))}
