@@ -17,6 +17,7 @@ import SeeMoreBtn from './globals/see-more-btn/see-more-btn';
 import Slider from './globals/slider/slider';
 import Footer from './footer/footer';
 import CartItem from './cart-item/cart-item';
+import CartSummary from './cart-summary/cart-summary';
 
 export {
   LoginForm,
@@ -38,4 +39,5 @@ export {
   Slider,
   Footer,
   CartItem,
+  CartSummary,
 };

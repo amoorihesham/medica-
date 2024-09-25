@@ -1,5 +1,6 @@
 import { Box, Container, Typography } from '@mui/material';
-import { CartItem } from '@/components';
+import { Flex } from 'antd';
+import { CartItem, CartSummary } from '@/components';
 export default function Cart() {
   return (
     <Box>
@@ -13,7 +14,10 @@ export default function Cart() {
         >
           Cart (2 Items)
         </Typography>
-        <CartItem product={{ title: 'test', sold: 45216, dTime: 'wed / 2024', price: 4589 }} />
+        <Flex justify='space-between'>
+          <CartItem product={{ title: 'test', sold: 45216, dTime: 'wed / 2024', price: 4589 }} />
+          <CartSummary />
+        </Flex>
       </Container>
     </Box>
   );
