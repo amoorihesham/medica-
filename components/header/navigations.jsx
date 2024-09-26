@@ -21,8 +21,8 @@ import {
   LanguageOutlined,
 } from '@mui/icons-material';
 import { colors } from '@/styles';
-import logo from '@/assets/branding/logo.png';
 import { RegisterLoginBtn } from '@/components';
+import logo from '@/assets/branding/logo.png';
 
 const styles = {
   link: {
@@ -190,7 +190,15 @@ export default function Navigations({ user }) {
               </>
             ) : (
               <>
-                <LanguageBtn />
+                <ListItem sx={styles.listitem}>
+                  <Button
+                    sx={styles.link}
+                    className='text-white capitalize'
+                  >
+                    <LanguageOutlined />
+                    Language
+                  </Button>
+                </ListItem>
                 <RegisterLoginBtn />
               </>
             )}
