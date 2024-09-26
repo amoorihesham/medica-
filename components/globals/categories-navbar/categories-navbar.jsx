@@ -31,6 +31,8 @@ const CategoriesNavbar = () => {
         height: '62px',
         display: 'flex',
         alignItems: 'center',
+        margin: '0 0 .3rem 0',
+        overflow: 'auto',
       }}
     >
       <Container maxWidth='xl'>
@@ -39,7 +41,7 @@ const CategoriesNavbar = () => {
           justify='space-between'
         >
           <Dropdown
-            overlay={menu}
+            menu={menu}
             trigger={['hover', 'click']}
           >
             <Button

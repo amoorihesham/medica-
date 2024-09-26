@@ -5,9 +5,16 @@ import { Input, Button } from 'antd';
 
 const SearchInput = () => {
   return (
-    <Box sx={{ width: '855px', margin: '5rem auto', display: 'flex', alignItems: 'center' }}>
+    <Box
+      sx={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        height: { xs: '80px', md: '150px' },
+      }}
+    >
       <Input.Search
-        style={{ borderRaduis: '0px' }}
+        style={{ borderRaduis: '0px', width: '70%' }}
         placeholder='search'
         size='large'
         prefix={

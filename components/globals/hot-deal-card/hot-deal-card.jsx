@@ -16,8 +16,7 @@ const HotDealCard = () => {
     >
       <Image
         src={pulse}
-        width={88}
-        height={110}
+        className='w-100'
         alt='Pulse Oximeter'
       />
     </Box>

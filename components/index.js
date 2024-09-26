@@ -6,6 +6,7 @@ import LanguageBtn from './globals/language-btn/language-btn';
 import RegisterLoginBtn from './globals/register-login-btn/register-login-btn';
 import SearchInput from './globals/search-input/search-input';
 import Header from './header/header';
+import Navigations from './header/navigations';
 import RedLine from './globals/red-line/red-line';
 import ProductCard from './globals/product-card/product-card';
 import CategoryCard from './globals/category-card/category-card';
@@ -28,6 +29,7 @@ export {
   LanguageBtn,
   SearchInput,
   Header,
+  Navigations,
   RedLine,
   ProductCard,
   CategoryCard,

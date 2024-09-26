@@ -1,43 +1,36 @@
 import { HotDealCard, SectionHeading } from '@/components';
-import { Grid2, Box, Container } from '@mui/material';
+import { Container } from '@mui/material';
+import { Flex } from 'antd';
 
 const HotDealsList = () => {
   return (
     <Container
       maxWidth='xl'
-      sx={{ marginTop: '3rem' }}
+      sx={{ marginTop: '3rem', overflow: 'auto' }}
     >
       <SectionHeading title='Hot Deals' />
-      <Grid2
+      <Flex
         container
-        justifyContent='space-between'
-        sx={{ marginTop: '1rem' }}
+        gap={10}
+        justify='space-between'
+        style={{ overflowX: 'auto' }}
       >
-        <Grid2>
-          <HotDealCard />
-        </Grid2>
-        <Grid2>
-          <HotDealCard />
-        </Grid2>
-        <Grid2>
-          <HotDealCard />
-        </Grid2>
-        <Grid2>
-          <HotDealCard />
-        </Grid2>
-        <Grid2>
-          <HotDealCard />
-        </Grid2>
-        <Grid2>
-          <HotDealCard />
-        </Grid2>
-        <Grid2>
-          <HotDealCard />
-        </Grid2>
-        <Grid2>
-          <HotDealCard />
-        </Grid2>
-      </Grid2>
+        <HotDealCard />
+        <HotDealCard />
+        <HotDealCard />
+        <HotDealCard />
+        <HotDealCard />
+        <HotDealCard />
+        <HotDealCard />
+        <HotDealCard />
+        <HotDealCard />
+        <HotDealCard />
+        <HotDealCard />
+        <HotDealCard />
+        <HotDealCard />
+        <HotDealCard />
+        <HotDealCard />
+      </Flex>
     </Container>
   );
 };

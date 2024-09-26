@@ -1,4 +1,5 @@
-import { Footer, Header, CategoriesNavbar } from '@/components';
+import { cookies } from 'next/headers';
+import { Footer, Header, Navigations, CategoriesNavbar } from '@/components';
 import './globals.css';
 
 export const metadata = {
@@ -7,11 +8,14 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  const user = null;
+  const cookiesStore = cookies();
+  const user = JSON.parse(cookiesStore.get('user')?.value) || null;
+
   return (
     <html lang='en'>
       <body>
-        <Header />
+        
+        <Header user={user} />
         {user && <CategoriesNavbar />}
         {children}
         <Footer />

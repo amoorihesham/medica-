@@ -47,7 +47,6 @@ const productsList = [
 const Product = ({ params }) => {
   return (
     <Box>
-      <CategoriesNavbar />
       <Container
         maxWidth='xl'
         sx={{ marginTop: '2rem' }}

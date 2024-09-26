@@ -1,5 +1,6 @@
+import { Container } from '@mui/material';
+import { Flex } from 'antd';
 import { PartnerCard, SectionHeading } from '@/components';
-import { Grid2, Container } from '@mui/material';
 
 const PartnersList = () => {
   return (
@@ -8,36 +9,28 @@ const PartnersList = () => {
       sx={{ marginTop: '3rem' }}
     >
       <SectionHeading title='Our Partners' />
-      <Grid2
+      <Flex
         container
-        justifyContent='space-between'
-        sx={{ marginTop: '1rem' }}
+        gap={10}
+        justify='space-between'
+        style={{ overflowX: 'auto' }}
       >
-        <Grid2>
-          <PartnerCard />
-        </Grid2>
-        <Grid2>
-          <PartnerCard />
-        </Grid2>
-        <Grid2>
-          <PartnerCard />
-        </Grid2>
-        <Grid2>
-          <PartnerCard />
-        </Grid2>
-        <Grid2>
-          <PartnerCard />
-        </Grid2>
-        <Grid2>
-          <PartnerCard />
-        </Grid2>
-        <Grid2>
-          <PartnerCard />
-        </Grid2>
-        <Grid2>
-          <PartnerCard />
-        </Grid2>
-      </Grid2>
+        <PartnerCard />
+        <PartnerCard />
+        <PartnerCard />
+        <PartnerCard />
+        <PartnerCard />
+        <PartnerCard />
+        <PartnerCard />
+        <PartnerCard />
+        <PartnerCard />
+        <PartnerCard />
+        <PartnerCard />
+        <PartnerCard />
+        <PartnerCard />
+        <PartnerCard />
+        <PartnerCard />
+      </Flex>
     </Container>
   );
 };

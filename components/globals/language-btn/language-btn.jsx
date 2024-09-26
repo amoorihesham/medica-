@@ -1,17 +1,32 @@
 import { Button } from 'antd';
 import { LanguageOutlined } from '@mui/icons-material';
+import { colors } from '@/styles';
+import { ListItem } from '@mui/material';
 
 const LanguageBtn = () => {
   return (
-    <Button
-      type='link'
-      icon={<LanguageOutlined />}
-      display='flex'
-      alignItems='center'
-      style={{ color: 'white', fontSize: '16px' }}
+    <ListItem
+      sx={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: '0',
+      }}
     >
-      English
-    </Button>
+      <Button
+        type='link'
+        icon={<LanguageOutlined />}
+        style={{
+          color: colors.primaryText,
+          fontSize: '16px',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '.5rem',
+        }}
+      >
+        English
+      </Button>
+    </ListItem>
   );
 };
 

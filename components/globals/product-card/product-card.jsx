@@ -11,13 +11,11 @@ import {
 import productImg from '@/assets/product/product.png';
 import './style.css';
 
-const ProductCard = ({ product }) => {
-  const user = true;
+const ProductCard = ({ product, user }) => {
   return (
     <Card
       style={{
-        width: '237px',
-        height: '234px',
+        minWidth: '234px',
         position: 'relative',
         boxShadow: '5px 0px 10px 0px #00000024',
       }}

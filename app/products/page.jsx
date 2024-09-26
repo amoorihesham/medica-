@@ -5,7 +5,6 @@ import { CategoriesNavbar, RedLine } from '@/components';
 const Products = () => {
   return (
     <Box>
-      <CategoriesNavbar />
       <RedLine title='Order More Than 500L.E To Have Free Shipping.' />
       <Container maxWidth='xl'>
         <ProductList
