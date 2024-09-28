@@ -16,14 +16,15 @@ const ProductList = ({ productList, title }) => {
         container
         sx={{
           marginTop: '1rem',
+          justifyContent: 'space-between',
         }}
         spacing={2}
-        justifyContent='space-between'
       >
         {productList?.map((product) => (
           <Grid2
             key={product.id}
             xs={12}
+            sm={4}
             md={4}
             lg={2}
           >

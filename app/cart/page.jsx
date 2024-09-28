@@ -14,10 +14,22 @@ export default function Cart() {
         >
           Cart (2 Items)
         </Typography>
-        <Flex justify='space-between'>
-          <CartItem product={{ title: 'test', sold: 45216, dTime: 'wed / 2024', price: 4589 }} />
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            flexDirection: {
+              xs: 'column',
+              lg: 'row',
+            },
+          }}
+        >
+          <Box>
+            <CartItem product={{ title: 'test', sold: 45216, dTime: 'wed / 2024', price: 4589 }} />
+            <CartItem product={{ title: 'test', sold: 45216, dTime: 'wed / 2024', price: 4589 }} />
+          </Box>
           <CartSummary />
-        </Flex>
+        </Box>
       </Container>
     </Box>
   );

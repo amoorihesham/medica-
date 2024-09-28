@@ -3,57 +3,69 @@ import Image from 'next/image';
 import { Box, Divider, Typography } from '@mui/material';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import { Flex, Button } from 'antd';
-import { colors } from '@/styles';
+import { colors, fonts } from '@/styles';
 import productImage from '@/assets/product/OIP.png';
 export default function CartItem({ title, price, dTime, sold }) {
   return (
     <Box sx={{ padding: '1rem 0' }}>
-      <Flex>
+      <Flex align='center'>
         <Box>
           <Image
             src={productImage}
             alt='Product Image'
-            width={250}
+            width={150}
             height={250}
           />
         </Box>
         <Divider
           orientation='vertical'
           flexItem
-          sx={{ margin: '0 1.7rem 0 0' }}
+          sx={{ marginRight: '1rem' }}
         />
-        <Flex
-          justify='space-between'
-          align='center'
-          style={{ flexGrow: 2 }}
+        <Box
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+          }}
         >
           <Box>
             <Typography
-              variant='h5'
               component='h3'
-              sx={{ fontSize: '18px', fontWeight: 'bold', marginBottom: '1rem' }}
+              sx={{
+                fontSize: {
+                  xs: fonts.mobile8,
+                  lg: fonts.mobile18,
+                },
+                fontWeight: 'bold',
+                marginBottom: '.2rem',
+              }}
             >
               Concor 10 mg Lak Tablet | Bisoprolol Fumarat
             </Typography>
             <Typography
-              variant='h5'
               component='h3'
               sx={{
-                fontSize: '24px',
+                fontSize: {
+                  xs: fonts.mobile10,
+                  lg: fonts.mobile24,
+                },
                 fontWeight: 'bold',
-                marginBottom: '1rem',
+                marginBottom: '.3rem',
                 color: colors.primary,
               }}
             >
               EGP 800
             </Typography>
             <Typography
-              variant='h5'
               component='h3'
               sx={{
-                fontSize: '18px',
+                fontSize: {
+                  xs: fonts.mobile8,
+                  lg: fonts.mobile18,
+                },
                 fontWeight: 'bold',
-                marginBottom: '1rem',
+                marginBottom: '.3rem',
                 color: colors.gray,
               }}
             >
@@ -61,6 +73,10 @@ export default function CartItem({ title, price, dTime, sold }) {
               <Typography
                 component='span'
                 sx={{
+                  fontSize: {
+                    xs: fonts.mobile8,
+                    lg: fonts.mobile18,
+                  },
                   fontWeight: 'bold',
                   marginLeft: '.5rem',
                   color: colors.orange,
@@ -70,12 +86,14 @@ export default function CartItem({ title, price, dTime, sold }) {
               </Typography>
             </Typography>
             <Typography
-              variant='h5'
               component='h3'
               sx={{
-                fontSize: '18px',
+                fontSize: {
+                  xs: fonts.mobile8,
+                  lg: fonts.mobile18,
+                },
                 fontWeight: 'bold',
-                marginBottom: '1rem',
+                marginBottom: '.5rem',
                 color: colors.gray,
               }}
             >
@@ -83,6 +101,10 @@ export default function CartItem({ title, price, dTime, sold }) {
               <Typography
                 component='span'
                 sx={{
+                  fontSize: {
+                    xs: fonts.mobile8,
+                    lg: fonts.mobile18,
+                  },
                   fontWeight: 'bold',
                   marginLeft: '.5rem',
                   color: colors.green,
@@ -93,12 +115,12 @@ export default function CartItem({ title, price, dTime, sold }) {
             </Typography>
 
             <Button
-              icon={<DeleteOutlineIcon />}
+              icon={<DeleteOutlineIcon sx={{ fontSize: { xs: fonts.mobile8 } }} />}
               style={{
                 color: colors.primary,
-                fontSize: '16px',
+                fontSize: '8px',
                 fontWeight: '500',
-                marginBottom: '1rem',
+                marginBottom: '.3rem',
               }}
             >
               Remove
@@ -109,10 +131,20 @@ export default function CartItem({ title, price, dTime, sold }) {
             gap={8}
           >
             <Button>+</Button>
-            <Typography>1</Typography>
+            <Typography
+              component='p'
+              sx={{
+                fontSize: {
+                  xs: fonts.mobile8,
+                  lg: fonts.mobile16,
+                },
+              }}
+            >
+              1
+            </Typography>
             <Button>-</Button>
           </Flex>
-        </Flex>
+        </Box>
       </Flex>
     </Box>
   );

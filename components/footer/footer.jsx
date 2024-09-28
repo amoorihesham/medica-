@@ -14,7 +14,7 @@ const Footer = () => {
       component='footer'
       sx={{ backgroundColor: '#164B60', paddingY: '2rem', marginTop: '2rem' }}
     >
-      <Container maxWidth='lg'>
+      <Container maxWidth='xl'>
         <Flex justify='space-between'>
           <Box>
             <LogoNav />

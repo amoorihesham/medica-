@@ -6,6 +6,8 @@ const colors = {
   green: '#5FF529',
   lightGreen: '#A2FF86',
   textBlack: '#363839',
+  pink:'#FFF7F7',
+  borderColor:'#C6C3C3',
 };
 
 export default colors;

@@ -11,11 +11,12 @@ const SearchInput = () => {
         alignItems: 'center',
         justifyContent: 'center',
         height: { xs: '80px', md: '150px' },
+        width: '100%',
       }}
     >
       <Input.Search
-        style={{ borderRaduis: '0px', width: '70%' }}
         placeholder='search'
+        fullWidth={true}
         size='large'
         prefix={
           <SearchOutlined

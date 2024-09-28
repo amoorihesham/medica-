@@ -7,8 +7,9 @@ const styles = {
   header: {
     bgcolor: colors.primary,
     height: {
-      md: '50vh',
-      xs: '25vh',
+      xs: '17vh',
+      sm: '20vh',
+      md: '35vh',
     },
   },
 };
@@ -20,7 +21,10 @@ const Header = ({ user }) => {
       sx={styles.header}
     >
       <Navigations user={user} />
-      <Container maxWidth='xl'>
+      <Container
+        maxWidth='xl'
+        sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+      >
         <SearchInput />
       </Container>
     </Box>

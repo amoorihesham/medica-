@@ -31,7 +31,7 @@ const CategoriesNavbar = () => {
         height: '62px',
         display: 'flex',
         alignItems: 'center',
-        margin: '0 0 .3rem 0',
+
         overflow: 'auto',
       }}
     >

@@ -10,6 +10,7 @@ module.exports = {
       colors: {
         mBlue: '#164B60',
         mGreen: '#A2FF86',
+        mpink:'#FFF7F7'
       },
     },
   },
