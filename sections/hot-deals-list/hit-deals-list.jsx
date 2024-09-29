@@ -1,4 +1,5 @@
 import { HotDealCard, SectionHeading } from '@/components';
+import { spacing } from '@/styles';
 import { Container } from '@mui/material';
 import { Flex } from 'antd';
 
@@ -6,7 +7,7 @@ const HotDealsList = () => {
   return (
     <Container
       maxWidth='xl'
-      sx={{ marginTop: '3rem', overflow: 'auto' }}
+      sx={{ marginTop: spacing.sectionmargin, overflow: 'auto' }}
     >
       <SectionHeading title='Hot Deals' />
       <Flex

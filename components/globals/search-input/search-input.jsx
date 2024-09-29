@@ -11,7 +11,7 @@ const SearchInput = () => {
         alignItems: 'center',
         justifyContent: 'center',
         height: { xs: '80px', md: '150px' },
-        width: '100%',
+        width: '50%',
       }}
     >
       <Input.Search

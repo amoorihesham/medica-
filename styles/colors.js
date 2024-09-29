@@ -8,6 +8,8 @@ const colors = {
   textBlack: '#363839',
   pink:'#FFF7F7',
   borderColor:'#C6C3C3',
+  yellow:'#EB882A',
+  red:'#FC3636'
 };
 
 export default colors;

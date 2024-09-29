@@ -19,6 +19,7 @@ import Slider from './globals/slider/slider';
 import Footer from './footer/footer';
 import CartItem from './cart-item/cart-item';
 import CartSummary from './cart-summary/cart-summary';
+import GomlaMainBtn from './gomla-main-btn/gomla-main-btn';
 
 export {
   LoginForm,
@@ -42,4 +43,5 @@ export {
   Footer,
   CartItem,
   CartSummary,
+  GomlaMainBtn
 };

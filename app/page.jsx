@@ -1,6 +1,7 @@
 import { HotDealsList, PartnersList, ProductList, CategoriesList } from '@/sections';
-import { RedLine, Slider, SeeMoreBtn, CategoriesNavbar } from '@/components';
+import { RedLine, Slider, SeeMoreBtn, CategoriesNavbar, GomlaMainBtn } from '@/components';
 import { cookies } from 'next/headers';
+import { Container } from '@mui/material';
 
 const productsList = [
   {
@@ -103,6 +104,9 @@ export default function Home() {
       <CategoriesList categoriesList={categoriesList} />
       {user && (
         <>
+          <Container maxWidth='xl'>
+            <GomlaMainBtn />
+          </Container>
           <HotDealsList />
           <PartnersList />
         </>
