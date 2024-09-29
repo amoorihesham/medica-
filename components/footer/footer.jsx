@@ -15,10 +15,29 @@ const Footer = () => {
       sx={{ backgroundColor: '#164B60', paddingY: '2rem', marginTop: '2rem' }}
     >
       <Container maxWidth='xl'>
-        <Flex justify='space-between'>
-          <Box>
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: {
+              md: 'space-between',
+            },
+            alignItems: {
+              xs: 'center',
+            },
+            flexDirection: {
+              xs: 'column',
+              md: 'row',
+            },
+            rowGap: '1rem',
+          }}
+        >
+          <Box
+            sx={{
+              textAlign: { xs: 'center' },
+            }}
+          >
             <LogoNav />
-            <ul className='mt-7'>
+            <ul className='mt-3'>
               <li>
                 <Link
                   href='/'
@@ -32,7 +51,7 @@ const Footer = () => {
                   </Typography>
                 </Link>
               </li>
-              <li className='mt-3'>
+              <li className='mt-1'>
                 <Link
                   href='/'
                   className='text-white hover:text-white hover:underline'
@@ -45,7 +64,7 @@ const Footer = () => {
                   </Typography>
                 </Link>
               </li>
-              <li className='mt-3'>
+              <li className='mt-1'>
                 <Link
                   href='/'
                   className='text-white hover:text-white hover:underline'
@@ -60,14 +79,18 @@ const Footer = () => {
               </li>
             </ul>
           </Box>
-          <Box>
+          <Box
+            sx={{
+              textAlign: { xs: 'center' },
+            }}
+          >
             <Typography
               variant='h5'
               sx={{ fontSize: '26px', fontWeight: '700', color: 'white' }}
             >
               Contact Us
             </Typography>
-            <ul className='mt-7'>
+            <ul className='mt-3'>
               <li>
                 <Link
                   href='/'
@@ -96,7 +119,11 @@ const Footer = () => {
               </li>
             </ul>
           </Box>
-          <Box>
+          <Box
+            sx={{
+              textAlign: { xs: 'center' },
+            }}
+          >
             <Typography
               variant='h5'
               sx={{ fontSize: '26px', fontWeight: '700', color: 'white' }}
@@ -118,14 +145,18 @@ const Footer = () => {
               />
             </Flex>
           </Box>
-          <Box>
+          <Box
+            sx={{
+              textAlign: { xs: 'center' },
+            }}
+          >
             <Typography
               variant='h5'
               sx={{ fontSize: '26px', fontWeight: '700', color: 'white' }}
             >
               Need Help?
             </Typography>
-            <ul className='mt-7'>
+            <ul className='mt-3'>
               <li>
                 <Link
                   href='/'
@@ -172,17 +203,17 @@ const Footer = () => {
             <Image
               src={appstore}
               alt='Visa Logo'
-              width={182}
+              width={130}
               height={52}
             />
             <Image
               src={googlestore}
               alt='Visa Logo'
-              width={182}
+              width={130}
               height={52}
             />
           </Box>
-        </Flex>
+        </Box>
       </Container>
     </Box>
   );
