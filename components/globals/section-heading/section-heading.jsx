@@ -5,7 +5,7 @@ const SectionHeading = ({ title }) => {
     <Typography
       variant='h4'
       component='h1'
-      sx={{ margin: '1rem 0', color: '#164B60', fontSize: '36px', fontWeight: '500' }}
+      sx={{ margin: '1rem 0', color: '#164B60', fontSize: '18px', fontWeight: '500' }}
     >
       {title}
     </Typography>

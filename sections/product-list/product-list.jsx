@@ -12,6 +12,7 @@ const ProductList = ({ productList, title }) => {
       sx={{ marginTop: '3rem' }}
     >
       <SectionHeading title={title} />
+
       <Grid2
         container
         sx={{

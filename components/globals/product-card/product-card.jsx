@@ -18,7 +18,13 @@ const ProductCard = ({ product, user }) => {
         sx={{
           position: 'relative',
           boxShadow: '5px 0px 10px 0px #00000024',
-          minWidth: '250px',
+          // minWidth: {
+          //   xs: '300px',
+          //   sm: '350px',
+          //   md: '300px',
+          //   lg: '330px',
+          //   xl: '280px',
+          // },
         }}
       >
         <CardContent>
@@ -40,7 +46,10 @@ const ProductCard = ({ product, user }) => {
             </Typography>
           )}
 
-          <Flex justify='space-between'>
+          <Flex
+            // justify='space-between'
+            gap={100}
+          >
             <Image
               src={productImg}
               alt='Product Image'
@@ -68,7 +77,6 @@ const ProductCard = ({ product, user }) => {
             <Flex
               justify='space-between'
               align='center'
-              
             >
               <Typography sx={{ color: '#595D5F', fontWeight: '300', fontSize: '16px' }}>
                 Price: {user ? '500' : <VisibilityOffOutlined />}

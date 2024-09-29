@@ -51,9 +51,13 @@ const Product = ({ params }) => {
         maxWidth='xl'
         sx={{ marginTop: '2rem' }}
       >
-        <Flex
-          gap={100}
-          justify='center'
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: {
+              xs: 'column',
+            },
+          }}
         >
           <Box sx={{ display: 'flex' }}>
             <Image
@@ -72,7 +76,7 @@ const Product = ({ params }) => {
             <Typography
               variant='h2'
               component='h1'
-              sx={{ fontSize: '36px', fontWeight: '700' }}
+              sx={{ fontSize: '30px', fontWeight: '700' }}
             >
               Panadol Extra 24 Tablets
             </Typography>
@@ -84,9 +88,9 @@ const Product = ({ params }) => {
                 alignItems: 'center',
                 gap: '.5rem',
                 color: '#C6C3C3',
-                fontSize: '18px',
+                fontSize: '16px',
                 fontWeight: '700',
-                margin: '2rem 0',
+                margin: '.5rem 0',
               }}
             >
               Sold by
@@ -101,12 +105,12 @@ const Product = ({ params }) => {
               sx={{
                 backgroundColor: '#1B6B93',
                 fontWeight: '700',
-                fontSize: '20px',
+                fontSize: '14px',
                 color: 'white',
                 width: 'fit-content',
                 padding: '.2rem .5rem',
                 borderRadias: '6px',
-                margin: '2rem 0',
+                margin: '.5rem 0',
               }}
             >
               Medicin
@@ -116,26 +120,26 @@ const Product = ({ params }) => {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'space-between',
-                margin: '1rem 0',
+                margin: '.5rem 0',
               }}
             >
-              <Typography sx={{ fontSize: '26px', fontWeight: '700', color: colors.primary }}>
+              <Typography sx={{ fontSize: '16px', fontWeight: '700', color: colors.primary }}>
                 EGP 800
               </Typography>
               <Typography
                 sx={{
-                  fontSize: '14px',
+                  fontSize: '12px',
                   fontWeight: '700',
                   color: '#595D5F',
                 }}
               >
                 EGP 900
               </Typography>
-              <Typography sx={{ fontSize: '20px', fontWeight: '700', color: '#F48C15' }}>
+              <Typography sx={{ fontSize: '14px', fontWeight: '700', color: '#F48C15' }}>
                 10% Discount
               </Typography>
             </Box>
-            <Divider />
+
             <Box sx={{ display: 'flex', alignItems: 'center', gap: '.5rem', marginTop: '1rem' }}>
               <Button icon={<Add />}></Button>
               <Typography>1</Typography>
@@ -155,7 +159,7 @@ const Product = ({ params }) => {
               </Button>
             </Box>
           </Box>
-        </Flex>
+        </Box>
         <ProductList
           title='Similar To Active Ingrediants'
           productList={productsList}

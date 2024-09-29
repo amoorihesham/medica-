@@ -7,7 +7,7 @@ const styles = {
   header: {
     bgcolor: colors.primary,
     height: {
-      xs: '17vh',
+      xs: '19vh',
       sm: '20vh',
       md: '35vh',
     },
