@@ -11,17 +11,32 @@ export default function GomlaMainBtn() {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
+        flexDirection: {
+          xs: 'column',
+          lg: 'row',
+        },
+        rowGap: '1rem',
       }}
     >
-      <Link
+      <Button
+        type='link'
         href='/products'
-        style={{
+        sx={{
           backgroundColor: colors.red,
           padding: '1rem 2rem',
           color: colors.primaryText,
-          width: '49%',
-          height: '150px',
-          fontSize: '48px',
+          width: {
+            xs: '100%',
+            lg: '49%',
+          },
+          height: {
+            xs: '75px',
+            lg: '150px',
+          },
+          fontSize: {
+            xs: '18px',
+            lg: '48px',
+          },
           fontWeight: '700',
           display: 'flex',
           alignItems: 'center',
@@ -29,16 +44,26 @@ export default function GomlaMainBtn() {
         }}
       >
         Drug store
-      </Link>
-      <Link
+      </Button>
+      <Button
+        type='link'
         href='/gomla'
-        style={{
+        sx={{
           backgroundColor: colors.yellow,
           padding: '1rem 2rem',
           color: colors.primaryText,
-          width: '49%',
-          height: '150px',
-          fontSize: '48px',
+          width: {
+            xs: '100%',
+            lg: '49%',
+          },
+          height: {
+            xs: '75px',
+            lg: '150px',
+          },
+          fontSize: {
+            xs: '18px',
+            lg: '48px',
+          },
           fontWeight: '700',
           display: 'flex',
           alignItems: 'center',
@@ -46,7 +71,7 @@ export default function GomlaMainBtn() {
         }}
       >
         Gomla now
-      </Link>
+      </Button>
     </Box>
   );
 }

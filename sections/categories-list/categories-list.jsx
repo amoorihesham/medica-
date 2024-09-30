@@ -24,12 +24,18 @@ const CategoriesList = ({ categoriesList }) => {
         }}
       >
         <motion.div
-          style={{ x, display: 'flex', justifyContent: 'space-between', gap: '2rem' }}
-          animate={{ x: ['0%', '-100%'] }}
+          style={{
+            x,
+            display: 'flex',
+            justifyContent: 'space-between',
+            gap: '2rem',
+            marginLeft: '2rem',
+          }}
+          animate={{ x: ['0%', '-100%'] }} // Scroll from 0% to -100% of the container width
           transition={{
-            repeat: Infinity,
-            ease: 'linear',
-            duration: 30,
+            repeat: Infinity, // Infinite looping
+            ease: 'linear', // Smooth transition
+            duration: 30, // Adjust duration for speed
           }}
         >
           {categoriesList?.map((category) => (
@@ -45,7 +51,6 @@ const CategoriesList = ({ categoriesList }) => {
             display: 'flex',
             justifyContent: 'space-between',
             gap: '2rem',
-            marginLeft: '2rem',
           }}
           animate={{ x: ['0%', '-100%'] }} // Scroll from 0% to -100% of the container width
           transition={{

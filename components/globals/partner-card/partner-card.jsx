@@ -1,22 +1,13 @@
-import { Box } from '@mui/material';
 import Image from 'next/image';
-import pulse from '@/assets/product/product.png';
+import img from '@/assets/sponsor/1.png';
+import { Box } from '@mui/material';
+
 const PartnerCard = () => {
   return (
-    <Box
-      sx={{
-        display: 'flex',
-        justifyContent: 'center',
-        backgroundColor: '#C6C3C3',
-        padding: '1rem',
-        borderRadius: '50%',
-        width: '100px',
-        height: '100px',
-      }}
-    >
+    <Box sx={{ display: 'flex', justifyContent: 'center', width: '200px' }}>
       <Image
-        src={pulse}
-        width={88}
+        src={img}
+        width={1000}
         height={110}
         alt='Pulse Oximeter'
       />
