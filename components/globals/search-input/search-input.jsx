@@ -16,7 +16,6 @@ const SearchInput = () => {
     >
       <Input.Search
         placeholder='search'
-        fullWidth={true}
         size='large'
         prefix={
           <SearchOutlined

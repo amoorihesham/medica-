@@ -1,5 +1,6 @@
-import { CategoriesNavbar, RedLine, Slider, SeeMoreBtn } from '@/components';
+import { RedLine, Slider, SeeMoreBtn, SearchGomla } from '@/components';
 import { CategoriesList, ProductList } from '@/sections';
+import { Box, Pagination } from '@mui/material';
 
 const productsList = [
   {
@@ -85,15 +86,17 @@ const categoriesList = [
 const Gomla = () => {
   return (
     <>
-      <CategoriesNavbar />
       <RedLine title='Order Must Be At Least 5K.' />
       <Slider />
       <CategoriesList categorisList={categoriesList} />
+      <SearchGomla />
       <ProductList
         productList={productsList}
         title='All Products'
       />
-      <SeeMoreBtn url='/products' />
+      <Box sx={{ display: 'flex', justifyContent: 'center', marginBlock: '2rem' }}>
+        <Pagination count={10} />
+      </Box>
     </>
   );
 };

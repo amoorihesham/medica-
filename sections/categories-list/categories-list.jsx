@@ -1,26 +1,67 @@
+'use client';
 import { CategoryCard } from '@/components';
-import { Container, Grid2 } from '@mui/material';
-import { Flex } from 'antd';
+import { Box, Container, Paper } from '@mui/material';
+
+import { useScroll, useTransform, motion } from 'framer-motion';
 
 const CategoriesList = ({ categoriesList }) => {
+  const { scrollXProgress } = useScroll();
+  const x = useTransform(scrollXProgress, [0, 1], [0, -300]);
   return (
     <Container
       maxWidth='xl'
-      sx={{ marginTop: '2rem' }}
+      sx={{ marginTop: '2rem', position: 'relative' }}
     >
-      <Flex
-        container
-        gap={10}
-        justify='space-between'
-        style={{ overflowX: 'auto' }}
+      <Box
+        sx={{
+          overflowX: 'scroll',
+          whiteSpace: 'nowrap',
+          width: '100%',
+          display: 'flex',
+          '&::-webkit-scrollbar': {
+            display: 'none',
+          },
+        }}
       >
-        {categoriesList?.map((category) => (
-          <CategoryCard
-            category={category}
-            key={category.id}
-          />
-        ))}
-      </Flex>
+        <motion.div
+          style={{ x, display: 'flex', justifyContent: 'space-between', gap: '2rem' }}
+          animate={{ x: ['0%', '-100%'] }}
+          transition={{
+            repeat: Infinity,
+            ease: 'linear',
+            duration: 30,
+          }}
+        >
+          {categoriesList?.map((category) => (
+            <CategoryCard
+              category={category}
+              key={category.id}
+            />
+          ))}
+        </motion.div>
+        <motion.div
+          style={{
+            x,
+            display: 'flex',
+            justifyContent: 'space-between',
+            gap: '2rem',
+            marginLeft: '2rem',
+          }}
+          animate={{ x: ['0%', '-100%'] }} // Scroll from 0% to -100% of the container width
+          transition={{
+            repeat: Infinity, // Infinite looping
+            ease: 'linear', // Smooth transition
+            duration: 30, // Adjust duration for speed
+          }}
+        >
+          {categoriesList?.map((category) => (
+            <CategoryCard
+              category={category}
+              key={category.id}
+            />
+          ))}
+        </motion.div>
+      </Box>
     </Container>
   );
 };

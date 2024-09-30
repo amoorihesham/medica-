@@ -38,7 +38,7 @@ const LoginForm = () => {
           variant='contained'
           sx={{ bgcolor: '#164B60', width: '50%', margin: 'auto' }}
         >
-          Sign Up
+          Login
         </Button>
       </Stack>
     </Box>

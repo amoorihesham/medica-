@@ -115,10 +115,12 @@ export default function CartItem({ title, price, dTime, sold }) {
             </Typography>
 
             <Button
-              icon={<DeleteOutlineIcon sx={{ fontSize: { xs: fonts.mobile8 } }} />}
+              icon={
+                <DeleteOutlineIcon sx={{ fontSize: { xs: fonts.mobile8, md: fonts.mobile14 } }} />
+              }
               style={{
                 color: colors.primary,
-                fontSize: '8px',
+                fontSize: '14px',
                 fontWeight: '500',
                 marginBottom: '.3rem',
               }}

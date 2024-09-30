@@ -14,7 +14,7 @@ export default function GomlaMainBtn() {
       }}
     >
       <Link
-        href='/gomla'
+        href='/products'
         style={{
           backgroundColor: colors.red,
           padding: '1rem 2rem',

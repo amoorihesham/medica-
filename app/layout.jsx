@@ -9,6 +9,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   const cookiesStore = cookies();
+
   const user = JSON.parse(cookiesStore.get('user')?.value) || null;
 
   return (

@@ -1,29 +1,19 @@
 'use client';
-import { Box, Container, Typography } from '@mui/material';
-import { Flex, Dropdown, Button, Menu } from 'antd';
+import { Box, Container, MenuItem, Button, Menu } from '@mui/material';
+import { Flex } from 'antd';
+import { useState } from 'react';
 
 const CategoriesNavbar = () => {
-  const menu = (
-    <Menu>
-      <Menu.Item key='1'>Item 1</Menu.Item>
-      <Menu.Item key='2'>Item 2</Menu.Item>
-      <Menu.SubMenu
-        key='sub1'
-        title='Submenu 1'
-      >
-        <Menu.Item key='3'>Sub Item 1</Menu.Item>
-        <Menu.Item key='4'>Sub Item 2</Menu.Item>
-      </Menu.SubMenu>
-      <Menu.SubMenu
-        key='sub2'
-        title='Submenu 2'
-      >
-        <Menu.Item key='5'>Sub Item 3</Menu.Item>
-        <Menu.Item key='6'>Sub Item 4</Menu.Item>
-      </Menu.SubMenu>
-    </Menu>
-  );
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
 
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
   return (
     <Box
       sx={{
@@ -31,7 +21,6 @@ const CategoriesNavbar = () => {
         height: '62px',
         display: 'flex',
         alignItems: 'center',
-
         overflow: 'auto',
       }}
     >
@@ -40,171 +29,292 @@ const CategoriesNavbar = () => {
           gap={10}
           justify='space-between'
         >
-          <Dropdown
-            menu={menu}
-            trigger={['hover', 'click']}
-          >
+          <Box>
             <Button
-              size='small'
-              style={{ backgroundColor: 'transparent', border: 'none' }}
+              aria-controls={open ? 'simple-menu' : undefined}
+              aria-haspopup='true'
+              onClick={handleClick}
             >
-              Medicin
+              Dropdown
             </Button>
-          </Dropdown>
-          <Dropdown
-            overlay={menu}
-            trigger={['hover', 'click']}
-          >
+            <Menu
+              id='simple-menu'
+              anchorEl={anchorEl}
+              open={open}
+              onClose={handleClose}
+              MenuListProps={{
+                'aria-labelledby': 'basic-button',
+              }}
+            >
+              <MenuItem onClick={handleClose}>Item 1</MenuItem>
+              <MenuItem onClick={handleClose}>Item 2</MenuItem>
+              <MenuItem onClick={handleClose}>Item 3</MenuItem>
+            </Menu>
+          </Box>
+          <Box>
             <Button
-              size='small'
-              style={{ backgroundColor: 'transparent', border: 'none' }}
+              aria-controls={open ? 'simple-menu' : undefined}
+              aria-haspopup='true'
+              onClick={handleClick}
             >
-              Medicin
+              Dropdown
             </Button>
-          </Dropdown>
-          <Dropdown
-            overlay={menu}
-            trigger={['hover', 'click']}
-          >
+            <Menu
+              id='simple-menu'
+              anchorEl={anchorEl}
+              open={open}
+              onClose={handleClose}
+              MenuListProps={{
+                'aria-labelledby': 'basic-button',
+              }}
+            >
+              <MenuItem onClick={handleClose}>Item 1</MenuItem>
+              <MenuItem onClick={handleClose}>Item 2</MenuItem>
+              <MenuItem onClick={handleClose}>Item 3</MenuItem>
+            </Menu>
+          </Box>
+          <Box>
             <Button
-              size='small'
-              style={{ backgroundColor: 'transparent', border: 'none' }}
+              aria-controls={open ? 'simple-menu' : undefined}
+              aria-haspopup='true'
+              onClick={handleClick}
             >
-              Medicin
+              Dropdown
             </Button>
-          </Dropdown>
-          <Dropdown
-            overlay={menu}
-            trigger={['hover', 'click']}
-          >
+            <Menu
+              id='simple-menu'
+              anchorEl={anchorEl}
+              open={open}
+              onClose={handleClose}
+              MenuListProps={{
+                'aria-labelledby': 'basic-button',
+              }}
+            >
+              <MenuItem onClick={handleClose}>Item 1</MenuItem>
+              <MenuItem onClick={handleClose}>Item 2</MenuItem>
+              <MenuItem onClick={handleClose}>Item 3</MenuItem>
+            </Menu>
+          </Box>
+          <Box>
             <Button
-              size='small'
-              style={{ backgroundColor: 'transparent', border: 'none' }}
+              aria-controls={open ? 'simple-menu' : undefined}
+              aria-haspopup='true'
+              onClick={handleClick}
             >
-              Medicin
+              Dropdown
             </Button>
-          </Dropdown>
-          <Dropdown
-            overlay={menu}
-            trigger={['hover', 'click']}
-          >
+            <Menu
+              id='simple-menu'
+              anchorEl={anchorEl}
+              open={open}
+              onClose={handleClose}
+              MenuListProps={{
+                'aria-labelledby': 'basic-button',
+              }}
+            >
+              <MenuItem onClick={handleClose}>Item 1</MenuItem>
+              <MenuItem onClick={handleClose}>Item 2</MenuItem>
+              <MenuItem onClick={handleClose}>Item 3</MenuItem>
+            </Menu>
+          </Box>
+          <Box>
             <Button
-              size='small'
-              style={{ backgroundColor: 'transparent', border: 'none' }}
+              aria-controls={open ? 'simple-menu' : undefined}
+              aria-haspopup='true'
+              onClick={handleClick}
             >
-              Medicin
+              Dropdown
             </Button>
-          </Dropdown>
-          <Dropdown
-            overlay={menu}
-            trigger={['hover', 'click']}
-          >
+            <Menu
+              id='simple-menu'
+              anchorEl={anchorEl}
+              open={open}
+              onClose={handleClose}
+              MenuListProps={{
+                'aria-labelledby': 'basic-button',
+              }}
+            >
+              <MenuItem onClick={handleClose}>Item 1</MenuItem>
+              <MenuItem onClick={handleClose}>Item 2</MenuItem>
+              <MenuItem onClick={handleClose}>Item 3</MenuItem>
+            </Menu>
+          </Box>
+          <Box>
             <Button
-              size='small'
-              style={{ backgroundColor: 'transparent', border: 'none' }}
+              aria-controls={open ? 'simple-menu' : undefined}
+              aria-haspopup='true'
+              onClick={handleClick}
             >
-              Medicin
+              Dropdown
             </Button>
-          </Dropdown>
-          <Dropdown
-            overlay={menu}
-            trigger={['hover', 'click']}
-          >
+            <Menu
+              id='simple-menu'
+              anchorEl={anchorEl}
+              open={open}
+              onClose={handleClose}
+              MenuListProps={{
+                'aria-labelledby': 'basic-button',
+              }}
+            >
+              <MenuItem onClick={handleClose}>Item 1</MenuItem>
+              <MenuItem onClick={handleClose}>Item 2</MenuItem>
+              <MenuItem onClick={handleClose}>Item 3</MenuItem>
+            </Menu>
+          </Box>
+          <Box>
             <Button
-              size='small'
-              style={{ backgroundColor: 'transparent', border: 'none' }}
+              aria-controls={open ? 'simple-menu' : undefined}
+              aria-haspopup='true'
+              onClick={handleClick}
             >
-              Medicin
+              Dropdown
             </Button>
-          </Dropdown>
-          <Dropdown
-            overlay={menu}
-            trigger={['hover', 'click']}
-          >
+            <Menu
+              id='simple-menu'
+              anchorEl={anchorEl}
+              open={open}
+              onClose={handleClose}
+              MenuListProps={{
+                'aria-labelledby': 'basic-button',
+              }}
+            >
+              <MenuItem onClick={handleClose}>Item 1</MenuItem>
+              <MenuItem onClick={handleClose}>Item 2</MenuItem>
+              <MenuItem onClick={handleClose}>Item 3</MenuItem>
+            </Menu>
+          </Box>
+          <Box>
             <Button
-              size='small'
-              style={{ backgroundColor: 'transparent', border: 'none' }}
+              aria-controls={open ? 'simple-menu' : undefined}
+              aria-haspopup='true'
+              onClick={handleClick}
             >
-              Medicin
+              Dropdown
             </Button>
-          </Dropdown>
-          <Dropdown
-            overlay={menu}
-            trigger={['hover', 'click']}
-          >
+            <Menu
+              id='simple-menu'
+              anchorEl={anchorEl}
+              open={open}
+              onClose={handleClose}
+              MenuListProps={{
+                'aria-labelledby': 'basic-button',
+              }}
+            >
+              <MenuItem onClick={handleClose}>Item 1</MenuItem>
+              <MenuItem onClick={handleClose}>Item 2</MenuItem>
+              <MenuItem onClick={handleClose}>Item 3</MenuItem>
+            </Menu>
+          </Box>
+          <Box>
             <Button
-              size='small'
-              style={{ backgroundColor: 'transparent', border: 'none' }}
+              aria-controls={open ? 'simple-menu' : undefined}
+              aria-haspopup='true'
+              onClick={handleClick}
             >
-              Medicin
+              Dropdown
             </Button>
-          </Dropdown>
-          <Dropdown
-            overlay={menu}
-            trigger={['hover', 'click']}
-          >
+            <Menu
+              id='simple-menu'
+              anchorEl={anchorEl}
+              open={open}
+              onClose={handleClose}
+              MenuListProps={{
+                'aria-labelledby': 'basic-button',
+              }}
+            >
+              <MenuItem onClick={handleClose}>Item 1</MenuItem>
+              <MenuItem onClick={handleClose}>Item 2</MenuItem>
+              <MenuItem onClick={handleClose}>Item 3</MenuItem>
+            </Menu>
+          </Box>
+          <Box>
             <Button
-              size='small'
-              style={{ backgroundColor: 'transparent', border: 'none' }}
+              aria-controls={open ? 'simple-menu' : undefined}
+              aria-haspopup='true'
+              onClick={handleClick}
             >
-              Medicin
+              Dropdown
             </Button>
-          </Dropdown>
-          <Dropdown
-            overlay={menu}
-            trigger={['hover', 'click']}
-          >
+            <Menu
+              id='simple-menu'
+              anchorEl={anchorEl}
+              open={open}
+              onClose={handleClose}
+              MenuListProps={{
+                'aria-labelledby': 'basic-button',
+              }}
+            >
+              <MenuItem onClick={handleClose}>Item 1</MenuItem>
+              <MenuItem onClick={handleClose}>Item 2</MenuItem>
+              <MenuItem onClick={handleClose}>Item 3</MenuItem>
+            </Menu>
+          </Box>
+          <Box>
             <Button
-              size='small'
-              style={{ backgroundColor: 'transparent', border: 'none' }}
+              aria-controls={open ? 'simple-menu' : undefined}
+              aria-haspopup='true'
+              onClick={handleClick}
             >
-              Medicin
+              Dropdown
             </Button>
-          </Dropdown>
-          <Dropdown
-            overlay={menu}
-            trigger={['hover', 'click']}
-          >
+            <Menu
+              id='simple-menu'
+              anchorEl={anchorEl}
+              open={open}
+              onClose={handleClose}
+              MenuListProps={{
+                'aria-labelledby': 'basic-button',
+              }}
+            >
+              <MenuItem onClick={handleClose}>Item 1</MenuItem>
+              <MenuItem onClick={handleClose}>Item 2</MenuItem>
+              <MenuItem onClick={handleClose}>Item 3</MenuItem>
+            </Menu>
+          </Box>
+          <Box>
             <Button
-              size='small'
-              style={{ backgroundColor: 'transparent', border: 'none' }}
+              aria-controls={open ? 'simple-menu' : undefined}
+              aria-haspopup='true'
+              onClick={handleClick}
             >
-              Medicin
+              Dropdown
             </Button>
-          </Dropdown>
-          <Dropdown
-            overlay={menu}
-            trigger={['hover', 'click']}
-          >
+            <Menu
+              id='simple-menu'
+              anchorEl={anchorEl}
+              open={open}
+              onClose={handleClose}
+              MenuListProps={{
+                'aria-labelledby': 'basic-button',
+              }}
+            >
+              <MenuItem onClick={handleClose}>Item 1</MenuItem>
+              <MenuItem onClick={handleClose}>Item 2</MenuItem>
+              <MenuItem onClick={handleClose}>Item 3</MenuItem>
+            </Menu>
+          </Box>
+          <Box>
             <Button
-              size='small'
-              style={{ backgroundColor: 'transparent', border: 'none' }}
+              aria-controls={open ? 'simple-menu' : undefined}
+              aria-haspopup='true'
+              onClick={handleClick}
             >
-              Medicin
+              Dropdown
             </Button>
-          </Dropdown>
-          <Dropdown
-            overlay={menu}
-            trigger={['hover', 'click']}
-          >
-            <Button
-              size='small'
-              style={{ backgroundColor: 'transparent', border: 'none' }}
+            <Menu
+              id='simple-menu'
+              anchorEl={anchorEl}
+              open={open}
+              onClose={handleClose}
+              MenuListProps={{
+                'aria-labelledby': 'basic-button',
+              }}
             >
-              Medicin
-            </Button>
-          </Dropdown>
-          <Dropdown
-            overlay={menu}
-            trigger={['hover', 'click']}
-          >
-            <Button
-              size='small'
-              style={{ backgroundColor: 'transparent', border: 'none' }}
-            >
-              Medicin
-            </Button>
-          </Dropdown>
+              <MenuItem onClick={handleClose}>Item 1</MenuItem>
+              <MenuItem onClick={handleClose}>Item 2</MenuItem>
+              <MenuItem onClick={handleClose}>Item 3</MenuItem>
+            </Menu>
+          </Box>
         </Flex>
       </Container>
     </Box>

@@ -1,11 +1,13 @@
 import Image from 'next/image';
-import { ProductList } from '@/sections';
-import { CategoriesNavbar } from '@/components';
-import { Button, Flex } from 'antd';
+import { cookies } from 'next/headers';
+import { Button } from 'antd';
 import { Box, Container, Typography, Divider } from '@mui/material';
 import { Add, FavoriteOutlined } from '@mui/icons-material';
+import { ProductList } from '@/sections';
+import { SeeMoreBtn } from '@/components';
 import { colors } from '@/styles';
 import productImage from '@/assets/product/OIP.png';
+
 const productsList = [
   {
     id: 1,
@@ -45,6 +47,8 @@ const productsList = [
 ];
 
 const Product = ({ params }) => {
+  const cookiesStore = cookies();
+  const user = JSON.parse(cookiesStore.get('user')?.value) || null;
   return (
     <Box>
       <Container
@@ -54,8 +58,15 @@ const Product = ({ params }) => {
         <Box
           sx={{
             display: 'flex',
+            justifyContent: 'center',
+            gap: {
+              xs: '2rem',
+              lg: '8rem',
+            },
+            alignItems: 'center',
             flexDirection: {
               xs: 'column',
+              lg: 'row',
             },
           }}
         >
@@ -132,6 +143,7 @@ const Product = ({ params }) => {
                   fontWeight: '700',
                   color: '#595D5F',
                 }}
+                className=' line-through'
               >
                 EGP 900
               </Typography>
@@ -139,25 +151,37 @@ const Product = ({ params }) => {
                 10% Discount
               </Typography>
             </Box>
-
-            <Box sx={{ display: 'flex', alignItems: 'center', gap: '.5rem', marginTop: '1rem' }}>
-              <Button icon={<Add />}></Button>
-              <Typography>1</Typography>
-              <Button icon={<Add />}></Button>
-            </Box>
-            <Box sx={{ display: 'flex', justifyContent: 'center' }}>
-              <Button
-                variant='contained'
-                style={{
-                  backgroundColor: colors.primary,
-                  color: colors.primaryText,
-                  width: '300px',
-                  margin: '2rem auto',
-                }}
-              >
-                Add To Cart
-              </Button>
-            </Box>
+            <Divider sx={{ marginBlock: '2rem' }} />
+            {user && (
+              <>
+                <Box
+                  sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '.5rem',
+                    marginTop: '1rem',
+                  }}
+                >
+                  <Button icon={<Add />}></Button>
+                  <Typography>1</Typography>
+                  <Button icon={<Add />}></Button>
+                </Box>
+                <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+                  <Button
+                    variant='contained'
+                    style={{
+                      backgroundColor: colors.primary,
+                      color: colors.primaryText,
+                      width: '300px',
+                      margin: '2rem auto',
+                    }}
+                  >
+                    Add To Cart
+                  </Button>
+                </Box>
+              </>
+            )}
           </Box>
         </Box>
         <ProductList
@@ -168,6 +192,7 @@ const Product = ({ params }) => {
           title='Explore More'
           productList={productsList}
         />
+        <SeeMoreBtn url='/products' />
       </Container>
     </Box>
   );

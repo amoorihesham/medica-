@@ -4,7 +4,7 @@ import { Container, Grid2 } from '@mui/material';
 
 const ProductList = ({ productList, title }) => {
   const cookiesStore = cookies();
-  const user = JSON.parse(cookiesStore.get('user')?.value) || null;
+  const user = null;
 
   return (
     <Container
@@ -14,7 +14,6 @@ const ProductList = ({ productList, title }) => {
       <SectionHeading title={title} />
 
       <Grid2
-        container
         sx={{
           marginTop: '1rem',
           justifyContent: 'space-between',

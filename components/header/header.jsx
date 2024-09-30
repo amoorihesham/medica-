@@ -6,7 +6,7 @@ import { colors } from '@/styles';
 const styles = {
   header: {
     bgcolor: colors.primary,
-    height: {
+    minHeight: {
       xs: '19vh',
       sm: '20vh',
       md: '35vh',

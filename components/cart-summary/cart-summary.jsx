@@ -4,12 +4,15 @@ import { Typography, Box, Button } from '@mui/material';
 import { Divider, Space } from 'antd';
 
 export default function CartSummary() {
+  const location = window.location.pathname;
+
   return (
     <Box
       sx={{
         padding: '1rem',
         width: {
-          lg: '450px',
+          xs: '250px',
+          sm: '450px',
         },
       }}
       border={1}
@@ -97,30 +100,32 @@ export default function CartSummary() {
           Total ( inclusive of VAT) <Typography component='span'>EGP 88.00</Typography>
         </Typography>
       </Box>
-      <Box
-        sx={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          gap: '.5rem',
-          margin: '1.2rem 0',
-        }}
-      >
-        <Button
-          variant='outlined'
-          size='large'
-          sx={{ color: colors.textBlack, borderColor: colors.textBlack, flexGrow: '1' }}
+      {location == '/checkout' ? null : (
+        <Box
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            gap: '.5rem',
+            margin: '1.2rem 0',
+          }}
         >
-          Add Items
-        </Button>
-        <Button
-          variant='contained'
-          size='large'
-          sx={{ backgroundColor: colors.primary, color: colors.primaryText, flexGrow: '1' }}
-        >
-          Checkout
-        </Button>
-      </Box>
+          <Button
+            variant='outlined'
+            size='large'
+            sx={{ color: colors.textBlack, borderColor: colors.textBlack, flexGrow: '1' }}
+          >
+            Add Items
+          </Button>
+          <Button
+            variant='contained'
+            size='large'
+            sx={{ backgroundColor: colors.primary, color: colors.primaryText, flexGrow: '1' }}
+          >
+            Checkout
+          </Button>
+        </Box>
+      )}
     </Box>
   );
 }

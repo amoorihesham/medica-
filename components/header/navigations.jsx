@@ -11,6 +11,9 @@ import {
   List,
   ListItem,
   Button,
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
 } from '@mui/material';
 import {
   HomeOutlined,
@@ -19,6 +22,7 @@ import {
   AssignmentOutlined,
   AddOutlined,
   LanguageOutlined,
+  SupervisedUserCircleOutlined,
 } from '@mui/icons-material';
 import { colors } from '@/styles';
 import { RegisterLoginBtn } from '@/components';
@@ -123,10 +127,12 @@ export default function Navigations({ user }) {
                 xs: 'none',
                 lg: 'flex',
               },
-              alignItems: 'center',
-              gap: '.5rem',
+              padding: '0',
+              justifyContent: {
+                lg: 'end',
+              },
               flexGrow: '1',
-              fontSize: '10px',
+              alignItems: 'center',
             }}
           >
             {user ? (
@@ -190,12 +196,13 @@ export default function Navigations({ user }) {
               </>
             ) : (
               <>
-                <ListItem sx={styles.listitem}>
+                <ListItem
+                  sx={{ padding: '0 2rem 0 0', width: 'fit-content', justifyContent: 'end' }}
+                >
                   <Button
-                    sx={styles.link}
-                    className='text-white capitalize'
+                    startIcon={<LanguageOutlined />}
+                    sx={{ padding: '0', color: 'white' }}
                   >
-                    <LanguageOutlined />
                     Language
                   </Button>
                 </ListItem>

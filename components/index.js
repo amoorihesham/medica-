@@ -20,6 +20,9 @@ import Footer from './footer/footer';
 import CartItem from './cart-item/cart-item';
 import CartSummary from './cart-summary/cart-summary';
 import GomlaMainBtn from './gomla-main-btn/gomla-main-btn';
+import ShippingDetails from './shipping-details/shipping-details';
+import SearchGomla from './search-gomla/search-gomla';
+import FilterList from './filter-list/filter-list';
 
 export {
   LoginForm,
@@ -43,5 +46,9 @@ export {
   Footer,
   CartItem,
   CartSummary,
-  GomlaMainBtn
+  GomlaMainBtn,
+  ShippingDetails,
+  SearchGomla,
+  FilterList
 };
+
