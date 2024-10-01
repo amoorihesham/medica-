@@ -1,8 +1,9 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Box, Typography, Divider, Card, CardContent, Button } from '@mui/material';
+import { Box, Typography, Divider, Button } from '@mui/material';
 import { FavoriteBorderOutlined, ShoppingCartOutlined } from '@mui/icons-material';
 import productImg from '@/assets/product/product.png';
+import { colors } from '@/styles';
 
 const ProductCard = ({ product, user }) => {
   return (
@@ -34,7 +35,7 @@ const ProductCard = ({ product, user }) => {
       </Box>
       <Divider
         component='hr'
-        className='my-2 border-gray-200'
+        sx={{ marginBlock: '.5rem', borderColor: colors.gray }}
       />
       <Box
         component='div'
