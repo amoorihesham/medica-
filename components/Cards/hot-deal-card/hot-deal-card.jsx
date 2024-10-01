@@ -30,10 +30,7 @@ export default function HotDealCard() {
           <FavoriteBorderOutlined />
         </Box>
       </Box>
-      <Divider
-        component='hr'
-        className='my-2 border-red-200'
-      />
+      <Divider sx={{ marginInline: '8px' }} />
       <Box
         component='div'
         className='card-body  px-2'

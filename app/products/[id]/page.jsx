@@ -57,11 +57,11 @@ const Product = ({ params }) => {
       >
         <Box
           component='div'
-          className='flex justify-center  items-center'
+          className='flex justify-between gap-5  items-center'
         >
           <Box
             component='div'
-            className='flex justify-center '
+            className='flex  flex-grow '
           >
             <Image
               src={productImage}
@@ -70,15 +70,12 @@ const Product = ({ params }) => {
               height={519}
             />
             <FavoriteOutlined />
-            <Divider
-              component='hr'
-              className='mx-40'
-              orientation='vertical'
-              flexItem
-            />
           </Box>
 
-          <Box component='div'>
+          <Box
+            component='div'
+            className='flex-grow'
+          >
             <Typography
               variant='h2'
               component='h1'

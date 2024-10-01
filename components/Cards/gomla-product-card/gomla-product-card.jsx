@@ -26,10 +26,7 @@ export default function GomlaProductCard() {
           <FavoriteBorderOutlined />
         </Box>
       </Box>
-      <Divider
-        component='hr'
-        className='my-2 border-gray-200'
-      />
+      <Divider />
       <Box
         component='div'
         className='card-body  px-2'
