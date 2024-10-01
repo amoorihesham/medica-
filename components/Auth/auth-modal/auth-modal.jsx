@@ -1,7 +1,7 @@
 'use client';
 import { Box, Button, ButtonGroup, Modal, Typography } from '@mui/material';
 import { useState } from 'react';
-import { SignupForm, LoginForm } from '../index';
+import { SignupForm, LoginForm } from '@/components';
 
 const AuthModal = () => {
   const [open, setOpen] = useState(false);

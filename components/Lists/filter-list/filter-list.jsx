@@ -1,7 +1,10 @@
 'use client';
 import { ArrowDropDown, MedicalInformation, StarBorder } from '@mui/icons-material';
 import {
+  Checkbox,
   Collapse,
+  FormControlLabel,
+  FormGroup,
   List,
   ListItem,
   ListItemButton,
@@ -31,18 +34,22 @@ export default function FilterList() {
         in={brand}
         timeout='auto'
         unmountOnExit
+        className='px-4'
       >
-        <List
-          component='div'
-          disablePadding
-        >
-          <ListItemButton sx={{ pl: 4 }}>
-            <ListItemIcon>
-              <MedicalInformation />
-            </ListItemIcon>
-            <ListItemText primary='Medicin' />
-          </ListItemButton>
-        </List>
+        <FormGroup>
+          <FormControlLabel
+            control={<Checkbox defaultChecked />}
+            label='Label'
+          />
+          <FormControlLabel
+            control={<Checkbox defaultChecked />}
+            label='Label'
+          />
+          <FormControlLabel
+            control={<Checkbox defaultChecked />}
+            label='Label'
+          />
+        </FormGroup>
       </Collapse>
       <ListItemButton onClick={() => setOpen(!open)}>
         <ListItemIcon>
@@ -54,18 +61,22 @@ export default function FilterList() {
         in={open}
         timeout='auto'
         unmountOnExit
+        className='px-4'
       >
-        <List
-          component='div'
-          disablePadding
-        >
-          <ListItemButton sx={{ pl: 4 }}>
-            <ListItemIcon>
-              <MedicalInformation />
-            </ListItemIcon>
-            <ListItemText primary='Medicin' />
-          </ListItemButton>
-        </List>
+        <FormGroup>
+          <FormControlLabel
+            control={<Checkbox defaultChecked />}
+            label='Label'
+          />
+          <FormControlLabel
+            control={<Checkbox defaultChecked />}
+            label='Label'
+          />
+          <FormControlLabel
+            control={<Checkbox defaultChecked />}
+            label='Label'
+          />
+        </FormGroup>
       </Collapse>
     </List>
   );

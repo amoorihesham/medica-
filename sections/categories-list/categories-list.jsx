@@ -1,12 +1,8 @@
 'use client';
-import { CategoryCard } from '@/components';
-import { Box, Container, Paper } from '@mui/material';
-
-import { useScroll, useTransform, motion } from 'framer-motion';
+import { CategoryCard } from '@/components/Cards';
+import { Box, Container } from '@mui/material';
 
 const CategoriesList = ({ categoriesList }) => {
-  const { scrollXProgress } = useScroll();
-  const x = useTransform(scrollXProgress, [0, 1], [0, -300]);
   return (
     <Container
       maxWidth='xl'
@@ -23,19 +19,11 @@ const CategoriesList = ({ categoriesList }) => {
           },
         }}
       >
-        <motion.div
-          style={{
-            x,
+        <Box
+          sx={{
             display: 'flex',
             justifyContent: 'space-between',
             gap: '2rem',
-            marginLeft: '2rem',
-          }}
-          animate={{ x: ['0%', '-100%'] }} // Scroll from 0% to -100% of the container width
-          transition={{
-            repeat: Infinity, // Infinite looping
-            ease: 'linear', // Smooth transition
-            duration: 30, // Adjust duration for speed
           }}
         >
           {categoriesList?.map((category) => (
@@ -44,28 +32,7 @@ const CategoriesList = ({ categoriesList }) => {
               key={category.id}
             />
           ))}
-        </motion.div>
-        <motion.div
-          style={{
-            x,
-            display: 'flex',
-            justifyContent: 'space-between',
-            gap: '2rem',
-          }}
-          animate={{ x: ['0%', '-100%'] }} // Scroll from 0% to -100% of the container width
-          transition={{
-            repeat: Infinity, // Infinite looping
-            ease: 'linear', // Smooth transition
-            duration: 30, // Adjust duration for speed
-          }}
-        >
-          {categoriesList?.map((category) => (
-            <CategoryCard
-              category={category}
-              key={category.id}
-            />
-          ))}
-        </motion.div>
+        </Box>
       </Box>
     </Container>
   );

@@ -1,5 +1,5 @@
 'use client';
-import { Box, Container, MenuItem, Button, Menu } from '@mui/material';
+import { Box, Container, MenuItem, Button, Menu, GlobalStyles } from '@mui/material';
 import { Flex } from 'antd';
 import { useState } from 'react';
 
@@ -22,6 +22,9 @@ const CategoriesNavbar = () => {
         display: 'flex',
         alignItems: 'center',
         overflow: 'auto',
+        '&::-webkit-scrollbar': {
+          display: 'none',
+        },
       }}
     >
       <Container maxWidth='xl'>
@@ -29,6 +32,9 @@ const CategoriesNavbar = () => {
           gap={10}
           justify='space-between'
         >
+          <GlobalStyles
+            styles={{ '.MuiPaper-root': { boxShadow: '0px 0px 6px 0px #0000000a !important' } }}
+          />
           <Box>
             <Button
               aria-controls={open ? 'simple-menu' : undefined}

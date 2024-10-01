@@ -1,10 +1,11 @@
 'use client';
 import { colors, fonts } from '@/styles';
 import { Typography, Box, Button } from '@mui/material';
-import { Divider, Space } from 'antd';
+import { Divider } from 'antd';
 
 export default function CartSummary() {
-  const location = window.location.pathname;
+  const location = window.location.pathname.split('/')[1];
+  const check = ['checkout', 'place-order'];
 
   return (
     <Box
@@ -25,14 +26,15 @@ export default function CartSummary() {
       >
         Order Summary
       </Typography>
-
-      <form sx={{ display: 'flex', alignItems: 'center', width: '100%' }}>
-        <input
-          className='bg-mpink rounded-l-md py-3 px-2 w-2/3 outline-none'
-          placeholder='Coupon Code'
-        />
-        <button className='bg-mBlue text-white rounded-r-md py-3 w-1/3'>Add</button>
-      </form>
+      {check.includes(location) ? null : (
+        <form sx={{ display: 'flex', alignItems: 'center', width: '100%' }}>
+          <input
+            className='bg-mpink rounded-l-md py-3 px-2 w-2/3 outline-none'
+            placeholder='Coupon Code'
+          />
+          <button className='bg-mBlue text-white rounded-r-md py-3 w-1/3'>Add</button>
+        </form>
+      )}
 
       <Box sx={{ margin: '1rem 0' }}>
         <Typography
@@ -100,7 +102,7 @@ export default function CartSummary() {
           Total ( inclusive of VAT) <Typography component='span'>EGP 88.00</Typography>
         </Typography>
       </Box>
-      {location == '/checkout' ? null : (
+      {check.includes(location) ? null : (
         <Box
           sx={{
             display: 'flex',
@@ -111,6 +113,8 @@ export default function CartSummary() {
           }}
         >
           <Button
+            type='link'
+            href='/products'
             variant='outlined'
             size='large'
             sx={{ color: colors.textBlack, borderColor: colors.textBlack, flexGrow: '1' }}
@@ -118,6 +122,8 @@ export default function CartSummary() {
             Add Items
           </Button>
           <Button
+            type='link'
+            href='/checkout'
             variant='contained'
             size='large'
             sx={{ backgroundColor: colors.primary, color: colors.primaryText, flexGrow: '1' }}

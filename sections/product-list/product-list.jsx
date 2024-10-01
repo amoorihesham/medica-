@@ -1,6 +1,6 @@
 import { cookies } from 'next/headers';
 import { ProductCard, SectionHeading } from '@/components';
-import { Container, Grid2 } from '@mui/material';
+import { Box, Container, Grid2 } from '@mui/material';
 
 const ProductList = ({ productList, title }) => {
   const cookiesStore = cookies();
@@ -12,30 +12,18 @@ const ProductList = ({ productList, title }) => {
       sx={{ marginTop: '3rem' }}
     >
       <SectionHeading title={title} />
-
-      <Grid2
-        container
-        sx={{
-          marginTop: '1rem',
-          justifyContent: 'space-between',
-        }}
-        spacing={2}
+      <Box
+        component='div'
+        className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5'
       >
         {productList?.map((product) => (
-          <Grid2
+          <ProductCard
+            product={product}
+            user={user}
             key={product.id}
-            xs={12}
-            sm={4}
-            md={4}
-            lg={2}
-          >
-            <ProductCard
-              product={product}
-              user={user}
-            />
-          </Grid2>
+          />
         ))}
-      </Grid2>
+      </Box>
     </Container>
   );
 };

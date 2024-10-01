@@ -15,7 +15,7 @@ const Slider = () => {
         fade
         infinite
         speed={1500}
-        style={{ overflow: 'hidden', borderRadius: '1rem' }}
+        style={{ overflow: 'hidden', borderRadius: '.3rem' }}
       >
         <div>
           <Image

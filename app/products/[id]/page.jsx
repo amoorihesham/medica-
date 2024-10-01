@@ -56,21 +56,13 @@ const Product = ({ params }) => {
         sx={{ marginTop: '2rem' }}
       >
         <Box
-          sx={{
-            display: 'flex',
-            justifyContent: 'center',
-            gap: {
-              xs: '2rem',
-              lg: '8rem',
-            },
-            alignItems: 'center',
-            flexDirection: {
-              xs: 'column',
-              lg: 'row',
-            },
-          }}
+          component='div'
+          className='flex justify-center  items-center'
         >
-          <Box sx={{ display: 'flex' }}>
+          <Box
+            component='div'
+            className='flex justify-center '
+          >
             <Image
               src={productImage}
               alt='Product'
@@ -78,12 +70,15 @@ const Product = ({ params }) => {
               height={519}
             />
             <FavoriteOutlined />
+            <Divider
+              component='hr'
+              className='mx-40'
+              orientation='vertical'
+              flexItem
+            />
           </Box>
-          <Divider
-            orientation='vertical'
-            flexItem
-          />
-          <Box>
+
+          <Box component='div'>
             <Typography
               variant='h2'
               component='h1'
@@ -127,12 +122,8 @@ const Product = ({ params }) => {
               Medicin
             </Typography>
             <Box
-              sx={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                margin: '.5rem 0',
-              }}
+              component='div'
+              className='flex justify-between items-center max-w-96'
             >
               <Typography sx={{ fontSize: '16px', fontWeight: '700', color: colors.primary }}>
                 EGP 800

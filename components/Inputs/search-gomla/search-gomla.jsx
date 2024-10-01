@@ -1,4 +1,5 @@
 'use client';
+import { colors } from '@/styles';
 import { Box, Button } from '@mui/material';
 import { useRouter } from 'next/navigation';
 
@@ -30,7 +31,7 @@ export default function SearchGomla() {
       />
       <Button
         variant='contained'
-        size='large '
+        sx={{ bgcolor: colors.primary }}
         onClick={handleClick}
       >
         Serach

@@ -1,6 +1,6 @@
 import { Box, Container } from '@mui/material';
-import { Flex } from 'antd';
-import { SearchInput, LogoNav, Navigations } from '@/components';
+import { SearchInput } from '@/components/Inputs';
+import Navigations from '@/components/Layout/header/navigations';
 import { colors } from '@/styles';
 
 const styles = {

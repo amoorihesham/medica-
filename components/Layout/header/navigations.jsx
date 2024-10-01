@@ -11,9 +11,6 @@ import {
   List,
   ListItem,
   Button,
-  ListItemButton,
-  ListItemIcon,
-  ListItemText,
 } from '@mui/material';
 import {
   HomeOutlined,
@@ -22,7 +19,6 @@ import {
   AssignmentOutlined,
   AddOutlined,
   LanguageOutlined,
-  SupervisedUserCircleOutlined,
 } from '@mui/icons-material';
 import { colors } from '@/styles';
 import { RegisterLoginBtn } from '@/components';

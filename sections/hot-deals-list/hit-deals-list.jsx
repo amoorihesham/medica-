@@ -1,37 +1,24 @@
-import { HotDealCard, SectionHeading } from '@/components';
+import { Box, Container } from '@mui/material';
+import { SectionHeading, HotDealCard } from '@/components';
 import { spacing } from '@/styles';
-import { Container } from '@mui/material';
-import { Flex } from 'antd';
 
 const HotDealsList = () => {
   return (
     <Container
       maxWidth='xl'
-      sx={{ marginTop: spacing.sectionmargin, overflow: 'auto' }}
+      sx={{ marginTop: spacing.sectionmargin }}
     >
       <SectionHeading title='Hot Deals' />
-      <Flex
-        container
-        gap={10}
-        justify='space-between'
-        style={{ overflowX: 'auto' }}
+
+      <Box
+        component='div'
+        className='grid gird-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5'
       >
         <HotDealCard />
         <HotDealCard />
         <HotDealCard />
         <HotDealCard />
-        <HotDealCard />
-        <HotDealCard />
-        <HotDealCard />
-        <HotDealCard />
-        <HotDealCard />
-        <HotDealCard />
-        <HotDealCard />
-        <HotDealCard />
-        <HotDealCard />
-        <HotDealCard />
-        <HotDealCard />
-      </Flex>
+      </Box>
     </Container>
   );
 };

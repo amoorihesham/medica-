@@ -1,4 +1,5 @@
 import { CartItem, CartSummary, ShippingDetails } from '@/components';
+import { colors } from '@/styles';
 import { Box, Button, Container, Typography } from '@mui/material';
 export default function PlaceOrder() {
   return (
@@ -40,6 +41,7 @@ export default function PlaceOrder() {
         </Box>
         <Box sx={{ display: 'flex', justifyContent: 'center', marginTop: '1rem' }}>
           <Button
+            sx={{ bgcolor: colors.primary }}
             variant='contained'
             className='w-96'
           >

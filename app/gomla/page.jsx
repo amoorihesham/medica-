@@ -1,6 +1,13 @@
-import { RedLine, Slider, SeeMoreBtn, SearchGomla } from '@/components';
+import {
+  RedLine,
+  Slider,
+  SeeMoreBtn,
+  SearchGomla,
+  GomlaProductCard,
+  SectionHeading,
+} from '@/components';
 import { CategoriesList, ProductList } from '@/sections';
-import { Box, Pagination } from '@mui/material';
+import { Box, Container, Pagination } from '@mui/material';
 
 const productsList = [
   {
@@ -90,10 +97,22 @@ const Gomla = () => {
       <Slider />
       <CategoriesList categorisList={categoriesList} />
       <SearchGomla />
-      <ProductList
-        productList={productsList}
-        title='All Products'
-      />
+      <Container
+        maxWidth='xl'
+        sx={{ marginTop: '2rem' }}
+      >
+        <SectionHeading title='Gomla Products' />
+        <Box
+          component='div'
+          className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5'
+        >
+          <GomlaProductCard />
+          <GomlaProductCard />
+          <GomlaProductCard />
+          <GomlaProductCard />
+          <GomlaProductCard />
+        </Box>
+      </Container>
       <Box sx={{ display: 'flex', justifyContent: 'center', marginBlock: '2rem' }}>
         <Pagination count={10} />
       </Box>

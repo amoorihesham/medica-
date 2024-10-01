@@ -1,4 +1,5 @@
 import { CartSummary } from '@/components';
+import { colors } from '@/styles';
 import { Box, Button, Container, Typography } from '@mui/material';
 export default function Checkout() {
   return (
@@ -22,7 +23,7 @@ export default function Checkout() {
           <form className='w-full md:w-2/3 mb-5'>
             <Box>
               <Typography
-                variant='h4'
+                variant='h5'
                 component='h1'
               >
                 Contact
@@ -40,7 +41,7 @@ export default function Checkout() {
             </Box>
             <Box sx={{ marginTop: '2rem' }}>
               <Typography
-                variant='h4'
+                variant='h5'
                 component='h1'
               >
                 Shipping Details
@@ -96,9 +97,10 @@ export default function Checkout() {
             <Box sx={{ display: 'flex', justifyContent: 'center', marginTop: '2rem' }}>
               <Button
                 variant='contained'
-                color='primary'
-                className='w-1/2 mx-auto bg-mBlue'
-                type='submit'
+                sx={{ bgcolor: colors.primary }}
+                className='w-1/2 mx-auto'
+                type='link'
+                href='place-order'
               >
                 Next
               </Button>

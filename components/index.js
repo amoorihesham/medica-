@@ -1,54 +1,41 @@
-import LoginForm from './login-form/login-form';
-import SignupForm from './sign-up-form/sign-up-form';
-import AuthModal from './auth-modal/auth-modal';
-import LogoNav from './globals/logo-nav/logo-nav';
-import LanguageBtn from './globals/language-btn/language-btn';
-import RegisterLoginBtn from './globals/register-login-btn/register-login-btn';
-import SearchInput from './globals/search-input/search-input';
-import Header from './header/header';
-import Navigations from './header/navigations';
-import RedLine from './globals/red-line/red-line';
-import ProductCard from './globals/product-card/product-card';
-import CategoryCard from './globals/category-card/category-card';
-import PartnerCard from './globals/partner-card/partner-card';
-import HotDealCard from './globals/hot-deal-card/hot-deal-card';
-import CategoriesNavbar from './globals/categories-navbar/categories-navbar';
-import SectionHeading from './globals/section-heading/section-heading';
-import SeeMoreBtn from './globals/see-more-btn/see-more-btn';
-import Slider from './globals/slider/slider';
-import Footer from './footer/footer';
-import CartItem from './cart-item/cart-item';
-import CartSummary from './cart-summary/cart-summary';
-import GomlaMainBtn from './gomla-main-btn/gomla-main-btn';
-import ShippingDetails from './shipping-details/shipping-details';
-import SearchGomla from './search-gomla/search-gomla';
-import FilterList from './filter-list/filter-list';
+import {LoginForm,SignupForm,AuthModal} from './Auth';
+import {LogoNav,Header,Footer,RedLine,CategoriesNavbar,Slider} from './Layout';
+import {LanguageBtn,GomlaMainBtn,RegisterLoginBtn,SeeMoreBtn} from './Buttons';
+import {SearchInput,SearchGomla} from './Inputs';
+import {ProductCard,CategoryCard,GomlaProductCard,HotDealCard,PartnerCard} from './Cards';
+import {SectionHeading} from './Headings';
+import {CartItem} from './cart';
+import {CartSummary,ShippingDetails} from './Info';
+import {FilterList} from './Lists';
+
+
 
 export {
   LoginForm,
   SignupForm,
   AuthModal,
   LogoNav,
+   Header,
+   Footer,
+   RedLine,
+   CategoriesNavbar,
+   Slider,
+   LanguageBtn,
+   GomlaMainBtn,
   RegisterLoginBtn,
-  LanguageBtn,
+  SeeMoreBtn,
   SearchInput,
-  Header,
-  Navigations,
-  RedLine,
+  SearchGomla,
   ProductCard,
   CategoryCard,
-  PartnerCard,
+  GomlaProductCard,
   HotDealCard,
-  SeeMoreBtn,
-  CategoriesNavbar,
+  PartnerCard,
   SectionHeading,
-  Slider,
-  Footer,
   CartItem,
   CartSummary,
-  GomlaMainBtn,
   ShippingDetails,
-  SearchGomla,
-  FilterList
+  FilterList,
+ 
 };
 
