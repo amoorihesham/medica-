@@ -4,13 +4,14 @@ import { Box, Container, Grid2 } from '@mui/material';
 
 const ProductList = ({ productList, title }) => {
   const cookiesStore = cookies();
-  const user = JSON.parse(cookiesStore.get('user')?.value) || null;
+  const user = null // JSON.parse(cookiesStore.get('user')?.value) || null;
 
   return (
     <Container
       maxWidth='xl'
       sx={{ marginTop: '3rem' }}
     >
+      
       <SectionHeading title={title} />
       <Box
         component='div'

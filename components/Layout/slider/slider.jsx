@@ -17,12 +17,13 @@ const Slider = () => {
         speed={1500}
         style={{ overflow: 'hidden', borderRadius: '.3rem' }}
       >
-        <div>
+        <div  >
           <Image
             src={banner}
             alt='Banner'
             width={1381}
             height={361}
+            style={{ borderRadius:24 } }
           />
         </div>
         <div>
@@ -31,6 +32,7 @@ const Slider = () => {
             alt='Banner'
             width={1381}
             height={361}
+            style={{ borderRadius:24 } }
           />
         </div>
         <div>
@@ -39,6 +41,7 @@ const Slider = () => {
             alt='Banner'
             width={1381}
             height={361}
+            style={{ borderRadius:24 } }
           />
         </div>
         <div>
@@ -47,6 +50,7 @@ const Slider = () => {
             alt='Banner'
             width={1381}
             height={361}
+            style={{ borderRadius:24 } }
           />
         </div>
       </Carousel>

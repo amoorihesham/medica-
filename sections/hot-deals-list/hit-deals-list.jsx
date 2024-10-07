@@ -2,7 +2,8 @@ import { Box, Container } from '@mui/material';
 import { SectionHeading, HotDealCard } from '@/components';
 import { spacing } from '@/styles';
 
-const HotDealsList = () => {
+const HotDealsList = ({hotDeals}) => {
+  console.log('hotDealsList',hotDeals);
   return (
     <Container
       maxWidth='xl'
@@ -14,10 +15,12 @@ const HotDealsList = () => {
         component='div'
         className='grid gird-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5'
       >
-        <HotDealCard />
-        <HotDealCard />
-        <HotDealCard />
-        <HotDealCard />
+        {hotDeals?.map((hotDeal) => (
+          <HotDealCard
+            key={hotDeal.id}
+            hotDeal={hotDeal}
+          />
+        ))}
       </Box>
     </Container>
   );

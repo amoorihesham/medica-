@@ -2,95 +2,18 @@ import { HotDealsList, PartnersList, ProductList, CategoriesList } from '@/secti
 import { RedLine, Slider, SeeMoreBtn, CategoriesNavbar, GomlaMainBtn } from '@/components';
 import { cookies } from 'next/headers';
 import { Container } from '@mui/material';
+import axios from 'axios';
+import { getProduct } from '@/utils/productFunc';
+import { getCategory } from '@/utils/categoryFunc';
+import { getBrand } from '@/utils/brandFunc';
 
-const productsList = [
-  {
-    id: 1,
-    title: 'Paracetamole',
-    description: 'lorem ipsum dolor sit ',
-    price: 50,
-    discount: { hasDiscount: true, value: '70' },
-  },
-  {
-    id: 2,
-    title: 'Paracetamole',
-    description: 'lorem ipsum dolor sit ',
-    price: 50,
-    discount: { hasDiscount: true, value: '70' },
-  },
-  {
-    id: 3,
-    title: 'Paracetamole',
-    description: 'lorem ipsum dolor sit ',
-    price: 50,
-    discount: { hasDiscount: true, value: '70' },
-  },
-  {
-    id: 4,
-    title: 'Paracetamole',
-    description: 'lorem ipsum dolor sit ',
-    price: 50,
-    discount: { hasDiscount: true, value: '70' },
-  },
-  {
-    id: 5,
-    title: 'Paracetamole',
-    description: 'lorem ipsum dolor sit ',
-    price: 50,
-    discount: { hasDiscount: false, value: '70' },
-  },
-  {
-    id: 6,
-    title: 'Paracetamole',
-    description: 'lorem ipsum dolor sit ',
-    price: 50,
-    discount: { hasDiscount: true, value: '70' },
-  },
-  {
-    id: 7,
-    title: 'Paracetamole',
-    description: 'lorem ipsum dolor sit ',
-    price: 50,
-    discount: { hasDiscount: true, value: '70' },
-  },
-  {
-    id: 8,
-    title: 'Paracetamole',
-    description: 'lorem ipsum dolor sit ',
-    price: 50,
-    discount: { hasDiscount: true, value: '70' },
-  },
-  {
-    id: 9,
-    title: 'Paracetamole',
-    description: 'lorem ipsum dolor sit ',
-    price: 50,
-    discount: { hasDiscount: true, value: '70' },
-  },
-  {
-    id: 10,
-    title: 'Paracetamole',
-    description: 'lorem ipsum dolor sit ',
-    price: 50,
-    discount: { hasDiscount: false, value: '70' },
-  },
-];
-const categoriesList = [
-  { id: 1, title: 'Medical' },
-  { id: 2, title: 'Medical' },
-  { id: 3, title: 'Medical' },
-  { id: 4, title: 'Medical' },
-  { id: 5, title: 'Medical' },
-  { id: 6, title: 'Medical' },
-  { id: 7, title: 'Medical' },
-  { id: 8, title: 'Medical' },
-  { id: 9, title: 'Medical' },
-  { id: 10, title: 'Medical' },
-];
-export default function Home() {
-  const cookiesStore = cookies();
-  const user = JSON.parse(cookiesStore.get('user')?.value) || null;
-
+export default async function Home() {
+   const user = null 
+  const productsList = await getProduct({allItems: 1});
+  const hotDealsList = await getProduct({hotDeal: 1});
+  const topProductsList = await getProduct({topProducts: 1});
+  const categoriesList = await getCategory();
+  const brandList = await getBrand();
   return (
     <>
       <RedLine
@@ -102,15 +25,19 @@ export default function Home() {
       />
       <Slider />
       <CategoriesList categoriesList={categoriesList} />
-      {user && (
-        <>
+      {/* {user && (
+        <> */}
           <Container maxWidth='xl'>
             <GomlaMainBtn />
           </Container>
-          <HotDealsList />
-          <PartnersList />
-        </>
-      )}
+          <HotDealsList hotDeals={hotDealsList} />
+          <PartnersList brand={brandList} />
+        {/* </>
+      )} */}
+      <ProductList
+        title='Top Products'
+        productList={topProductsList}
+      />
       <ProductList
         title='All Products'
         productList={productsList}

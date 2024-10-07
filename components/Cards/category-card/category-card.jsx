@@ -17,7 +17,7 @@ const CategoryCard = ({ category }) => {
           }}
         >
           <Image
-            src={Pulse}
+            src={category?.image}
             width={88}
             height={110}
             alt='Pulse Oximeter'
@@ -32,7 +32,7 @@ const CategoryCard = ({ category }) => {
             marginTop: '.5rem',
           }}
         >
-          {category.title}
+          {category.name}
         </Typography>
       </Box>
     </Box>

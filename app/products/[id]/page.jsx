@@ -48,7 +48,7 @@ const productsList = [
 
 const Product = ({ params }) => {
   const cookiesStore = cookies();
-  const user = JSON.parse(cookiesStore.get('user')?.value) || null;
+  const user = null // JSON.parse(cookiesStore.get('user')?.value) || null;
   return (
     <Box>
       <Container

@@ -41,6 +41,7 @@ export default function GomlaMainBtn() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
+          borderRadius: '24px',
         }}
       >
         Drug store
@@ -52,6 +53,7 @@ export default function GomlaMainBtn() {
           backgroundColor: colors.yellow,
           padding: '1rem 2rem',
           color: colors.primaryText,
+          borderRadius: '24px',
           width: {
             xs: '100%',
             lg: '49%',
