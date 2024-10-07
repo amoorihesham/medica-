@@ -2,9 +2,11 @@
 import { colors, fonts } from '@/styles';
 import { Typography, Box, Button } from '@mui/material';
 import { Divider } from 'antd';
+import { usePathname, useRouter } from 'next/navigation';
 
 export default function CartSummary() {
-  const location = window.location.pathname.split('/')[1];
+  const pathname = usePathname();
+  const location = pathname.split('/')[1];
   const check = ['checkout', 'place-order'];
 
   return (
@@ -17,13 +19,11 @@ export default function CartSummary() {
         },
       }}
       border={1}
-      borderColor={colors.borderColor}
-    >
+      borderColor={colors.borderColor}>
       <Typography
         variant='h5'
         component='h5'
-        sx={{ marginBottom: '1rem' }}
-      >
+        sx={{ marginBottom: '1rem' }}>
         Order Summary
       </Typography>
       {check.includes(location) ? null : (
@@ -47,8 +47,7 @@ export default function CartSummary() {
               xs: fonts.mobile18,
               lg: fonts.mobile20,
             },
-          }}
-        >
+          }}>
           Subtotal ( 2 Item)
           <Typography
             sx={{
@@ -57,8 +56,7 @@ export default function CartSummary() {
                 lg: fonts.mobile20,
               },
             }}
-            component='span'
-          >
+            component='span'>
             EGP 88
           </Typography>
         </Typography>
@@ -72,8 +70,7 @@ export default function CartSummary() {
               xs: fonts.mobile18,
               lg: fonts.mobile20,
             },
-          }}
-        >
+          }}>
           Shipping Fee{' '}
           <Typography
             sx={{
@@ -82,8 +79,7 @@ export default function CartSummary() {
                 lg: fonts.mobile20,
               },
             }}
-            component='span'
-          >
+            component='span'>
             EGP 25
           </Typography>
         </Typography>
@@ -97,8 +93,7 @@ export default function CartSummary() {
               xs: fonts.mobile18,
               lg: fonts.mobile20,
             },
-          }}
-        >
+          }}>
           Total ( inclusive of VAT) <Typography component='span'>EGP 88.00</Typography>
         </Typography>
       </Box>
@@ -110,15 +105,13 @@ export default function CartSummary() {
             justifyContent: 'space-between',
             gap: '.5rem',
             margin: '1.2rem 0',
-          }}
-        >
+          }}>
           <Button
             type='link'
             href='/products'
             variant='outlined'
             size='large'
-            sx={{ color: colors.textBlack, borderColor: colors.textBlack, flexGrow: '1' }}
-          >
+            sx={{ color: colors.textBlack, borderColor: colors.textBlack, flexGrow: '1' }}>
             Add Items
           </Button>
           <Button
@@ -126,8 +119,7 @@ export default function CartSummary() {
             href='/checkout'
             variant='contained'
             size='large'
-            sx={{ backgroundColor: colors.primary, color: colors.primaryText, flexGrow: '1' }}
-          >
+            sx={{ backgroundColor: colors.primary, color: colors.primaryText, flexGrow: '1' }}>
             Checkout
           </Button>
         </Box>

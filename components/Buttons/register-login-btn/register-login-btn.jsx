@@ -2,8 +2,9 @@
 import { useState } from 'react';
 import { Button, Typography, Box, ListItem, Modal } from '@mui/material';
 import { SupervisedUserCircleOutlined } from '@mui/icons-material';
-// import { Modal } from 'antd';
+
 import { LoginForm, SignupForm } from '@/components';
+import StateProvider from '@/components/Provider';
 
 const RegisterLoginBtn = () => {
   const [open, setOpen] = useState(false);
@@ -12,14 +13,24 @@ const RegisterLoginBtn = () => {
     register: {
       bgcolor: !login ? '#164B60' : 'transparent',
       borderColor: '#164B60',
-      width: 150,
+      width: '50%',
       color: !login ? 'white' : 'black',
+      textTransform: 'capitalize',
+      fontWeight: '400',
+      borderRadius: '0',
+      borderTopRightRadius: '4px',
+      borderBottomRightRadius: '4px',
     },
     login: {
       bgcolor: login ? '#164B60' : 'transparent',
       borderColor: '#164B60',
-      width: 150,
+      width: '50%',
       color: login ? 'white' : 'black',
+      textTransform: 'capitalize',
+      fontWeight: '400',
+      borderRadius: '0',
+      borderTopLeftRadius: '4px',
+      borderBottomLeftRadius: '4px',
     },
   };
   return (
@@ -29,8 +40,7 @@ const RegisterLoginBtn = () => {
           startIcon={<SupervisedUserCircleOutlined />}
           sx={{ padding: '5px 12px', color: 'white', borderColor: 'white' }}
           variant='outlined'
-          onClick={() => setOpen(true)}
-        >
+          onClick={() => setOpen(true)}>
           Login / Sign up
         </Button>
       </ListItem>
@@ -38,8 +48,7 @@ const RegisterLoginBtn = () => {
         open={open}
         onClose={() => setOpen(false)}
         aria-labelledby='parent-modal-title'
-        aria-describedby='parent-modal-description'
-      >
+        aria-describedby='parent-modal-description'>
         <Box
           sx={{
             position: 'absolute',
@@ -49,67 +58,43 @@ const RegisterLoginBtn = () => {
             width: 550,
             bgcolor: 'background.paper',
             boxShadow: 24,
-            pt: 1,
+            pt: 3,
             px: 2,
-            pb: 2,
+            pb: 3,
             borderRadius: '.5rem',
-          }}
-        >
+          }}>
           <Typography
             variant='h4'
             component='h1'
-            sx={{ textAlign: 'center', marginTop: '1rem' }}
-          >
+            sx={{ textAlign: 'center', marginTop: '1rem' }}>
             Lets Get Started
           </Typography>
-          <Box sx={{ marginY: '1rem', display: 'flex', justifyContent: 'center' }}>
+          <Box
+            sx={{
+              marginY: '1rem',
+              display: 'flex',
+              justifyContent: 'center',
+              width: '90%',
+              marginInline: 'auto',
+            }}>
             <Button
               variant='outlined'
               sx={styles.login}
-              onClick={() => setLogin(true)}
-            >
-              Login
+              onClick={() => setLogin(true)}>
+              Log In
             </Button>
             <Button
               variant='outlined'
               sx={styles.register}
-              onClick={() => setLogin(false)}
-            >
-              Register
+              onClick={() => setLogin(false)}>
+              Sign Up
             </Button>
           </Box>
-          {login ? <LoginForm /> : <SignupForm />}
+          <StateProvider>
+            {login ? <LoginForm closePopup={setOpen} /> : <SignupForm />}
+          </StateProvider>
         </Box>
       </Modal>
-      {/* <Modal
-        open={open}
-        onCancel={() => setOpen(false)}
-      >
-        <Typography
-          variant='h4'
-          component='h1'
-          sx={{ textAlign: 'center', marginTop: '1rem' }}
-        >
-          Lets Get Started
-        </Typography>
-        <Box sx={{ marginY: '1rem', display: 'flex', justifyContent: 'center' }}>
-          <Button
-            variant='outlined'
-            sx={styles.login}
-            onClick={() => setLogin(true)}
-          >
-            Login
-          </Button>
-          <Button
-            variant='outlined'
-            sx={styles.register}
-            onClick={() => setLogin(false)}
-          >
-            Register
-          </Button>
-        </Box>
-        {login ? <LoginForm /> : <SignupForm />}
-      </Modal> */}
     </>
   );
 };

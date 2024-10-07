@@ -6,8 +6,7 @@ export default function Checkout() {
     <Box>
       <Container
         maxWidth='xl'
-        sx={{ marginTop: '1rem' }}
-      >
+        sx={{ marginTop: '1rem' }}>
         <Box
           sx={{
             display: 'flex',
@@ -18,14 +17,12 @@ export default function Checkout() {
               md: 'row',
               lg: 'row',
             },
-          }}
-        >
+          }}>
           <form className='w-full md:w-2/3 mb-5'>
             <Box>
               <Typography
                 variant='h5'
-                component='h1'
-              >
+                component='h1'>
                 Contact
               </Typography>
               <input
@@ -42,8 +39,7 @@ export default function Checkout() {
             <Box sx={{ marginTop: '2rem' }}>
               <Typography
                 variant='h5'
-                component='h1'
-              >
+                component='h1'>
                 Shipping Details
               </Typography>
               <select className='w-full mt-3 bg-mpink py-2 px-3 rounded-md placeholder:text-sm placeholder:text-gray-400 outline-none'>
@@ -100,8 +96,7 @@ export default function Checkout() {
                 sx={{ bgcolor: colors.primary }}
                 className='w-1/2 mx-auto'
                 type='link'
-                href='place-order'
-              >
+                href='place-order'>
                 Next
               </Button>
             </Box>

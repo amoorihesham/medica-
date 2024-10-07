@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import {
@@ -23,6 +23,8 @@ import {
 import { colors } from '@/styles';
 import { RegisterLoginBtn } from '@/components';
 import logo from '@/assets/branding/logo.png';
+import { useDispatch, useSelector } from 'react-redux';
+import { setUser } from '@/redux/slices/authSlice';
 
 const styles = {
   link: {
@@ -60,13 +62,16 @@ const styles = {
     textTransform: 'unset',
   },
 };
-export default function Navigations({ user }) {
+export default function Navigations() {
+  const dispatch = useDispatch();
+  const { user } = useSelector((state) => state.auth);
   const [open, setOpen] = useState(false);
 
-  const toggleDrawer = () => {
-    setOpen(!open);
-  };
-
+  useEffect(() => {
+    if (localStorage.getItem('user') != null) {
+      dispatch(setUser(JSON.parse(localStorage.getItem('user'))));
+    }
+  }, []);
   return (
     <>
       <AppBar
@@ -75,21 +80,18 @@ export default function Navigations({ user }) {
           backgroundColor: colors.primary,
           boxShadow: 'unset',
           position: 'unset',
-        }}
-      >
+        }}>
         <Toolbar
           sx={{
             display: 'flex',
             justifyContent: 'space-between',
             gap: '1rem',
             alignItems: 'center',
-          }}
-        >
+          }}>
           <Link
             href='/'
             className='flex items-end gap-2 hover:text-white'
-            style={{ flexGrow: '1' }}
-          >
+            style={{ flexGrow: '1' }}>
             <Image
               src={logo}
               alt='Logo'
@@ -98,8 +100,7 @@ export default function Navigations({ user }) {
             />
             <Typography
               variant='body2'
-              component='p'
-            >
+              component='p'>
               MedicaPlus
             </Typography>
           </Link>
@@ -107,14 +108,13 @@ export default function Navigations({ user }) {
           <IconButton
             edge='start'
             color='inherit'
-            onClick={toggleDrawer}
+            onClick={() => setOpen(!open)}
             sx={{
               display: {
                 xs: 'flex',
                 lg: 'none',
               },
-            }}
-          >
+            }}>
             <AddOutlined />
           </IconButton>
           <List
@@ -129,16 +129,14 @@ export default function Navigations({ user }) {
               },
               flexGrow: '1',
               alignItems: 'center',
-            }}
-          >
+            }}>
             {user ? (
               <>
                 <ListItem sx={styles.listitem}>
                   <Link
                     href='/'
                     className='hover:text-white'
-                    style={styles.link}
-                  >
+                    style={styles.link}>
                     <HomeOutlined /> Home
                   </Link>
                 </ListItem>
@@ -146,8 +144,7 @@ export default function Navigations({ user }) {
                   <Link
                     style={styles.link}
                     href='/cart'
-                    className='hover:text-white'
-                  >
+                    className='hover:text-white'>
                     <ShoppingCartOutlined />
                     My Cart
                   </Link>
@@ -156,8 +153,7 @@ export default function Navigations({ user }) {
                   <Link
                     style={styles.link}
                     href='/orders'
-                    className='hover:text-white '
-                  >
+                    className='hover:text-white '>
                     <AssignmentOutlined />
                     My Orders
                   </Link>
@@ -166,8 +162,7 @@ export default function Navigations({ user }) {
                   <Link
                     style={styles.bulkbutton}
                     href='/gomla'
-                    className='hover:text-white '
-                  >
+                    className='hover:text-white '>
                     <AddOutlined />
                     Bulk Request
                   </Link>
@@ -175,8 +170,7 @@ export default function Navigations({ user }) {
                 <ListItem sx={styles.listitem}>
                   <Button
                     sx={styles.link}
-                    className='text-white capitalize'
-                  >
+                    className='text-white capitalize'>
                     <LanguageOutlined />
                     Language
                   </Button>
@@ -184,21 +178,18 @@ export default function Navigations({ user }) {
                 <ListItem sx={styles.listitem}>
                   <Link
                     style={styles.link}
-                    href='/profile'
-                  >
-                    <PersonOutlined /> Hi, {user.name}
+                    href='/profile'>
+                    <PersonOutlined /> Hi, {user.user.name}
                   </Link>
                 </ListItem>
               </>
             ) : (
               <>
                 <ListItem
-                  sx={{ padding: '0 2rem 0 0', width: 'fit-content', justifyContent: 'end' }}
-                >
+                  sx={{ padding: '0 2rem 0 0', width: 'fit-content', justifyContent: 'end' }}>
                   <Button
                     startIcon={<LanguageOutlined />}
-                    sx={{ padding: '0', color: 'white' }}
-                  >
+                    sx={{ padding: '0', color: 'white' }}>
                     Language
                   </Button>
                 </ListItem>
@@ -212,7 +203,7 @@ export default function Navigations({ user }) {
       <Drawer
         anchor='right'
         open={open}
-        onClose={toggleDrawer}
+        onClose={() => setOpen(!open)}
         sx={{
           '& .MuiDrawer-paper': {
             backgroundColor: 'white', // Change background color
@@ -220,24 +211,21 @@ export default function Navigations({ user }) {
             width: '240px', // Custom width
             padding: '1rem', // Add padding
           },
-        }}
-      >
+        }}>
         <List>
           {user ? (
             <>
               <ListItem className='hover:bg-gray-100 hover:text-black'>
                 <Link
                   href='/'
-                  style={styles.link}
-                >
+                  style={styles.link}>
                   <HomeOutlined /> Home
                 </Link>
               </ListItem>
               <ListItem className='hover:bg-gray-100 hover:text-black'>
                 <Link
                   href='/cart'
-                  style={styles.link}
-                >
+                  style={styles.link}>
                   <ShoppingCartOutlined />
                   My Cart
                 </Link>
@@ -245,8 +233,7 @@ export default function Navigations({ user }) {
               <ListItem className='hover:bg-gray-100 hover:text-black'>
                 <Link
                   href='/orders'
-                  style={styles.link}
-                >
+                  style={styles.link}>
                   <AssignmentOutlined />
                   My Orders
                 </Link>
@@ -254,8 +241,7 @@ export default function Navigations({ user }) {
               <ListItem className='hover:bg-green-200 hover:text-black bg-green-300'>
                 <Link
                   href='/gomla'
-                  style={styles.link}
-                >
+                  style={styles.link}>
                   <AddOutlined />
                   Bulk Request
                 </Link>
@@ -269,9 +255,8 @@ export default function Navigations({ user }) {
               <ListItem className='hover:bg-gray-100 hover:text-black'>
                 <Link
                   href='/profile'
-                  style={styles.link}
-                >
-                  <PersonOutlined /> Hi, {user.name}
+                  style={styles.link}>
+                  <PersonOutlined /> Hi, {user.user.name}
                 </Link>
               </ListItem>
             </>

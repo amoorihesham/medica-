@@ -1,16 +1,22 @@
 import { Typography } from '@mui/material';
+import Link from 'next/link';
 
-const SectionHeading = ({ title }) => {
+const SectionHeading = ({ title, url }) => {
   return (
-    <div className='flex justify-between items-center' >
-    <Typography
-      variant='h4'
-      component='h1'
-      sx={{ margin: '1rem 0', color: '#164B60', fontSize: '40px', fontWeight: '600' }}
-    >
-      {title}
-    </Typography>
-    <p className='text-header_color font-semibold'>See all</p>
+    <div className='flex justify-between items-center'>
+      <Typography
+        variant='h4'
+        component='h1'
+        sx={{ margin: '1rem 0', color: '#164B60', fontSize: '40px', fontWeight: '600' }}>
+        {title}
+      </Typography>
+      {url && (
+        <Link
+          href={url}
+          className=' font-semibold text-header_color mr-7'>
+          See All
+        </Link>
+      )}
     </div>
   );
 };

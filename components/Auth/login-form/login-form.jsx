@@ -1,47 +1,64 @@
-import { Box, Button, FormControl, Stack, TextField } from '@mui/material';
+'use client';
+import Link from 'next/link';
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
+import axios from 'axios';
+import { setUser } from '@/redux/slices/authSlice';
+import CustomInput from '@/components/Inputs/try/TryInput';
+import { SubmitButton } from '@/components/Buttons';
 
-const LoginForm = () => {
+const LoginForm = ({ closePopup }) => {
+  const dispatch = useDispatch();
+  const [error, setError] = useState(null);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    mode: 'onBlur',
+  });
+  const onSubmit = async (formData) => {
+    console.log(formData);
+    try {
+      const { data } = await axios.post('https://ai.w-manage.org/api/login', formData);
+      localStorage.setItem('user', JSON.stringify(data.data));
+      dispatch(setUser(data.data));
+      closePopup();
+    } catch (error) {
+      console.log(error);
+      setError(error.response.data.data[0]);
+    }
+  };
   return (
-    <Box sx={{ width: '100%', textAlign: 'left' }}>
-      <Stack
-        component='div'
-        marginTop={5}
-        spacing={3}
-      >
-        <FormControl
-          sx={{ backgroundColor: '#FFF7F7', width: '60%' }}
-          variant='outlined'
-          size='small'
-          required
-        >
-          <TextField
-            id='phone'
-            label='Phone'
-            placeholder='Phone'
-            size='small'
-          />
-        </FormControl>
-        <FormControl
-          sx={{ backgroundColor: '#FFF7F7', width: '60%' }}
-          variant='outlined'
-          size='small'
-          required
-        >
-          <TextField
-            id='password'
-            label='Password'
-            placeholder='Password'
-            size='small'
-          />
-        </FormControl>
-        <Button
-          variant='contained'
-          sx={{ bgcolor: '#164B60', width: '50%', margin: 'auto' }}
-        >
-          Login
-        </Button>
-      </Stack>
-    </Box>
+    <form
+      className='w-96 mx-auto'
+      onSubmit={handleSubmit(onSubmit)}>
+      {error && <p className='text-md font-light text-red-500'>{error}</p>}
+      <div className='w-96'>
+        <CustomInput
+          name='mobile'
+          register={register}
+          errors={errors}
+          placeholder='Mobile'
+          type='text'
+        />
+        <CustomInput
+          name='password'
+          register={register}
+          errors={errors}
+          placeholder='Password'
+          type='password'
+        />
+        <Link
+          href='/'
+          className='underline flex justify-end p-0 text-sm w-fit !ml-auto text-blue-400 m-0'>
+          Forget password
+        </Link>
+
+        <SubmitButton text='log in' />
+      </div>
+    </form>
   );
 };
 

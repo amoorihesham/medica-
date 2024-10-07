@@ -14,17 +14,15 @@ const styles = {
   },
 };
 
-const Header = ({ user }) => {
+const Header = () => {
   return (
     <Box
       component='header'
-      sx={styles.header}
-    >
-      <Navigations user={user} />
+      sx={styles.header}>
+      <Navigations />
       <Container
         maxWidth='xl'
-        sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}
-      >
+        sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         <SearchInput />
       </Container>
     </Box>
