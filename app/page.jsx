@@ -6,6 +6,10 @@ import axios from 'axios';
 import { getProduct } from '@/utils/productFunc';
 import { getCategory } from '@/utils/categoryFunc';
 import { getBrand } from '@/utils/brandFunc';
+import useScrollUp from '@/hook/ScrollUp';
+import ScrollUp from '@/hook/ScrollUp';
+import { getDrug, getGomla } from '@/utils/adsFunc';
+import { getBanners } from '@/utils/bannersFunc';
 
 export default async function Home() {
    const user = null 
@@ -14,8 +18,14 @@ export default async function Home() {
   const topProductsList = await getProduct({topProducts: 1});
   const categoriesList = await getCategory();
   const brandList = await getBrand();
+  const gomla = await getGomla();
+  const drug = await getDrug();
+  const banners = await getBanners();
+  console.log('gomla', gomla);
+  console.log('drug', drug);
   return (
     <>
+    <ScrollUp/>
       <RedLine
         title={
           user && user.activated
@@ -23,12 +33,12 @@ export default async function Home() {
             : 'Your Account Need To Be Activated'
         }
       />
-      <Slider />
+      <Slider banners={banners} />
       <CategoriesList categoriesList={categoriesList} />
       {/* {user && (
         <> */}
           <Container maxWidth='xl'>
-            <GomlaMainBtn />
+            <GomlaMainBtn gomla={gomla} drug={drug}  />
           </Container>
           <HotDealsList hotDeals={hotDealsList} />
           <PartnersList brand={brandList} />

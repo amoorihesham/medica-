@@ -3,7 +3,7 @@ import { SectionHeading, HotDealCard } from '@/components';
 import { spacing } from '@/styles';
 
 const HotDealsList = ({hotDeals}) => {
-  console.log('hotDealsList',hotDeals);
+
   return (
     <Container
       maxWidth='xl'

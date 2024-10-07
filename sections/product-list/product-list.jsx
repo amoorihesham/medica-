@@ -11,7 +11,6 @@ const ProductList = ({ productList, title }) => {
       maxWidth='xl'
       sx={{ marginTop: '3rem' }}
     >
-      
       <SectionHeading title={title} />
       <Box
         component='div'

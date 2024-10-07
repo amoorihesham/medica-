@@ -6,8 +6,7 @@ import product from '@/assets/product/OIP.png';
 import Link from 'next/link';
 
 export default function HotDealCard({hotDeal}) {
-  console.log('hotDeal', hotDeal);
-  return (
+    return (
     <Box
       component='div'
       className=' bg-red-100  border border-gray-100 relative rounded-md pb-2 shadow-md hover:-translate-y-4 duration-500 transition-all'>

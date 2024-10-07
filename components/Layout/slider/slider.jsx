@@ -1,9 +1,7 @@
 import Image from 'next/image';
 import { Container } from '@mui/material';
 import { Carousel } from 'antd';
-import banner from '@/assets/banners/banner.png';
-
-const Slider = () => {
+const Slider = ({ banners }) => {
   return (
     <Container
       maxWidth='xl'
@@ -17,42 +15,17 @@ const Slider = () => {
         speed={1500}
         style={{ overflow: 'hidden', borderRadius: '.3rem' }}
       >
-        <div  >
-          <Image
-            src={banner}
-            alt='Banner'
-            width={1381}
-            height={361}
-            style={{ borderRadius:24 } }
-          />
-        </div>
-        <div>
-          <Image
-            src={banner}
-            alt='Banner'
-            width={1381}
-            height={361}
-            style={{ borderRadius:24 } }
-          />
-        </div>
-        <div>
-          <Image
-            src={banner}
-            alt='Banner'
-            width={1381}
-            height={361}
-            style={{ borderRadius:24 } }
-          />
-        </div>
-        <div>
-          <Image
-            src={banner}
-            alt='Banner'
-            width={1381}
-            height={361}
-            style={{ borderRadius:24 } }
-          />
-        </div>
+        {banners?.map((banner) => (
+          <div key={banner.id}>
+            <Image
+              src={banner.image}
+              alt='Banner'
+              width={1381}
+              height={361}
+              style={{ borderRadius:24 } }
+            />
+          </div>
+        ))}
       </Carousel>
     </Container>
   );

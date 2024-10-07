@@ -3,7 +3,7 @@ import { colors } from '@/styles';
 import { Box, Button } from '@mui/material';
 import Link from 'next/link';
 
-export default function GomlaMainBtn() {
+export default function GomlaMainBtn({ gomla,drug }) {
   return (
     <Box
       sx={{
@@ -16,32 +16,28 @@ export default function GomlaMainBtn() {
           lg: 'row',
         },
         rowGap: '1rem',
+        columnGap: '1rem',
       }}
     >
       <Button
         type='link'
-        href='/products'
+        href='/gomla'
         sx={{
           backgroundColor: colors.red,
           padding: '1rem 2rem',
           color: colors.primaryText,
-          width: {
-            xs: '100%',
-            lg: '49%',
-          },
-          height: {
-            xs: '75px',
-            lg: '150px',
-          },
-          fontSize: {
-            xs: '18px',
-            lg: '48px',
-          },
+          borderRadius: '24px',
+          width: '100%',
+          height: '224px',
           fontWeight: '700',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          borderRadius: '24px',
+          backgroundImage: `url(${gomla?.image})`,
+          background: 'no-repeat center cover',
+          backgroundSize: '100% 100%',
+          backgroundRepeat: 'no-repeat',
+          fontSize: '48px',
         }}
       >
         Drug store
@@ -54,22 +50,16 @@ export default function GomlaMainBtn() {
           padding: '1rem 2rem',
           color: colors.primaryText,
           borderRadius: '24px',
-          width: {
-            xs: '100%',
-            lg: '49%',
-          },
-          height: {
-            xs: '75px',
-            lg: '150px',
-          },
-          fontSize: {
-            xs: '18px',
-            lg: '48px',
-          },
+          width: '100%',
+          height: '224px',
           fontWeight: '700',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
+          backgroundImage: `url(${gomla?.image})`,
+          background: 'no-repeat center cover',
+          backgroundSize: 'content',
+          fontSize: '48px',
         }}
       >
         Gomla now

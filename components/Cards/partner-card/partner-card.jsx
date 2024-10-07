@@ -4,13 +4,13 @@ import { Box } from '@mui/material';
 
 const PartnerCard = ({img}) => {
   return (
-    <Box sx={{ display: 'flex', justifyContent: 'center', width: '200px' }}>
+    <Box sx={{ display: 'flex', justifyContent: 'center', width: '200px', borderRadius: '100000px',height: '200px' }}>
       <Image
         src={img}
-        width={1000}
-        height={110}
+        width={100}
+        height='100'
         alt='Pulse Oximeter'
-        style={{ borderRadius: '100000px' }}
+        style={{backgroundColor: '#C6C3C3' }}
       />
     </Box>
   );
