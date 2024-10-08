@@ -19,6 +19,7 @@ const SignupForm = () => {
   } = useForm({
     mode: 'onBlur',
   });
+
   useEffect(() => {
     const func = async () => {
       const { data } = await axios.get('https://ai.w-manage.org/api/governorate');
@@ -28,6 +29,7 @@ const SignupForm = () => {
     func();
   }, []);
   const onSubmit = async (formData) => {
+    console.log(formData);
     try {
       const { data } = await axios.post('https://ai.w-manage.org/api/register', {
         ...formData,
@@ -86,6 +88,7 @@ const SignupForm = () => {
           placeholder='Select Government'
           list={govs}
         />
+
         <CustomInput
           name='pharmacy_name'
           register={register}
