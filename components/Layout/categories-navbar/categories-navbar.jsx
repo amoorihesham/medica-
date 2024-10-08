@@ -3,7 +3,7 @@ import { Box, Container, MenuItem, Button, Menu, GlobalStyles } from '@mui/mater
 import { Flex } from 'antd';
 import { useState } from 'react';
 
-const CategoriesNavbar = () => {
+const CategoriesNavbar = ({categories}) => {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
 
@@ -36,290 +36,38 @@ const CategoriesNavbar = () => {
             styles={{ '.MuiPaper-root': { boxShadow: '0px 0px 6px 0px #0000000a !important' } }}
           />
           <Box>
-            <Button
-              aria-controls={open ? 'simple-menu' : undefined}
-              aria-haspopup='true'
-              onClick={handleClick}
-            >
-              Dropdown
-            </Button>
-            <Menu
-              id='simple-menu'
-              anchorEl={anchorEl}
-              open={open}
-              onClose={handleClose}
-              MenuListProps={{
-                'aria-labelledby': 'basic-button',
-              }}
-            >
-              <MenuItem onClick={handleClose}>Item 1</MenuItem>
-              <MenuItem onClick={handleClose}>Item 2</MenuItem>
-              <MenuItem onClick={handleClose}>Item 3</MenuItem>
-            </Menu>
-          </Box>
-          <Box>
-            <Button
-              aria-controls={open ? 'simple-menu' : undefined}
-              aria-haspopup='true'
-              onClick={handleClick}
-            >
-              Dropdown
-            </Button>
-            <Menu
-              id='simple-menu'
-              anchorEl={anchorEl}
-              open={open}
-              onClose={handleClose}
-              MenuListProps={{
-                'aria-labelledby': 'basic-button',
-              }}
-            >
-              <MenuItem onClick={handleClose}>Item 1</MenuItem>
-              <MenuItem onClick={handleClose}>Item 2</MenuItem>
-              <MenuItem onClick={handleClose}>Item 3</MenuItem>
-            </Menu>
-          </Box>
-          <Box>
-            <Button
-              aria-controls={open ? 'simple-menu' : undefined}
-              aria-haspopup='true'
-              onClick={handleClick}
-            >
-              Dropdown
-            </Button>
-            <Menu
-              id='simple-menu'
-              anchorEl={anchorEl}
-              open={open}
-              onClose={handleClose}
-              MenuListProps={{
-                'aria-labelledby': 'basic-button',
-              }}
-            >
-              <MenuItem onClick={handleClose}>Item 1</MenuItem>
-              <MenuItem onClick={handleClose}>Item 2</MenuItem>
-              <MenuItem onClick={handleClose}>Item 3</MenuItem>
-            </Menu>
-          </Box>
-          <Box>
-            <Button
-              aria-controls={open ? 'simple-menu' : undefined}
-              aria-haspopup='true'
-              onClick={handleClick}
-            >
-              Dropdown
-            </Button>
-            <Menu
-              id='simple-menu'
-              anchorEl={anchorEl}
-              open={open}
-              onClose={handleClose}
-              MenuListProps={{
-                'aria-labelledby': 'basic-button',
-              }}
-            >
-              <MenuItem onClick={handleClose}>Item 1</MenuItem>
-              <MenuItem onClick={handleClose}>Item 2</MenuItem>
-              <MenuItem onClick={handleClose}>Item 3</MenuItem>
-            </Menu>
-          </Box>
-          <Box>
-            <Button
-              aria-controls={open ? 'simple-menu' : undefined}
-              aria-haspopup='true'
-              onClick={handleClick}
-            >
-              Dropdown
-            </Button>
-            <Menu
-              id='simple-menu'
-              anchorEl={anchorEl}
-              open={open}
-              onClose={handleClose}
-              MenuListProps={{
-                'aria-labelledby': 'basic-button',
-              }}
-            >
-              <MenuItem onClick={handleClose}>Item 1</MenuItem>
-              <MenuItem onClick={handleClose}>Item 2</MenuItem>
-              <MenuItem onClick={handleClose}>Item 3</MenuItem>
-            </Menu>
-          </Box>
-          <Box>
-            <Button
-              aria-controls={open ? 'simple-menu' : undefined}
-              aria-haspopup='true'
-              onClick={handleClick}
-            >
-              Dropdown
-            </Button>
-            <Menu
-              id='simple-menu'
-              anchorEl={anchorEl}
-              open={open}
-              onClose={handleClose}
-              MenuListProps={{
-                'aria-labelledby': 'basic-button',
-              }}
-            >
-              <MenuItem onClick={handleClose}>Item 1</MenuItem>
-              <MenuItem onClick={handleClose}>Item 2</MenuItem>
-              <MenuItem onClick={handleClose}>Item 3</MenuItem>
-            </Menu>
-          </Box>
-          <Box>
-            <Button
-              aria-controls={open ? 'simple-menu' : undefined}
-              aria-haspopup='true'
-              onClick={handleClick}
-            >
-              Dropdown
-            </Button>
-            <Menu
-              id='simple-menu'
-              anchorEl={anchorEl}
-              open={open}
-              onClose={handleClose}
-              MenuListProps={{
-                'aria-labelledby': 'basic-button',
-              }}
-            >
-              <MenuItem onClick={handleClose}>Item 1</MenuItem>
-              <MenuItem onClick={handleClose}>Item 2</MenuItem>
-              <MenuItem onClick={handleClose}>Item 3</MenuItem>
-            </Menu>
-          </Box>
-          <Box>
-            <Button
-              aria-controls={open ? 'simple-menu' : undefined}
-              aria-haspopup='true'
-              onClick={handleClick}
-            >
-              Dropdown
-            </Button>
-            <Menu
-              id='simple-menu'
-              anchorEl={anchorEl}
-              open={open}
-              onClose={handleClose}
-              MenuListProps={{
-                'aria-labelledby': 'basic-button',
-              }}
-            >
-              <MenuItem onClick={handleClose}>Item 1</MenuItem>
-              <MenuItem onClick={handleClose}>Item 2</MenuItem>
-              <MenuItem onClick={handleClose}>Item 3</MenuItem>
-            </Menu>
-          </Box>
-          <Box>
-            <Button
-              aria-controls={open ? 'simple-menu' : undefined}
-              aria-haspopup='true'
-              onClick={handleClick}
-            >
-              Dropdown
-            </Button>
-            <Menu
-              id='simple-menu'
-              anchorEl={anchorEl}
-              open={open}
-              onClose={handleClose}
-              MenuListProps={{
-                'aria-labelledby': 'basic-button',
-              }}
-            >
-              <MenuItem onClick={handleClose}>Item 1</MenuItem>
-              <MenuItem onClick={handleClose}>Item 2</MenuItem>
-              <MenuItem onClick={handleClose}>Item 3</MenuItem>
-            </Menu>
-          </Box>
-          <Box>
-            <Button
-              aria-controls={open ? 'simple-menu' : undefined}
-              aria-haspopup='true'
-              onClick={handleClick}
-            >
-              Dropdown
-            </Button>
-            <Menu
-              id='simple-menu'
-              anchorEl={anchorEl}
-              open={open}
-              onClose={handleClose}
-              MenuListProps={{
-                'aria-labelledby': 'basic-button',
-              }}
-            >
-              <MenuItem onClick={handleClose}>Item 1</MenuItem>
-              <MenuItem onClick={handleClose}>Item 2</MenuItem>
-              <MenuItem onClick={handleClose}>Item 3</MenuItem>
-            </Menu>
-          </Box>
-          <Box>
-            <Button
-              aria-controls={open ? 'simple-menu' : undefined}
-              aria-haspopup='true'
-              onClick={handleClick}
-            >
-              Dropdown
-            </Button>
-            <Menu
-              id='simple-menu'
-              anchorEl={anchorEl}
-              open={open}
-              onClose={handleClose}
-              MenuListProps={{
-                'aria-labelledby': 'basic-button',
-              }}
-            >
-              <MenuItem onClick={handleClose}>Item 1</MenuItem>
-              <MenuItem onClick={handleClose}>Item 2</MenuItem>
-              <MenuItem onClick={handleClose}>Item 3</MenuItem>
-            </Menu>
-          </Box>
-          <Box>
-            <Button
-              aria-controls={open ? 'simple-menu' : undefined}
-              aria-haspopup='true'
-              onClick={handleClick}
-            >
-              Dropdown
-            </Button>
-            <Menu
-              id='simple-menu'
-              anchorEl={anchorEl}
-              open={open}
-              onClose={handleClose}
-              MenuListProps={{
-                'aria-labelledby': 'basic-button',
-              }}
-            >
-              <MenuItem onClick={handleClose}>Item 1</MenuItem>
-              <MenuItem onClick={handleClose}>Item 2</MenuItem>
-              <MenuItem onClick={handleClose}>Item 3</MenuItem>
-            </Menu>
-          </Box>
-          <Box>
-            <Button
-              aria-controls={open ? 'simple-menu' : undefined}
-              aria-haspopup='true'
-              onClick={handleClick}
-            >
-              Dropdown
-            </Button>
-            <Menu
-              id='simple-menu'
-              anchorEl={anchorEl}
-              open={open}
-              onClose={handleClose}
-              MenuListProps={{
-                'aria-labelledby': 'basic-button',
-              }}
-            >
-              <MenuItem onClick={handleClose}>Item 1</MenuItem>
-              <MenuItem onClick={handleClose}>Item 2</MenuItem>
-              <MenuItem onClick={handleClose}>Item 3</MenuItem>
-            </Menu>
+            {categories?.map((category) => (
+              <Button
+                key={category}
+                sx={{
+                  textTransform: 'capitalize',
+                  color: 'black',
+                  fontWeight: '600',
+                }}
+                >
+                {category.name}
+                </Button>
+))}
+             {/* <Button
+            //   aria-controls={open ? 'simple-menu' : undefined}
+            //   aria-haspopup='true'
+            //   onClick={handleClick}
+            // >
+            //   Dropdown
+            // </Button>
+            // <Menu
+            //   id='simple-menu'
+            //   anchorEl={anchorEl}
+            //   open={open}
+            //   onClose={handleClose}
+            //   MenuListProps={{
+            //     'aria-labelledby': 'basic-button',
+            //   }}
+            // >
+            //   <MenuItem onClick={handleClose}>Item 1</MenuItem>
+            //   <MenuItem onClick={handleClose}>Item 2</MenuItem>
+            //   <MenuItem onClick={handleClose}>Item 3</MenuItem>
+            // </Menu> */}
           </Box>
         </Flex>
       </Container>

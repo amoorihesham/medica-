@@ -1,0 +1,13 @@
+.option {
+    display: flex; 
+    align-items: center;
+     justify-content: space-between;
+    padding: 0.5rem;
+    cursor: pointer; 
+    color: black;
+
+    background-color: tomato !important;
+}
+.option span{
+  font-weight: 700;
+}
