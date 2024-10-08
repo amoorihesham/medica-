@@ -1,4 +1,4 @@
-import { Container, Box } from '@mui/material';
+import { Container, Box, Pagination } from '@mui/material';
 import { ProductList } from '@/sections';
 import { RedLine } from '@/components';
 import { getProduct } from '@/utils/productFunc';
@@ -15,6 +15,9 @@ const Products = async () => {
             title='All Products'
             productList={topProductsList}
           />
+          <Box sx={{ display: 'flex', justifyContent: 'center', marginBlock: '2rem' }}>
+            <Pagination count={10} />
+          </Box>
         </StateProvider>
       </Container>
     </Box>
