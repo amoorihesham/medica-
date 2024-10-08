@@ -10,7 +10,7 @@ const ProductCard = ({ product }) => {
   return (
     <Box
       component='div'
-      className=' bg-white  border border-gray-100 relative rounded-md pb-2 shadow-md hover:scale-105 transition-all duration-500'>
+      className={` bg-white  border border-gray-100 relative rounded-md pb-2 shadow-md ${product?.in_stock &&`hover:scale-105`} transition-all duration-500`}>
       <Typography
         component='p'
         className={`absolute ${
@@ -21,14 +21,22 @@ const ProductCard = ({ product }) => {
       <Box
         component='div'
         className='card-heading flex justify-between pt-2 px-2'>
-        <Link href={`/products/${product?.id}`}>
+          {product?.in_stock ?   <Link href={`/products/${product?.id}`}>
           <Image
             src={product?.image}
             width={200}
             height={200}
             alt='product image'
           />
-        </Link>
+        </Link>:
+          <Image
+            src={product?.image}
+            width={200}
+            height={200}
+            alt='product image'
+          />
+       }
+     
         <Box>
           <FavoriteBorderOutlined sx={{ color: '#164B60' }} />
         </Box>

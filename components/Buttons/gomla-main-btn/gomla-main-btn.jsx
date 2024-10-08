@@ -34,8 +34,8 @@ export default function GomlaMainBtn({ gomla,drug }) {
           alignItems: 'center',
           justifyContent: 'center',
           backgroundImage: `url(${gomla?.image})`,
-          background: 'no-repeat center cover',
-          backgroundSize: '100% 100%',
+          backgroundSize: 'contain',
+          backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
           fontSize: '48px',
         }}
@@ -57,8 +57,9 @@ export default function GomlaMainBtn({ gomla,drug }) {
           alignItems: 'center',
           justifyContent: 'center',
           backgroundImage: `url(${gomla?.image})`,
-          background: 'no-repeat center cover',
-          backgroundSize: 'content',
+          backgroundSize: 'contain',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
           fontSize: '48px',
         }}
       >

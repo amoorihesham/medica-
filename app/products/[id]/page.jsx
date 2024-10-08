@@ -7,6 +7,9 @@ import { ProductList } from '@/sections';
 import { SeeMoreBtn } from '@/components';
 import { colors } from '@/styles';
 import productImage from '@/assets/product/OIP.png';
+import StateProvider from '@/components/Provider';
+import { getProduct, getSingleProduct } from '@/utils/productFunc';
+import Selector from '@/components/select/Selector';
 
 const productsList = [
   {
@@ -46,9 +49,12 @@ const productsList = [
   },
 ];
 
-const Product = ({ params }) => {
+const Product = async ({ params }) => {
   const cookiesStore = cookies();
   const user = null // JSON.parse(cookiesStore.get('user')?.value) || null;
+//const productsList = await getProduct({allItems:1})
+const product = await getSingleProduct({id:params.id,allItems:1})
+ console.log("product",product);
   return (
     <Box>
       <Container
@@ -64,7 +70,7 @@ const Product = ({ params }) => {
             className='flex  flex-grow '
           >
             <Image
-              src={productImage}
+              src={product?.image}
               alt='Product'
               width={350}
               height={519}
@@ -76,12 +82,13 @@ const Product = ({ params }) => {
             component='div'
             className='flex-grow'
           >
+            <Selector vendors={product?.vendors}/>
             <Typography
               variant='h2'
               component='h1'
               sx={{ fontSize: '30px', fontWeight: '700' }}
             >
-              Panadol Extra 24 Tablets
+              {product?.name}
             </Typography>
             <Typography
               variant='body2'
@@ -136,7 +143,7 @@ const Product = ({ params }) => {
                 EGP 900
               </Typography>
               <Typography sx={{ fontSize: '14px', fontWeight: '700', color: '#F48C15' }}>
-                10% Discount
+                {product?.discount}% Discount
               </Typography>
             </Box>
             <Divider sx={{ marginBlock: '2rem' }} />
@@ -172,14 +179,18 @@ const Product = ({ params }) => {
             )}
           </Box>
         </Box>
+        <StateProvider>
         <ProductList
           title='Similar To Active Ingrediants'
           productList={productsList}
         />
+        </StateProvider>
+        <StateProvider>
         <ProductList
           title='Explore More'
           productList={productsList}
         />
+        </StateProvider>
         <SeeMoreBtn url='/products' />
       </Container>
     </Box>

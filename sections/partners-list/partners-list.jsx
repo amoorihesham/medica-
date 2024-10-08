@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { setPartnersList } from '@/redux/slices/partnersSlice';
 import { PartnerCard, SectionHeading } from '@/components';
+import { Box } from '@mui/material';
 
 const PartnersList = ({ brands }) => {
   const dispatch = useDispatch();
@@ -15,7 +16,13 @@ const PartnersList = ({ brands }) => {
         title='Our Partners'
         url={'/partners'}
       />
-      <div className=' flex mt-5'>
+      <Box   sx={{overflowX: 'scroll',
+          whiteSpace: 'nowrap',
+          width: '100%',
+          display: 'flex',
+          '&::-webkit-scrollbar': {
+            display: 'none',
+          }}} className=' flex mt-5 gap-5'>
         {brands?.map((brand) => (
           <div
             className=' flex flex-col justify-center items-center'
@@ -24,7 +31,7 @@ const PartnersList = ({ brands }) => {
             <p className=' font-semibold text-[24px]'>{brand?.name}</p>
           </div>
         ))}
-      </div>
+      </Box>
     </div>
   );
 };
