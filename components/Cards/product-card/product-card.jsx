@@ -18,29 +18,37 @@ const ProductCard = ({ product }) => {
         }  px-2 py-1 text-xs text-white font-bold rounded-sm top-0 left-0`}>
         {product?.in_stock ? `${product?.discount} % Discount` : 'Out Of Stock'}
       </Typography>
+      {product?.in_stock ?   <Link href={`/products/${product?.id}`}>
       <Box
         component='div'
         className='card-heading flex justify-between pt-2 px-2'>
-          {product?.in_stock ?   <Link href={`/products/${product?.id}`}>
           <Image
             src={product?.image}
             width={200}
             height={200}
             alt='product image'
           />
-        </Link>:
-          <Image
-            src={product?.image}
-            width={200}
-            height={200}
-            alt='product image'
-          />
-       }
-     
         <Box>
           <FavoriteBorderOutlined sx={{ color: '#164B60' }} />
         </Box>
       </Box>
+      </Link>:
+      <Box
+      component='div'
+      className='card-heading flex justify-between pt-2 px-2'>
+
+        <Image
+          src={product?.image}
+          width={200}
+          height={200}
+          alt='product image'
+        />
+      <Box>
+        <FavoriteBorderOutlined sx={{ color: '#164B60' }} />
+      </Box>
+    </Box>
+       }
+      
       <Divider sx={{ marginInline: '8px' }} />
       <Box
         component='div'
