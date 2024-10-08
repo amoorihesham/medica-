@@ -55,7 +55,8 @@ const LoginForm = ({ closePopup }) => {
           className='underline flex justify-end p-0 text-sm w-fit !ml-auto text-blue-400 m-0'>
           Forget password
         </Link>
-
+      </div>
+      <div className='flex justify-center'>
         <SubmitButton text='log in' />
       </div>
     </form>

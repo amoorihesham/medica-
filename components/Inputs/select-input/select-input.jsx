@@ -1,7 +1,7 @@
-export default function CustomInput({ name, register, errors, ...rest }) {
+export default function SelectInput({ name, list, register, errors, ...rest }) {
   return (
     <div className='my-4'>
-      <input
+      <select
         className='bg-mpink outline-none rounded-lg border border-gray-300 placeholder:text-gray-400 text-sm font-thin px-3 py-3 w-full text-gray-500 '
         {...rest}
         {...register(name, {
@@ -9,8 +9,18 @@ export default function CustomInput({ name, register, errors, ...rest }) {
             value: true,
             message: 'This Field Is required.',
           },
-        })}
-      />
+        })}>
+        {list.length > 0
+          ? list.map((opt) => (
+              <option
+                className='capitalize'
+                value={opt.name}
+                key={opt.id}>
+                {opt.name}
+              </option>
+            ))
+          : null}
+      </select>
       {errors && <p className='text-red-400 px-2 text-sm font-light'>{errors[name]?.message}</p>}
     </div>
   );

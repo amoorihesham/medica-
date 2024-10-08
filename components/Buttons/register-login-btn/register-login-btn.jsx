@@ -58,10 +58,16 @@ const RegisterLoginBtn = () => {
             width: 550,
             bgcolor: 'background.paper',
             boxShadow: 24,
-            pt: 3,
+            pt: 0,
             px: 2,
-            pb: 3,
+            pb: 2,
             borderRadius: '.5rem',
+            maxHeight: '90vh',
+            overflowY: 'auto',
+            whiteSpace: 'nowrap',
+            '&::-webkit-scrollbar': {
+              display: 'none',
+            },
           }}>
           <Typography
             variant='h4'
