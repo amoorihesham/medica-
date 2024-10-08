@@ -1,7 +1,7 @@
 'use client';
 import { CategoryCard } from '@/components/Cards';
 import { Box, Container } from '@mui/material';
-
+ 
 const CategoriesList = ({ categoriesList }) => {
   return (
     <Container
