@@ -1,13 +1,12 @@
 'use client';
 import { CategoryCard } from '@/components/Cards';
 import { Box, Container } from '@mui/material';
- 
+
 const CategoriesList = ({ categoriesList }) => {
   return (
     <Container
       maxWidth='xl'
-      sx={{ marginTop: '2rem', position: 'relative' }}
-    >
+      sx={{ marginTop: '2rem', position: 'relative' }}>
       <Box
         sx={{
           overflowX: 'scroll',
@@ -17,15 +16,13 @@ const CategoriesList = ({ categoriesList }) => {
           '&::-webkit-scrollbar': {
             display: 'none',
           },
-        }}
-      >
+        }}>
         <Box
           sx={{
             display: 'flex',
             justifyContent: 'space-between',
             gap: '2rem',
-          }}
-        >
+          }}>
           {categoriesList?.map((category) => (
             <CategoryCard
               category={category}

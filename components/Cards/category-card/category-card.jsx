@@ -1,5 +1,4 @@
 import { Box, Typography } from '@mui/material';
-import Pulse from '@/assets/categories/pulse.png';
 import Image from 'next/image';
 const CategoryCard = ({ category }) => {
   return (
@@ -14,8 +13,7 @@ const CategoryCard = ({ category }) => {
             borderRadius: '7.5px',
             width: '150px',
             height: '123px',
-          }}
-        >
+          }}>
           <Image
             src={category?.image}
             width={88}
@@ -30,8 +28,7 @@ const CategoryCard = ({ category }) => {
             color: '#363839',
             textAlign: 'center',
             marginTop: '.5rem',
-          }}
-        >
+          }}>
           {category.name}
         </Typography>
       </Box>

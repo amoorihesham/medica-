@@ -26,7 +26,7 @@ export default function HotDealCard({ hotDeal }) {
           component='div'
           className='card-heading flex justify-between pt-2 px-2'>
           {user ? (
-            <Link href='/products/5'>
+            <Link href={`/products/${hotDeal.id}`}>
               <Image
                 src={hotDeal?.image}
                 alt='hot deal image'
@@ -54,7 +54,7 @@ export default function HotDealCard({ hotDeal }) {
           component='div'
           className='card-body  px-2'>
           {user ? (
-            <Link href='/products/5'>
+            <Link href={`/products/${hotDeal.id}`}>
               <Typography
                 component='h5'
                 className='text-xl text-normal uppercase '>

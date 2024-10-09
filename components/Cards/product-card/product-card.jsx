@@ -4,8 +4,6 @@ import Image from 'next/image';
 import { Box, Typography, Divider, Button } from '@mui/material';
 import { FavoriteBorderOutlined } from '@mui/icons-material';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
-
-import productImg from '@/assets/product/product.png';
 import { useSelector } from 'react-redux';
 import { useState } from 'react';
 import { AuthModal } from '@/components/Auth';
@@ -29,7 +27,7 @@ const ProductCard = ({ product }) => {
         </Typography>
         {product?.in_stock ? (
           user ? (
-            <Link href={`/products/${product?.id}`}>
+            <Link href={`products/${product?.id}`}>
               <Box
                 component='div'
                 className='card-heading flex justify-between pt-2 px-2'>
@@ -81,7 +79,7 @@ const ProductCard = ({ product }) => {
           component='div'
           className='card-body  px-2'>
           {user ? (
-            <Link href='/products/5'>
+            <Link href={`/products/${product.id}`}>
               <Typography
                 component='h5'
                 className='text-xl text-normal uppercase mt-4 '>

@@ -13,44 +13,6 @@ import { getProduct, getSingleProduct } from '@/utils/productFunc';
 import Selector from '@/components/select/Selector';
 import { useEffect, useState } from 'react';
 
-const productsList = [
-  {
-    id: 1,
-    title: 'Paracetamole',
-    description: 'lorem ipsum dolor sit ',
-    price: 50,
-    discount: { hasDiscount: true, value: '70' },
-  },
-  {
-    id: 2,
-    title: 'Paracetamole',
-    description: 'lorem ipsum dolor sit ',
-    price: 50,
-    discount: { hasDiscount: true, value: '70' },
-  },
-  {
-    id: 3,
-    title: 'Paracetamole',
-    description: 'lorem ipsum dolor sit ',
-    price: 50,
-    discount: { hasDiscount: true, value: '70' },
-  },
-  {
-    id: 4,
-    title: 'Paracetamole',
-    description: 'lorem ipsum dolor sit ',
-    price: 50,
-    discount: { hasDiscount: true, value: '70' },
-  },
-  {
-    id: 5,
-    title: 'Paracetamole',
-    description: 'lorem ipsum dolor sit ',
-    price: 50,
-    discount: { hasDiscount: false, value: '70' },
-  },
-];
-
 const Product = ({ params }) => {
   const [select, setSelect] = useState(null);
   const [product, setproduct] = useState(null);

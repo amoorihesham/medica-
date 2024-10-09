@@ -1,10 +1,19 @@
-import Image from 'next/image';
-import img from '@/assets/sponsor/1.png';
 import { Box } from '@mui/material';
 
-const PartnerCard = ({img}) => {
+const PartnerCard = ({ img }) => {
   return (
-    <Box sx={{ display: 'flex', justifyContent: 'center',backgroundColor: '#C6C3C3',backgroundImage: `url(${img})`, backgroundSize: 'contain',backgroundPosition: 'center', width: '200px', borderRadius: '100000px',height: '200px' }}>
+    <Box
+      sx={{
+        display: 'flex',
+        justifyContent: 'center',
+        backgroundColor: '#C6C3C3',
+        backgroundImage: `url(${img})`,
+        backgroundSize: 'contain',
+        backgroundPosition: 'center',
+        width: '200px',
+        borderRadius: '100000px',
+        height: '200px',
+      }}>
       {/* <Image
         src={img}
         width={100}
