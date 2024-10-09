@@ -23,7 +23,7 @@ const Selector = ({vendors,select,press}) => {
   <div onClick={() => {
     press(vendor)
     setOpen(false)
-  }} key={vendor.vendor_id} className=" flex justify-between items-center px-2 border-b-2 h-[47px] rounded-lg hover:cursor-pointer hover:bg-[#e0dada] hover:scale-105 transition-all duration-500 "> <span className='text-gray-500' >Code:{vendor?.code}</span> <span className=' text-blue-800 font-medium' >{vendor?.price}EGP</span>  <span className=" bg-[#4EBD2D] text-sm text-white p-1 rounded">{vendor?.discound}% discount</span> </div>
+  }} key={vendor.vendor_id} className=" flex justify-between items-center px-2 border-b-2 h-[47px] rounded-lg hover:cursor-pointer hover:bg-[#e0dada] hover:scale-105 transition-all duration-500 "> <span className='text-gray-500' >Code:{vendor?.code}</span> <span className=' text-blue-800 font-medium' >{vendor?.price}EGP</span>  <span className=" bg-[#4EBD2D] text-sm text-white p-1 rounded">{vendor?.discount}% discount</span> </div>
   )) }
  
   
