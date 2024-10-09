@@ -14,7 +14,7 @@ export default function DetailsPage() {
       maxWidth='xl'
       sx={{ marginTop: '1.5rem' }}>
       <div className='flex items-center justify-between'>
-        <Typography variant='h4'>Profile Details</Typography>
+        <p className='text-lg'>Profile Details</p>
         <button
           className=' hover:bg-gray-50 cursor-pointer py-2 px-3'
           onClick={() => setEditable(!editable)}>
@@ -137,11 +137,7 @@ export default function DetailsPage() {
             </div>
           </div>
         </div>
-        <Typography
-          variant='h4'
-          className='mt-10'>
-          Shipping Details
-        </Typography>
+        <p className='mt-10 text-lg'>Shipping Details</p>
         <div className=' p-4 max-w-3xl mt-5 rounded-md'>
           <div className='flex items-center gap-5 mb-5'>
             <div className='w-1/2'>
