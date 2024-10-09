@@ -63,18 +63,18 @@ useEffect(() => {
     const product = await getSingleProduct({id:params.id,allItems:1})
     console.log(product);
     setproduct(product)
-    setSelect(product.vendors[0]?.vendor_id)
+    setSelect(product.vendors[0])
     setVendor(product.vendors[0])
-    const products = await getProduct({vendor_id:product.vendors[0].vendor_id})
+    const products = await getProduct({vendor_id:product.vendors[0]?.vendor_id})
   setproductsList(products)
  } 
 fetData()
 },[])
-console.log(productsList);
-const press = async(id) => {
-  setVendor(product.vendors.find(vendor => vendor.vendor_id == id))
-  setSelect(id)
-  const products = await getProduct({vendor_id:1})
+const press = async(obj) => {
+  console.log("obj",obj);
+  setVendor(obj)
+  setSelect(obj)
+  const products = await getProduct({vendor_id:obj?.vendor_id})
   setproductsList(products)
 }
   return (
@@ -104,13 +104,13 @@ const press = async(id) => {
             component='div'
             className='flex-grow pr-20'
           >
-            <Selector vendors={product?.vendors} press={press} select={select} setSelect={setSelect}/>
+            <Selector vendors={product?.vendors} press={press} select={select} />
             <Typography
               variant='h2'
               component='h1'
               sx={{ fontSize: '30px', fontWeight: '700' }}
             >
-              {vendor?.name}
+              {product?.name}
             </Typography>
             <Typography
               variant='body2'
@@ -203,7 +203,7 @@ const press = async(id) => {
         </Box>
         <StateProvider>
         <ProductList
-          title='Similar To Active Ingrediants'
+          title='Similar From Same Vendor'
           productList={productsList}
         />
         </StateProvider>

@@ -3,6 +3,7 @@ import { CssBaseline } from '@mui/material';
 import { Footer, Header, CategoriesNavbar } from '@/components';
 import StateProvider from '@/components/Provider';
 import { getCategory } from '@/utils/categoryFunc';
+import { getSubCategory } from '@/utils/sub-categoryFunc';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './globals.css';
@@ -18,6 +19,7 @@ export const metadata = {
 
 export default async function RootLayout({ children }) {
   let categories = await getCategory();
+  let subCategory = await getSubCategory();
   return (
     <html
       lang='en'
@@ -33,7 +35,10 @@ export default async function RootLayout({ children }) {
         />
         <StateProvider>
           <Header />
-          <CategoriesNavbar categories={categories} />
+          <CategoriesNavbar
+            categories={categories}
+            subCategories={subCategory}
+          />
         </StateProvider>
 
         {children}

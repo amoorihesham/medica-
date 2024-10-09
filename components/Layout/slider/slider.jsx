@@ -22,7 +22,7 @@ const Slider = ({ banners }) => {
               alt='Banner'
               width={1381}
               height={361}
-              style={{ borderRadius:24 } }
+              style={{ borderRadius:24 , margin: 'auto' } }
             />
           </div>
         ))}
