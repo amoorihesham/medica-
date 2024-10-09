@@ -61,6 +61,7 @@ console.log(subCategories);
                 }}
                     aria-controls={open ? 'simple-menu' : undefined}
               aria-haspopup='true'
+             // onMouseEnter={(event)=>handleClick({event,category})}
              onClick={(event)=>handleClick({event,category})}
                 >
                 {category.name}

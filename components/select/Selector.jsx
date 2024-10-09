@@ -13,8 +13,8 @@ const Selector = ({vendors,select,press}) => {
     //   {vendors?.map((vendor,index) => 
     //   <option className={Style.option} key={vendor.vendor_id} value={vendor.vendor_id}> <span className="text-sm text-gray-800 mr-3">code : {vendor.code}</span>{" "}<span>price : {vendor.price}</span>{" "}<span>discount : {vendor.discount}</span> </option>)}
     // </select>
-    <div className="relative" >
-    <div onClick={() => setOpen(!open)} className=" flex justify-between hover:cursor-pointer border-b-2 border-gray-400 placeholder:text-gray-400 text-sm font-thin mb-2 py-3 w-full text-gray-500 " >
+    <div className="relative"  >
+    <div onBlur={() => setOpen(false)} onClick={() => setOpen(!open)} className=" flex justify-between hover:cursor-pointer border-b-2 border-gray-400 placeholder:text-gray-400 text-sm font-thin mb-2 py-3 w-full text-gray-500 " >
     <div className=" flex justify-between items-center px-2 w-full  rounded-lg transition-all duration-500 "> <span className='text-gray-500' >Code:{select?.code}</span> <span className=' text-blue-800' >{select?.price}EGP</span>  <span className=" bg-[#4EBD2D] text-sm text-white p-1 rounded">{select?.discount}% discount</span> </div>
 {open?<KeyboardArrowUpIcon color="black" />: <KeyboardArrowDownIcon color="black"/>}
     </div>
