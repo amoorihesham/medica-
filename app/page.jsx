@@ -15,8 +15,8 @@ export default async function Home() {
   const topProductsList = await getProduct({ topProducts: 1 });
   const categoriesList = await getCategory();
   const brandsList = await getBrand();
-  const gomla = await getGomla();
-  const drug = await getDrug();
+  // const gomla = await getGomla();
+  // const drug = await getDrug();
   const banners = await getBanners();
 
   return (
@@ -27,10 +27,7 @@ export default async function Home() {
         <Slider banners={banners} />
         <CategoriesList categoriesList={categoriesList} />
         <Container maxWidth='xl'>
-          <GomlaMainBtn
-            gomla={gomla}
-            drug={drug}
-          />
+          <GomlaMainBtn />
         </Container>
         <HotDealsList
           hotDeals={hotDealsList}

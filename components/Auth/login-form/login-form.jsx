@@ -19,14 +19,12 @@ const LoginForm = ({ closePopup }) => {
     mode: 'onBlur',
   });
   const onSubmit = async (formData) => {
-    console.log(formData);
     try {
       const { data } = await axios.post('https://ai.w-manage.org/api/login', formData);
       localStorage.setItem('user', JSON.stringify(data.data));
       dispatch(setUser(data.data));
       closePopup();
     } catch (error) {
-      console.log(error);
       setError(error.response.data.data[0]);
     }
   };

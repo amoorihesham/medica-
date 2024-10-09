@@ -19,7 +19,8 @@ export const metadata = {
 
 export default async function RootLayout({ children }) {
   let categories = await getCategory();
-  let subCategory = await getSubCategory();
+  // let subCategory = await getSubCategory();
+  // console.log(subCategory);
   return (
     <html
       lang='en'
@@ -37,7 +38,7 @@ export default async function RootLayout({ children }) {
           <Header />
           <CategoriesNavbar
             categories={categories}
-            subCategories={subCategory}
+            // subCategories={subCategory}
           />
         </StateProvider>
 

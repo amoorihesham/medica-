@@ -30,7 +30,6 @@ const SignupForm = () => {
     func();
   }, []);
   const onSubmit = async (formData) => {
-    console.log(formData);
     try {
       const { data } = await axios.post('https://ai.w-manage.org/api/register', formData);
       toast.success('Registration successfully');
