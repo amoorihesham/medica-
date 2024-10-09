@@ -3,7 +3,7 @@ import { colors } from '@/styles';
 import { Box, Button } from '@mui/material';
 import Link from 'next/link';
 
-export default function GomlaMainBtn({ gomla,drug }) {
+export default function GomlaMainBtn({ gomla, drug }) {
   return (
     <Box
       sx={{
@@ -17,11 +17,10 @@ export default function GomlaMainBtn({ gomla,drug }) {
         },
         rowGap: '1rem',
         columnGap: '1rem',
-      }}
-    >
+      }}>
       <Button
         type='link'
-        href='/gomla'
+        href='/products'
         sx={{
           backgroundColor: colors.red,
           padding: '1rem 2rem',
@@ -38,8 +37,7 @@ export default function GomlaMainBtn({ gomla,drug }) {
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
           fontSize: '48px',
-        }}
-      >
+        }}>
         Drug store
       </Button>
       <Button
@@ -61,8 +59,7 @@ export default function GomlaMainBtn({ gomla,drug }) {
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
           fontSize: '48px',
-        }}
-      >
+        }}>
         Gomla now
       </Button>
     </Box>

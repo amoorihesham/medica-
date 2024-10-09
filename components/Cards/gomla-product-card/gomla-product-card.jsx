@@ -4,7 +4,7 @@ import { Box, Button, Divider, Typography } from '@mui/material';
 import { FavoriteBorderOutlined, ShoppingCartOutlined } from '@mui/icons-material';
 import productImg from '@/assets/product/OIP.png';
 
-export default function GomlaProductCard() {
+export default function GomlaProductCard({ product }) {
   return (
     <Box
       component='div'
@@ -12,7 +12,7 @@ export default function GomlaProductCard() {
       <Box
         component='div'
         className='card-heading flex justify-between pt-2 px-2'>
-        <Link href={`gomla/product/5`}>
+        <Link href={`/gomla/${product.id}`}>
           <Image
             src={productImg}
             alt='asdadad'
@@ -28,11 +28,11 @@ export default function GomlaProductCard() {
       <Box
         component='div'
         className='card-body  px-2'>
-        <Link href='gomla/product/5'>
+        <Link href={`/gomla/${product.id}`}>
           <Typography
             component='h5'
             className='text-xl uppercase '>
-            Title
+            {product.title}
           </Typography>
         </Link>
         <Box
