@@ -1,21 +1,20 @@
 'use client';
+import { getSubCategory } from '@/utils/sub-categoryFunc';
 import { Box, Container, MenuItem, Button, Menu, GlobalStyles } from '@mui/material';
 import { Flex } from 'antd';
 import { useState } from 'react';
 
-const CategoriesNavbar = ({ categories, subCategories }) => {
+const CategoriesNavbar = ({ categories }) => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [subCategory, setSubCategory] = useState(null);
   const open = Boolean(anchorEl);
 
-  const handleClick = ({ event, category }) => {
+  const handleClick = async ({ event, category }) => {
     setAnchorEl(event.currentTarget);
     const { id } = category;
-
-    let subCategoryForThisCategory = subCategories?.filter(
-      (subCategory) => subCategory?.category_id == id
-    );
-    setSubCategory(subCategoryForThisCategory);
+    const subcategories = await getSubCategory();
+    const selected = subcategories.filter((subCate) => subCate.category.id == id);
+    setSubCategory(selected);
   };
 
   const handleClose = () => {
@@ -74,7 +73,7 @@ const CategoriesNavbar = ({ categories, subCategories }) => {
                   MenuListProps={{
                     'aria-labelledby': 'basic-button',
                   }}>
-                  {/* {subCategory?.length ? (
+                  {subCategory?.length ? (
                     subCategory?.map((subCategory) => (
                       <MenuItem
                         key={subCategory.id}
@@ -84,7 +83,7 @@ const CategoriesNavbar = ({ categories, subCategories }) => {
                     ))
                   ) : (
                     <MenuItem onClick={handleClose}>No Found Sub Category</MenuItem>
-                  )} */}
+                  )}
                 </Menu>
               </div>
             ))}

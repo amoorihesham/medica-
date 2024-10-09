@@ -18,9 +18,8 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children }) {
-  let categories = await getCategory();
-  // let subCategory = await getSubCategory();
-  // console.log(subCategory);
+  const categories = await getCategory();
+
   return (
     <html
       lang='en'
@@ -36,10 +35,7 @@ export default async function RootLayout({ children }) {
         />
         <StateProvider>
           <Header />
-          <CategoriesNavbar
-            categories={categories}
-            // subCategories={subCategory}
-          />
+          <CategoriesNavbar categories={categories} />
         </StateProvider>
 
         {children}

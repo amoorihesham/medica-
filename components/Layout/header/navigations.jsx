@@ -25,6 +25,7 @@ import { RegisterLoginBtn } from '@/components';
 import logo from '@/assets/branding/logo.png';
 import { useDispatch, useSelector } from 'react-redux';
 import { setUser } from '@/redux/slices/authSlice';
+import { LanguagePopup } from '@/components/Popups';
 
 const styles = {
   link: {
@@ -66,6 +67,7 @@ export default function Navigations() {
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth);
   const [open, setOpen] = useState(false);
+  const [openLang, setOpenLang] = useState(false);
 
   useEffect(() => {
     if (localStorage.getItem('user') != null) {
@@ -117,86 +119,70 @@ export default function Navigations() {
             }}>
             <AddOutlined />
           </IconButton>
-          <List
-            sx={{
-              display: {
-                xs: 'none',
-                lg: 'flex',
-              },
-              padding: '0',
-              justifyContent: {
-                lg: 'end',
-              },
-              flexGrow: '1',
-              alignItems: 'center',
-            }}>
+          <ul className='hidden xl:flex items-center p-0 m-0 gap-5'>
             {user ? (
               <>
-                <ListItem sx={styles.listitem}>
+                <li>
                   <Link
                     href='/'
-                    className='hover:text-white'
-                    style={styles.link}>
+                    className='hover:text-white flex items-center gap-1 py-1 px-3'>
                     <HomeOutlined /> Home
                   </Link>
-                </ListItem>
-                <ListItem sx={styles.listitem}>
+                </li>
+                <li>
                   <Link
-                    style={styles.link}
-                    href='/cart'
-                    className='hover:text-white'>
+                    className='hover:text-white flex items-center gap-1 py-1 px-3'
+                    href='/cart'>
                     <ShoppingCartOutlined />
                     My Cart
                   </Link>
-                </ListItem>
-                <ListItem sx={styles.listitem}>
+                </li>
+                <li>
                   <Link
-                    style={styles.link}
-                    href='/orders'
-                    className='hover:text-white '>
+                    className='hover:text-white flex items-center gap-1 py-1 px-3'
+                    href='/orders'>
                     <AssignmentOutlined />
                     My Orders
                   </Link>
-                </ListItem>
-                <ListItem sx={styles.listitem}>
+                </li>
+                <li>
                   <Link
-                    style={styles.bulkbutton}
                     href='/gomla'
-                    className='hover:text-white '>
+                    className='hover:text-white flex items-center gap-1 py-1 px-3 bg-green-500'>
                     <AddOutlined />
                     Bulk Request
                   </Link>
-                </ListItem>
-                <ListItem sx={styles.listitem}>
-                  <Button
-                    sx={styles.link}
-                    className='text-white capitalize'>
+                </li>
+                <li>
+                  <button
+                    className='hover:text-white flex items-center gap-1 py-1 px-3'
+                    onClick={() => setOpenLang(true)}>
                     <LanguageOutlined />
                     Language
-                  </Button>
-                </ListItem>
-                <ListItem sx={styles.listitem}>
+                  </button>
+                </li>
+                <li>
                   <Link
-                    style={styles.link}
+                    className='hover:text-white flex items-center gap-1 py-1 px-3'
                     href='/profile'>
                     <PersonOutlined /> Hi, {user.user.name}
                   </Link>
-                </ListItem>
+                </li>
               </>
             ) : (
               <>
-                <ListItem
-                  sx={{ padding: '0 2rem 0 0', width: 'fit-content', justifyContent: 'end' }}>
-                  <Button
-                    startIcon={<LanguageOutlined />}
-                    sx={{ padding: '0', color: 'white' }}>
+                <li>
+                  <button
+                    className='hover:text-white flex items-center gap-1 py-1 px-3'
+                    onClick={() => setOpenLang(true)}>
+                    <LanguageOutlined />
                     Language
-                  </Button>
-                </ListItem>
+                  </button>
+                </li>
                 <RegisterLoginBtn />
               </>
             )}
-          </List>
+          </ul>
         </Toolbar>
       </AppBar>
 
@@ -212,67 +198,76 @@ export default function Navigations() {
             padding: '1rem', // Add padding
           },
         }}>
-        <List>
+        <ul className='flex flex-col gap-2'>
           {user ? (
             <>
-              <ListItem className='hover:bg-gray-100 hover:text-black'>
+              <li className='hover:bg-mBlue hover:text-white transition-colors duration-300 rounded-md'>
                 <Link
                   href='/'
-                  style={styles.link}>
+                  className='hover:text-white flex items-center gap-1 py-2 px-3'>
                   <HomeOutlined /> Home
                 </Link>
-              </ListItem>
-              <ListItem className='hover:bg-gray-100 hover:text-black'>
+              </li>
+              <li className='hover:bg-mBlue hover:text-white transition-colors duration-300 rounded-md'>
                 <Link
                   href='/cart'
-                  style={styles.link}>
+                  className='flex items-center gap-1 py-2 px-3'>
                   <ShoppingCartOutlined />
                   My Cart
                 </Link>
-              </ListItem>
-              <ListItem className='hover:bg-gray-100 hover:text-black'>
+              </li>
+              <li className='hover:bg-mBlue hover:text-white transition-colors duration-300 rounded-md'>
                 <Link
                   href='/orders'
-                  style={styles.link}>
+                  className='flex items-center gap-1 py-2 px-3'>
                   <AssignmentOutlined />
                   My Orders
                 </Link>
-              </ListItem>
-              <ListItem className='hover:bg-green-200 hover:text-black bg-green-300'>
+              </li>
+              <li className='hover:bg-green-200 hover:text-black bg-green-300'>
                 <Link
                   href='/gomla'
-                  style={styles.link}>
+                  className='flex items-center gap-1 py-2 px-3'>
                   <AddOutlined />
                   Bulk Request
                 </Link>
-              </ListItem>
-              <ListItem className='hover:bg-gray-100 hover:text-black '>
-                <Button sx={styles.language}>
+              </li>
+              <li className='hover:bg-mBlue hover:text-white transition-colors duration-300 rounded-md'>
+                <button
+                  className='flex items-center gap-1 py-2 px-3'
+                  onClick={() => setOpenLang(true)}>
                   <LanguageOutlined />
                   Language
-                </Button>
-              </ListItem>
-              <ListItem className='hover:bg-gray-100 hover:text-black'>
+                </button>
+              </li>
+              <li className='hover:bg-mBlue hover:text-white transition-colors duration-300 rounded-md'>
                 <Link
                   href='/profile'
-                  style={styles.link}>
+                  className='flex items-center gap-1 py-2 px-3'>
                   <PersonOutlined /> Hi, {user.user.name}
                 </Link>
-              </ListItem>
+              </li>
             </>
           ) : (
             <>
-              <ListItem className='hover:bg-gray-100 hover:text-black '>
-                <Button sx={styles.language}>
+              <li className='hover:bg-mBlue hover:text-white transition-colors duration-300 rounded-md'>
+                <button
+                  className='flex items-center gap-1 py-2 px-3'
+                  onClick={() => setOpenLang(true)}>
                   <LanguageOutlined />
                   Language
-                </Button>
-              </ListItem>
+                </button>
+              </li>
+
               <RegisterLoginBtn />
             </>
           )}
-        </List>
+        </ul>
       </Drawer>
+      <LanguagePopup
+        open={openLang}
+        setOpen={setOpenLang}
+      />
     </>
   );
 }
