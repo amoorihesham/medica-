@@ -7,11 +7,12 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
 
 const SignupForm = () => {
   const [error, setError] = useState(null);
   const [govs, setGovs] = useState([]);
-  const dispatch = useDispatch();
+
   const {
     register,
     handleSubmit,
@@ -31,21 +32,17 @@ const SignupForm = () => {
   const onSubmit = async (formData) => {
     console.log(formData);
     try {
-      const { data } = await axios.post('https://ai.w-manage.org/api/register', {
-        ...formData,
-        governorate: 'alex',
-        area: 'alex',
-      });
-
-      dispatch(setUser(data.data));
+      const { data } = await axios.post('https://ai.w-manage.org/api/register', formData);
+      toast.success('Registration successfully');
+      setError('');
     } catch (error) {
       setError(error.response.data.data[0]);
     }
   };
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      {error && <p className='text-md font-light text-red-500'>{error}</p>}
-      <div className='w-80'>
+      {error && <p className='text-md font-light text-red-500 text-center'>{error}</p>}
+      <div className='w-80 mx-auto'>
         <CustomInput
           name='name'
           register={register}
@@ -59,13 +56,6 @@ const SignupForm = () => {
           errors={errors}
           placeholder='Phone number'
           type='text'
-        />
-        <CustomInput
-          name='password'
-          register={register}
-          errors={errors}
-          placeholder='Password'
-          type='password'
         />
         <CustomInput
           name='password'
@@ -109,8 +99,6 @@ const SignupForm = () => {
           errors={errors}
           text='I agree with Privacy Policy and Terms and Conditions'
         />
-      </div>
-      <div className='flex justify-center'>
         <SubmitButton text='sign up' />
       </div>
     </form>

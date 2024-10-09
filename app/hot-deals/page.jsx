@@ -12,7 +12,10 @@ export default async function HotDealsPage() {
       <ScrollUp />
 
       <StateProvider>
-        <HotDealsList hotDeals={hotDealsList} />
+        <HotDealsList
+          hotDeals={hotDealsList}
+          title='Hot Deals'
+        />
         <Box sx={{ display: 'flex', justifyContent: 'center', marginBlock: '2rem' }}>
           <Pagination count={10} />
         </Box>
