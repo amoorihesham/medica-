@@ -2,10 +2,10 @@ import { Lato } from 'next/font/google';
 import { CssBaseline } from '@mui/material';
 import { Footer, Header, CategoriesNavbar } from '@/components';
 import StateProvider from '@/components/Provider';
-import './globals.css';
 import { getCategory } from '@/utils/categoryFunc';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import './globals.css';
 
 const lato = Lato({
   subsets: ['latin'],

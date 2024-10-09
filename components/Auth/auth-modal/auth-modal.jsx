@@ -1,3 +1,4 @@
+'use client';
 import StateProvider from '@/components/Provider';
 import { Box, Button, Modal, Typography } from '@mui/material';
 import { LoginForm, SignupForm } from '..';
