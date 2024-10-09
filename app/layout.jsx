@@ -4,6 +4,8 @@ import { Footer, Header, CategoriesNavbar } from '@/components';
 import StateProvider from '@/components/Provider';
 import './globals.css';
 import { getCategory } from '@/utils/categoryFunc';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const lato = Lato({
   subsets: ['latin'],
@@ -22,6 +24,13 @@ export default async function RootLayout({ children }) {
       className={lato.className}>
       <body>
         <CssBaseline />
+        <ToastContainer
+          position='top-right'
+          autoClose={2000}
+          hideProgressBar={false}
+          pauseOnHover
+          theme='light'
+        />
         <StateProvider>
           <Header />
           <CategoriesNavbar categories={categories} />

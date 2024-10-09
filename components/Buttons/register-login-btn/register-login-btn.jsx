@@ -5,34 +5,11 @@ import { SupervisedUserCircleOutlined } from '@mui/icons-material';
 
 import { LoginForm, SignupForm } from '@/components';
 import StateProvider from '@/components/Provider';
+import { AuthModal } from '@/components/Auth';
 
 const RegisterLoginBtn = () => {
   const [open, setOpen] = useState(false);
-  const [login, setLogin] = useState(false);
-  const styles = {
-    register: {
-      bgcolor: !login ? '#164B60' : 'transparent',
-      borderColor: '#164B60',
-      width: '50%',
-      color: !login ? 'white' : 'black',
-      textTransform: 'capitalize',
-      fontWeight: '400',
-      borderRadius: '0',
-      borderTopRightRadius: '4px',
-      borderBottomRightRadius: '4px',
-    },
-    login: {
-      bgcolor: login ? '#164B60' : 'transparent',
-      borderColor: '#164B60',
-      width: '50%',
-      color: login ? 'white' : 'black',
-      textTransform: 'capitalize',
-      fontWeight: '400',
-      borderRadius: '0',
-      borderTopLeftRadius: '4px',
-      borderBottomLeftRadius: '4px',
-    },
-  };
+
   return (
     <>
       <ListItem sx={{ padding: '0 2rem 0 0', width: 'fit-content', justifyContent: 'end' }}>
@@ -44,7 +21,7 @@ const RegisterLoginBtn = () => {
           Login / Sign up
         </Button>
       </ListItem>
-      <Modal
+      {/* <Modal
         open={open}
         onClose={() => setOpen(false)}
         aria-labelledby='parent-modal-title'
@@ -100,7 +77,11 @@ const RegisterLoginBtn = () => {
             {login ? <LoginForm closePopup={setOpen} /> : <SignupForm />}
           </StateProvider>
         </Box>
-      </Modal>
+      </Modal> */}
+      <AuthModal
+        open={open}
+        setOpen={setOpen}
+      />
     </>
   );
 };
