@@ -32,7 +32,11 @@ export default async function Home() {
             drug={drug}
           />
         </Container>
-        <HotDealsList hotDeals={hotDealsList} />
+        <HotDealsList
+          hotDeals={hotDealsList}
+          title='Hot Deals'
+          url='/hot-deals'
+        />
         <PartnersList brands={brandsList} />
         <ProductList
           title='Top Products'

@@ -5,8 +5,9 @@ import { spacing } from '@/styles';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { setProductsList } from '@/redux/slices/hotDealsSlice';
+import StateProvider from '@/components/Provider';
 
-const HotDealsList = ({ hotDeals }) => {
+const HotDealsList = ({ hotDeals, title, url }) => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(setProductsList(hotDeals));
@@ -17,20 +18,21 @@ const HotDealsList = ({ hotDeals }) => {
       maxWidth='xl'
       sx={{ marginTop: spacing.sectionmargin }}>
       <SectionHeading
-        title='Hot Deals'
-        url={'/hot-deals'}
+        title={title}
+        url={url}
       />
-
-      <Box
-        component='div'
-        className='grid gird-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5'>
-        {hotDeals?.map((hotDeal) => (
-          <HotDealCard
-            key={hotDeal.id}
-            hotDeal={hotDeal}
-          />
-        ))}
-      </Box>
+      <StateProvider>
+        <Box
+          component='div'
+          className='grid gird-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5'>
+          {hotDeals?.map((hotDeal) => (
+            <HotDealCard
+              key={hotDeal.id}
+              hotDeal={hotDeal}
+            />
+          ))}
+        </Box>
+      </StateProvider>
     </Container>
   );
 };
