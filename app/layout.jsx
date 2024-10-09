@@ -4,6 +4,7 @@ import { Footer, Header, CategoriesNavbar } from '@/components';
 import StateProvider from '@/components/Provider';
 import './globals.css';
 import { getCategory } from '@/utils/categoryFunc';
+import { getSubCategory } from '@/utils/sub-categoryFunc';
 
 const lato = Lato({
   subsets: ['latin'],
@@ -16,6 +17,7 @@ export const metadata = {
 
 export default async function RootLayout({ children }) {
   let categories = await getCategory();
+  let subCategory = await getSubCategory();
   return (
     <html
       lang='en'
@@ -24,7 +26,7 @@ export default async function RootLayout({ children }) {
         <CssBaseline />
         <StateProvider>
           <Header />
-          <CategoriesNavbar categories={categories} />
+          <CategoriesNavbar categories={categories} subCategories={subCategory} />
         </StateProvider>
 
         {children}

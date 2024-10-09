@@ -3,12 +3,17 @@ import { Box, Container, MenuItem, Button, Menu, GlobalStyles } from '@mui/mater
 import { Flex } from 'antd';
 import { useState } from 'react';
 
-const CategoriesNavbar = ({categories}) => {
+const CategoriesNavbar = ({categories,subCategories}) => {
   const [anchorEl, setAnchorEl] = useState(null);
+  const [subCategory, setSubCategory] = useState(null);
   const open = Boolean(anchorEl);
-
-  const handleClick = (event) => {
+console.log(subCategories);
+  const handleClick = ({event,category}) => {
     setAnchorEl(event.currentTarget);
+    const {id} = category
+    console.log(id);
+    let subCategoryForThisCategory = subCategories?.filter((subCategory)=>subCategory?.category_id==id)
+    setSubCategory(subCategoryForThisCategory);
   };
 
   const handleClose = () => {
@@ -18,7 +23,7 @@ const CategoriesNavbar = ({categories}) => {
     <Box
       sx={{
         boxShadow: '4px 5px 10px 0px #00000038',
-        height: '62px',
+        height: '45px',
         display: 'flex',
         alignItems: 'center',
         overflow: 'auto',
@@ -35,39 +40,48 @@ const CategoriesNavbar = ({categories}) => {
           <GlobalStyles
             styles={{ '.MuiPaper-root': { boxShadow: '0px 0px 6px 0px #0000000a !important' } }}
           />
-          <Box>
+          <Box sx={{
+                  display: 'flex',
+                  overflowX: 'scroll',
+                  whiteSpace: 'nowrap',
+                  width: '100%',
+                  display: 'flex',
+                  '&::-webkit-scrollbar': {
+                    display: 'none',
+                  },
+                }}>
             {categories?.map((category) => (
+              <div key={category.id} >
               <Button
-                key={category}
+                key={category.id}
                 sx={{
                   textTransform: 'capitalize',
                   color: 'black',
                   fontWeight: '600',
                 }}
+                    aria-controls={open ? 'simple-menu' : undefined}
+              aria-haspopup='true'
+             onClick={(event)=>handleClick({event,category})}
                 >
                 {category.name}
                 </Button>
+                           <Menu
+              id='simple-menu'
+              anchorEl={anchorEl}
+              open={open}
+              onClose={handleClose}
+              MenuListProps={{
+                'aria-labelledby': 'basic-button',
+              }}
+            >
+              {subCategory?.length?
+                subCategory?.map((subCategory)=>(
+                <MenuItem key={subCategory.id} onClick={handleClose}>{subCategory.name}</MenuItem>
+                )):<MenuItem  onClick={handleClose}>No Found Sub Category</MenuItem>
+              }
+            </Menu> 
+              </div>
 ))}
-             {/* <Button
-            //   aria-controls={open ? 'simple-menu' : undefined}
-            //   aria-haspopup='true'
-            //   onClick={handleClick}
-            // >
-            //   Dropdown
-            // </Button>
-            // <Menu
-            //   id='simple-menu'
-            //   anchorEl={anchorEl}
-            //   open={open}
-            //   onClose={handleClose}
-            //   MenuListProps={{
-            //     'aria-labelledby': 'basic-button',
-            //   }}
-            // >
-            //   <MenuItem onClick={handleClose}>Item 1</MenuItem>
-            //   <MenuItem onClick={handleClose}>Item 2</MenuItem>
-            //   <MenuItem onClick={handleClose}>Item 3</MenuItem>
-            // </Menu> */}
           </Box>
         </Flex>
       </Container>
