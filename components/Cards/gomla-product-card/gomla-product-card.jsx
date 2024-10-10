@@ -12,7 +12,7 @@ export default function GomlaProductCard({ product }) {
       <Box
         component='div'
         className='card-heading flex justify-between pt-2 px-2'>
-        <Link href={`/gomla/${product.id}`}>
+        <Link href={`/gomla/1`}>
           <Image
             src={productImg}
             alt='asdadad'

@@ -2,18 +2,24 @@
 import { getSubCategory } from '@/utils/sub-categoryFunc';
 import { Box, Container, MenuItem, Button, Menu, GlobalStyles } from '@mui/material';
 import { Flex } from 'antd';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const CategoriesNavbar = ({ categories }) => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [subCategory, setSubCategory] = useState(null);
+  const [subCategories, setSubCategories] = useState(null);
   const open = Boolean(anchorEl);
-
+useEffect(() => {
+  const fetData = async () => {
+    const subcategories = await getSubCategory();
+    setSubCategories(subcategories);
+  };
+  fetData();
+},[])
   const handleClick = async ({ event, category }) => {
     setAnchorEl(event.currentTarget);
     const { id } = category;
-    const subcategories = await getSubCategory();
-    const selected = subcategories.filter((subCate) => subCate.category.id == id);
+    const selected = subCategories?.filter((subCate) => subCate.category.id == id);
     setSubCategory(selected);
   };
 
@@ -51,7 +57,7 @@ const CategoriesNavbar = ({ categories }) => {
               },
             }}>
             {categories?.map((category) => (
-              <div key={category.id}>
+              <div key={category.id}  >
                 <Button
                   key={category.id}
                   sx={{
@@ -62,7 +68,8 @@ const CategoriesNavbar = ({ categories }) => {
                   aria-controls={open ? 'simple-menu' : undefined}
                   aria-haspopup='true'
                   // onMouseEnter={(event)=>handleClick({event,category})}
-                  onClick={(event) => handleClick({ event, category })}>
+                  onClick={(event) => handleClick({ event, category })}
+                  >
                   {category.name}
                 </Button>
                 <Menu

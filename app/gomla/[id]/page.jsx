@@ -43,6 +43,9 @@ const productsList = [
     discount: { hasDiscount: false, value: '70' },
   },
 ];
+export async function generateStaticParams() {
+  return [{id:'1'}]
+}
 
 const GomlaProductDetails = () => {
   return (

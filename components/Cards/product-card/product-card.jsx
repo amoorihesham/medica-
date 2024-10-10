@@ -27,7 +27,7 @@ const ProductCard = ({ product }) => {
         </Typography>
         {product?.in_stock ? (
           user ? (
-            <Link href={`products/${product?.id}`}>
+            <Link href={`/products/${product?.id}`}>
               <Box
                 component='div'
                 className='card-heading flex justify-between pt-2 px-2'>

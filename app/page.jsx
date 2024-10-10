@@ -8,6 +8,8 @@ import { getBrand } from '@/utils/brandFunc';
 import { getDrug, getGomla } from '@/utils/adsFunc';
 import { getBanners } from '@/utils/bannersFunc';
 import ScrollUp from '@/hook/ScrollUp';
+import { Global } from '@/utils/globale';
+
 
 export default async function Home() {
   const productsList = await getProduct({ allItems: 1 });
@@ -18,7 +20,8 @@ export default async function Home() {
   // const gomla = await getGomla();
   // const drug = await getDrug();
   const banners = await getBanners();
-
+const filter = new Global([1,2,3])
+console.log("filter",filter.filterItem());
   return (
     <>
       <ScrollUp />
