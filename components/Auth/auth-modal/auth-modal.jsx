@@ -83,7 +83,9 @@ export default function AuthModal({ open, setOpen }) {
             Sign Up
           </Button>
         </Box>
-        <StateProvider>{login ? <LoginForm closePopup={setOpen} /> : <SignupForm />}</StateProvider>
+        <StateProvider>
+          {login ? <LoginForm closePopup={setOpen} /> : <SignupForm setLogin={setLogin} />}
+        </StateProvider>
       </Box>
     </Modal>
   );
