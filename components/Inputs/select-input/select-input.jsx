@@ -1,4 +1,16 @@
-export default function SelectInput({ name, list, register, errors, ...rest }) {
+'use client';
+import { useEffect, useState } from 'react';
+
+export default function SelectInput({ name, list, register, errors, watch, setValue, ...rest }) {
+  const [areas, setAreas] = useState([]);
+  const selectedGov = watch('governorate');
+  useEffect(() => {
+    if (selectedGov) {
+      const selectedGovObject = list.find((gov) => gov.name === selectedGov);
+      setAreas(selectedGovObject ? selectedGovObject.areas : []);
+      setValue('area', '');
+    }
+  }, [selectedGov, list, setValue]);
   return (
     <>
       <div className='my-4'>
@@ -11,6 +23,7 @@ export default function SelectInput({ name, list, register, errors, ...rest }) {
               message: 'This Field Is required.',
             },
           })}>
+          <option value=''>-- Select Government --</option>
           {list.length > 0
             ? list.map((opt) => (
                 <option
@@ -34,18 +47,15 @@ export default function SelectInput({ name, list, register, errors, ...rest }) {
               message: 'This Field Is required.',
             },
           })}>
-          {list?.length > 0
-            ? list.map((opt) =>
-                opt.areas.map((area) => (
-                  <option
-                    className='capitalize'
-                    value={area.name}
-                    key={area.id}>
-                    {area.name}
-                  </option>
-                ))
-              )
-            : null}
+          <option value=''>-- Select Area --</option>
+          {areas.map((area) => (
+            <option
+              className='capitalize'
+              value={area.name}
+              key={area.id}>
+              {area.name}
+            </option>
+          ))}
         </select>
         {errors && <p className='text-red-400 px-2 text-sm font-light'>{errors[name]?.message}</p>}
       </div>

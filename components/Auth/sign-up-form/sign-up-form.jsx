@@ -18,6 +18,8 @@ const SignupForm = ({ setLogin }) => {
     handleSubmit,
     formState: { errors },
     reset,
+    watch,
+    setValue,
   } = useForm({
     mode: 'all',
     defaultValues: {
@@ -110,7 +112,8 @@ const SignupForm = ({ setLogin }) => {
           name='governorate'
           register={register}
           errors={errors}
-          placeholder='Select Government'
+          watch={watch}
+          setValue={setValue}
           list={govs}
         />
 
