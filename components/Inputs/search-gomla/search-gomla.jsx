@@ -18,13 +18,12 @@ export default function SearchGomla() {
         display: 'flex',
         justifyContent: 'start',
         alignItems: 'center',
-        gap: '.5rem',
         marginBlock: '1rem',
       }}>
       <input
         type='text'
         placeholder='Search gomla products'
-        className='bg-mpink py-2 px-3 rounded-md outline-none placeholder:text-sm placeholder:text-gray-400 w-1/2'
+        className='bg-mpink py-2 border shadow px-3 rounded-md outline-none placeholder:text-sm placeholder:text-gray-400 w-1/2'
         value={term}
         onChange={(e) => setTerm(e.target.value)}
       />

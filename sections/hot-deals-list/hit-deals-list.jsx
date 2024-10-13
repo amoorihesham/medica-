@@ -24,7 +24,7 @@ const HotDealsList = ({ hotDeals, title, url }) => {
       <StateProvider>
         <Box
           component='div'
-          className='grid gird-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5'>
+          className='grid gird-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-5'>
           {hotDeals?.map((hotDeal) => (
             <HotDealCard
               key={hotDeal.id}

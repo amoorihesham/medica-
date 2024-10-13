@@ -148,9 +148,11 @@ export default function Navigations() {
                 <li>
                   <Link
                     href='/gomla'
-                    className='hover:text-white flex items-center gap-1 py-1 px-3 bg-green-500'>
-                    <AddOutlined />
+                    className='hover:text-white flex items-center gap-1 py-1 px-3 bg-[#A2FF86]'>
+                    <AddOutlined className='text-[#363839]' />
+                    <span className='text-[#363839]' >
                     Bulk Request
+                    </span>
                   </Link>
                 </li>
                 <li>

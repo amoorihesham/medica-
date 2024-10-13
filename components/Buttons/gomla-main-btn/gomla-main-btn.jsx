@@ -36,7 +36,7 @@ export default function GomlaMainBtn({ gomla, drug }) {
           backgroundSize: 'contain',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
-          fontSize: '48px',
+          fontSize: '36px',
         }}>
         Drug store
       </Button>
@@ -58,7 +58,7 @@ export default function GomlaMainBtn({ gomla, drug }) {
           backgroundSize: 'contain',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
-          fontSize: '48px',
+          fontSize: '36px',
         }}>
         Gomla now
       </Button>

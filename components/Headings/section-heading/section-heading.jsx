@@ -7,13 +7,13 @@ const SectionHeading = ({ title, url }) => {
       <Typography
         variant='h4'
         component='h1'
-        sx={{ margin: '1rem 0', color: '#164B60', fontSize: '40px', fontWeight: '600' }}>
+        sx={{ margin: '1rem 0', color: '#164B60',width: '90%', fontSize: '34px', fontWeight: '500' }}>
         {title}
       </Typography>
       {url && (
         <Link
           href={url}
-          className=' font-semibold text-header_color mr-7'>
+          className=' font-semibold text-header_color mr-1'>
           See All
         </Link>
       )}

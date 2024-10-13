@@ -15,7 +15,7 @@ const ProductCard = ({ product }) => {
     <>
       <Box
         component='div'
-        className={` bg-white  border border-gray-100 relative rounded-md pb-2 shadow-md ${
+        className={` bg-white w-[250px] border border-gray-100 relative rounded-md pb-2 shadow-md ${
           product?.in_stock && `hover:scale-105`
         } transition-all duration-500`}>
         <Typography
@@ -33,8 +33,8 @@ const ProductCard = ({ product }) => {
                 className='card-heading flex justify-between pt-2 px-2'>
                 <Image
                   src={product?.image}
-                  width={200}
-                  height={200}
+                  width={150}
+                  height={150}
                   alt='product image'
                 />
                 <Box>
@@ -49,8 +49,8 @@ const ProductCard = ({ product }) => {
               onClick={() => setOpen(true)}>
               <Image
                 src={product?.image}
-                width={200}
-                height={200}
+                width={150}
+                height={150}
                 alt='product image'
               />
               <Box>
@@ -64,8 +64,8 @@ const ProductCard = ({ product }) => {
             className='card-heading flex justify-between pt-2 px-2'>
             <Image
               src={product?.image}
-              width={200}
-              height={200}
+              width={150}
+              height={150}
               alt='product image'
             />
             <Box>
@@ -82,26 +82,26 @@ const ProductCard = ({ product }) => {
             <Link href={`/products/${product.id}`}>
               <Typography
                 component='h5'
-                className='text-xl text-normal uppercase mt-4 '>
+                className='text-xl text-normal font-semibold uppercase mt-4 '>
                 {product?.name}
               </Typography>
             </Link>
           ) : (
             <Typography
               component='h5'
-              className='text-xl text-normal uppercase mt-4 '>
+              className='text-xl text-normal font-semibold uppercase mt-4 '>
               {product?.name}
             </Typography>
           )}
           <Box
             component='div'
-            className='product-details flex justify-between items-center mt-1'>
+            className='product-details flex justify-between items-end mt-1'>
             {product?.in_stock && (
               <>
                 {user ? (
                   <Typography
                     component='p'
-                    className='font-bold text-header_color'>
+                    className='font-bold mt-10 text-header_color'>
                     Start from: {product?.start_price}EGP
                   </Typography>
                 ) : (
@@ -114,7 +114,7 @@ const ProductCard = ({ product }) => {
                 )}
                 <Button
                   variant='link'
-                  className=' hover:text-mBlue text-header_color justify-end p-0'>
+                  className=' hover:text-mBlue font-normal text-header_color justify-end p-0'>
                   <KeyboardArrowRightIcon sx={{ fontSize: '24px', padding: '0' }} />
                 </Button>
               </>

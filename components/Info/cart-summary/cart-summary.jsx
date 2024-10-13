@@ -29,7 +29,7 @@ export default function CartSummary() {
       {check.includes(location) ? null : (
         <form sx={{ display: 'flex', alignItems: 'center', width: '100%' }}>
           <input
-            className='bg-mpink rounded-l-md py-3 px-2 w-2/3 outline-none'
+            className='bg-mpink rounded-l-md border py-3 px-2 w-2/3 outline-none'
             placeholder='Coupon Code'
           />
           <button className='bg-mBlue text-white rounded-r-md py-3 w-1/3'>Add</button>

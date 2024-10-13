@@ -20,7 +20,7 @@ const Slider = ({ banners }) => {
             <Image
               src={banner.image}
               alt='Banner'
-              width={1381}
+              width={1465}
               height={361}
               style={{ borderRadius:24 , margin: 'auto' } }
             />

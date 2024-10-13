@@ -21,7 +21,7 @@ export default function GomlaProductCard({ product }) {
         </Link>
 
         <Box>
-          <FavoriteBorderOutlined />
+          <FavoriteBorderOutlined className='text-[#164B60]' />
         </Box>
       </Box>
       <Divider />
@@ -31,22 +31,22 @@ export default function GomlaProductCard({ product }) {
         <Link href={`/gomla/${product.id}`}>
           <Typography
             component='h5'
-            className='text-xl uppercase '>
+            className='text-[18px] mt-2 uppercase '>
             {product.title}
           </Typography>
         </Link>
         <Box
           component='div'
-          className='product-details flex justify-between items-center mt-1'>
+          className='product-details flex justify-between items-end mt-1'>
           <Typography
             component='p'
-            className='font-bold text-gray-500'>
+            className='font-normal mt-10 text-[#164B60]'>
             Price: 88EGP
           </Typography>
           <Button
             variant='link'
             className=' hover:text-mBlue justify-end p-0'>
-            <ShoppingCartOutlined sx={{ fontSize: '24px', padding: '0' }} />
+            <ShoppingCartOutlined className='text-[#164B60]' sx={{ fontSize: '24px', padding: '0' }} />
           </Button>
         </Box>
       </Box>

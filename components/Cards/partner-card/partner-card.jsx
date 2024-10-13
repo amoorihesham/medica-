@@ -10,9 +10,9 @@ const PartnerCard = ({ img }) => {
         backgroundImage: `url(${img})`,
         backgroundSize: 'contain',
         backgroundPosition: 'center',
-        width: '200px',
+        width: '150px',
         borderRadius: '100000px',
-        height: '200px',
+        height: '150px',
       }}>
       {/* <Image
         src={img}

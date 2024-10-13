@@ -11,7 +11,7 @@ const PartnersList = ({ brands }) => {
     dispatch(setPartnersList(brands));
   }, []);
   return (
-    <div className=' ml-7 mt-5'>
+    <div className=' mx-7 mt-5 '>
       <SectionHeading
         title='Our Partners'
         url={'/partners'}
@@ -28,7 +28,7 @@ const PartnersList = ({ brands }) => {
             className=' flex flex-col justify-center items-center'
             key={brand.id}>
             <PartnerCard img={brand?.image} />
-            <p className=' font-semibold text-[24px]'>{brand?.name}</p>
+            <p className=' font-medium text[#164B60] text-[24px]'>{brand?.name}</p>
           </div>
         ))}
       </Box>

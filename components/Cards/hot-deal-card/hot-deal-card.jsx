@@ -16,7 +16,7 @@ export default function HotDealCard({ hotDeal }) {
     <>
       <Box
         component='div'
-        className=' bg-red-100  border border-gray-100 relative rounded-md pb-2 shadow-md hover:-translate-y-4 duration-500 transition-all'>
+        className=' bg-red-100 w-[250px]  border border-gray-100 relative rounded-md pb-2 shadow-md hover:-translate-y-4 duration-500 transition-all'>
         <Typography
           component='p'
           className='absolute bg-green-500 px-2 py-1 text-xs text-white font-bold rounded-sm top-0 left-0'>
@@ -24,14 +24,14 @@ export default function HotDealCard({ hotDeal }) {
         </Typography>
         <Box
           component='div'
-          className='card-heading flex justify-between pt-2 px-2'>
+          className='card-heading flex justify-between p-2'>
           {user ? (
             <Link href={`/products/${hotDeal.id}`}>
               <Image
                 src={hotDeal?.image}
                 alt='hot deal image'
-                width={200}
-                height={200}
+                width={150}
+                height={150}
               />
             </Link>
           ) : (
@@ -57,24 +57,24 @@ export default function HotDealCard({ hotDeal }) {
             <Link href={`/products/${hotDeal.id}`}>
               <Typography
                 component='h5'
-                className='text-xl text-normal uppercase '>
+                className='text-xl mt-2 text-normal uppercase '>
                 {hotDeal?.name}
               </Typography>
             </Link>
           ) : (
             <Typography
               component='h5'
-              className='text-xl text-normal uppercase '>
+              className='text-xl mt-2 text-normal uppercase '>
               {hotDeal?.name}
             </Typography>
           )}
           <Box
             component='div'
-            className='product-details flex justify-between mt-1 items-center'>
+            className='product-details flex justify-between mt-1 items-end'>
             {user ? (
               <Typography
                 component='p'
-                className='font-bold text-header_color'>
+                className='font-bold mt-10 text-header_color'>
                 Start from: {hotDeal?.start_price && hotDeal?.start_price}EGP
               </Typography>
             ) : (

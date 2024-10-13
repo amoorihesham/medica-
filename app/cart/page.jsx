@@ -11,6 +11,7 @@ export default function Cart() {
         <Typography
           variant='h4'
           component='h1'
+          sx={{ fontSize: '28px' }}
         >
           Cart (2 Items)
         </Typography>

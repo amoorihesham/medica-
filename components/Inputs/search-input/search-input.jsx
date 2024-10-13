@@ -10,7 +10,7 @@ const SearchInput = () => {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        height: { xs: '80px', md: '150px' },
+        height: { xs: '60px', md: '100px' },
         width: '50%',
       }}
     >

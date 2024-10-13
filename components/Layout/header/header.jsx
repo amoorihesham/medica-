@@ -7,9 +7,9 @@ const styles = {
   header: {
     bgcolor: colors.primary,
     minHeight: {
-      xs: '19vh',
-      sm: '20vh',
-      md: '35vh',
+      xs: '15vh',
+      sm: '25vh',
+      md: '25vh',
     },
   },
 };

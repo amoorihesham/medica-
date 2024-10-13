@@ -81,6 +81,7 @@ const DynamicPage = ({params}) => {
                   fontSize: '16px',
                   fontWeight: '700',
                   margin: '.5rem 0',
+                  marginBottom: '1rem',
                 }}>
                 Sold by
                 <Typography
@@ -99,6 +100,7 @@ const DynamicPage = ({params}) => {
                   padding: '.2rem .5rem',
                   borderRadias: '6px',
                   margin: '.5rem 0',
+                  marginBottom: '1rem',
                 }}>
                 Medicin
               </Typography>
