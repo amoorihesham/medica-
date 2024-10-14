@@ -10,7 +10,6 @@ const ProductList = ({ productList, title, url }) => {
   useEffect(() => {
     dispatch(setProductsList(productList));
   }, []);
-
   return (
     <Container
       maxWidth='xl'

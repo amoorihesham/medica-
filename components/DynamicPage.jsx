@@ -11,39 +11,66 @@ import StateProvider from '@/components/Provider';
 import { getProduct, getSingleProduct } from '@/utils/productFunc';
 import Selector from '@/components/select/Selector';
 import { useEffect, useState } from 'react';
-const DynamicPage = ({params}) => {
-    console.log("params",params);
-    const [select, setSelect] = useState(null);
-    const [product, setproduct] = useState(null);
-    const [vendor, setVendor] = useState(null);
-    const [productsList, setproductsList] = useState(null);
-    const user = null; // JSON.parse(cookiesStore.get('user')?.value) || null;
-    //const productsList = await getProduct({allItems:1})
-    useEffect(() => {
-      const fetData = async () => {
-        const product = await getSingleProduct({ id: params.id, allItems: 1 });
-        setproduct(product);
-        setSelect(product.vendors[0]);
-        setVendor(product.vendors[0]);
-        const products = await getProduct({ vendor_id: product.vendors[0]?.vendor_id });
-        setproductsList(products);
-      };
-      fetData();
-    }, []);
-    const press = async (obj) => {
-      setVendor(obj);
-      setSelect(obj);
-      const products = await getProduct({ vendor_id: obj?.vendor_id });
+import { api } from '@/utils/api';
+import { useDispatch } from 'react-redux';
+import { addCartItem } from '@/redux/asyncs/cartAsync';
+import AddToCart from './Buttons/add-to-cart/add-to-cart';
+const DynamicPage = ({ params }) => {
+  const [select, setSelect] = useState(null);
+  const [product, setproduct] = useState(null);
+  const [vendor, setVendor] = useState(null);
+  const [productsList, setproductsList] = useState(null);
+  const [storeId, setStoreId] = useState(vendor?.vendor_id);
+  const [quantity, setQuantity] = useState(1);
+  const user = JSON.parse(localStorage.getItem('user')); // JSON.parse(cookiesStore.get('user')?.value) || null;
+  //const productsList = await getProduct({allItems:1})
+  useEffect(() => {
+    const fetData = async () => {
+      const product = await getSingleProduct({ id: params.id, allItems: 1 });
+      setproduct(product);
+      setSelect(product.vendors[0]);
+      setVendor(product.vendors[0]);
+      const products = await getProduct({ vendor_id: product.vendors[0]?.vendor_id });
       setproductsList(products);
     };
-    return (
-      <Box>
+    fetData();
+  }, []);
+
+  const press = async (obj) => {
+    setVendor(obj);
+    setSelect(obj);
+    const products = await getProduct({ vendor_id: obj?.vendor_id });
+    setproductsList(products);
+  };
+  // const addToCart = async (item_id, store_id, quantity) => {
+  //   try {
+  //     const { data } = await api.post(
+  //       '/add-item',
+  //       {
+  //         item_id,
+  //         store_id,
+  //         quantity,
+  //       },
+  //       {
+  //         headers: {
+  //           Authorization: `Bearer ${user.token}`,
+  //         },
+  //       }
+  //     );
+  //     console.log(data);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+  return (
+    <Box>
+      <StateProvider>
         <Container
           maxWidth='xl'
           sx={{ marginTop: '2rem' }}>
           <Box
             component='div'
-            className='flex justify-between gap-5  items-center '>
+            className='flex flex-col md:flex-row justify-between gap-5  items-center '>
             <Box
               component='div'
               className='flex  flex-grow '>
@@ -55,7 +82,7 @@ const DynamicPage = ({params}) => {
               />
               <FavoriteOutlined />
             </Box>
-  
+
             <Box
               component='div'
               className='flex-grow pr-20'>
@@ -63,6 +90,7 @@ const DynamicPage = ({params}) => {
                 vendors={product?.vendors}
                 press={press}
                 select={select}
+                setStore={setStoreId}
               />
               <Typography
                 variant='h2'
@@ -125,7 +153,7 @@ const DynamicPage = ({params}) => {
                 </Typography>
               </Box>
               <Divider sx={{ marginBlock: '2rem' }} />
-  
+
               <Box
                 sx={{
                   display: 'flex',
@@ -134,26 +162,25 @@ const DynamicPage = ({params}) => {
                   gap: '.5rem',
                   marginTop: '1rem',
                 }}>
-                <Button icon={<HorizontalRuleIcon />}></Button>
-                <Typography>1</Typography>
-                <Button icon={<Add />}></Button>
+                <Button
+                  disabled={quantity == 1}
+                  icon={<HorizontalRuleIcon />}
+                  onClick={() => setQuantity((prev) => prev - 1)}></Button>
+                <Typography>{quantity}</Typography>
+                <Button
+                  icon={<Add />}
+                  onClick={() => setQuantity((prev) => prev + 1)}></Button>
               </Box>
               <Box sx={{ display: 'flex', justifyContent: 'center' }}>
-                <Button
-                  variant='contained'
-                  style={{
-                    backgroundColor: colors.primary,
-                    color: colors.primaryText,
-                    width: '100%',
-                    height: '44px',
-                    margin: '2rem auto',
-                    marginLeft: '0',
-                  }}>
-                  Add To Cart
-                </Button>
+                <AddToCart
+                  productId={product?.id}
+                  storeId={storeId}
+                  quantity={quantity}
+                />
               </Box>
             </Box>
           </Box>
+
           <StateProvider>
             <ProductList
               title='Similar From Same Vendor'
@@ -168,8 +195,9 @@ const DynamicPage = ({params}) => {
           </StateProvider> */}
           <SeeMoreBtn url='/products' />
         </Container>
-      </Box>
-    );
-}
+      </StateProvider>
+    </Box>
+  );
+};
 
-export default DynamicPage
+export default DynamicPage;

@@ -109,7 +109,7 @@ const SignupForm = ({ setLogin }) => {
           }}
         />
         <SelectInput
-          name='governorate'
+          name='governorate_id'
           register={register}
           errors={errors}
           watch={watch}

@@ -3,14 +3,18 @@ import { useEffect, useState } from 'react';
 
 export default function SelectInput({ name, list, register, errors, watch, setValue, ...rest }) {
   const [areas, setAreas] = useState([]);
-  const selectedGov = watch('governorate');
+  const selectedGov = watch('governorate_id');
+
   useEffect(() => {
     if (selectedGov) {
-      const selectedGovObject = list.find((gov) => gov.name === selectedGov);
+      const selectedGovObject = list.find((gov) => gov.id == selectedGov);
+
       setAreas(selectedGovObject ? selectedGovObject.areas : []);
-      setValue('area', '');
+
+      setValue('area_id', '');
     }
   }, [selectedGov, list, setValue]);
+
   return (
     <>
       <div className='my-4'>
@@ -28,7 +32,7 @@ export default function SelectInput({ name, list, register, errors, watch, setVa
             ? list.map((opt) => (
                 <option
                   className='capitalize'
-                  value={opt.name}
+                  value={opt.id}
                   key={opt.id}>
                   {opt.name}
                 </option>
@@ -41,7 +45,7 @@ export default function SelectInput({ name, list, register, errors, watch, setVa
         <select
           className='bg-mpink outline-none rounded-lg border border-gray-300 placeholder:text-gray-400 text-sm font-thin px-3 py-3 w-full text-gray-500 '
           {...rest}
-          {...register('area', {
+          {...register('area_id', {
             required: {
               value: true,
               message: 'This Field Is required.',
@@ -51,7 +55,7 @@ export default function SelectInput({ name, list, register, errors, watch, setVa
           {areas.map((area) => (
             <option
               className='capitalize'
-              value={area.name}
+              value={area.id}
               key={area.id}>
               {area.name}
             </option>

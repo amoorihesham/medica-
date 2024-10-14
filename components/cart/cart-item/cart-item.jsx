@@ -5,7 +5,8 @@ import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import { Flex, Button } from 'antd';
 import { colors, fonts } from '@/styles';
 import productImage from '@/assets/product/OIP.png';
-export default function CartItem({ title, price, dTime, sold }) {
+import { removeItem } from '@/utils/cartFuns';
+export default function CartItem({ product, userToken }) {
   return (
     <Box sx={{ padding: '1rem 0' }}>
       <Flex align='center'>
@@ -27,8 +28,7 @@ export default function CartItem({ title, price, dTime, sold }) {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
-          }}
-        >
+          }}>
           <Box>
             <Typography
               component='h3'
@@ -39,9 +39,8 @@ export default function CartItem({ title, price, dTime, sold }) {
                 },
                 fontWeight: 'bold',
                 marginBottom: '.2rem',
-              }}
-            >
-              Concor 10 mg Lak Tablet | Bisoprolol Fumarat
+              }}>
+              {product.name}
             </Typography>
             <Typography
               component='h3'
@@ -53,9 +52,8 @@ export default function CartItem({ title, price, dTime, sold }) {
                 fontWeight: 'bold',
                 marginBottom: '.3rem',
                 color: colors.primary,
-              }}
-            >
-              EGP 800
+              }}>
+              EGP {product.price}
             </Typography>
             <Typography
               component='h3'
@@ -67,8 +65,7 @@ export default function CartItem({ title, price, dTime, sold }) {
                 fontWeight: 'bold',
                 marginBottom: '.3rem',
                 color: colors.gray,
-              }}
-            >
+              }}>
               Get it by
               <Typography
                 component='span'
@@ -80,8 +77,7 @@ export default function CartItem({ title, price, dTime, sold }) {
                   fontWeight: 'bold',
                   marginLeft: '.5rem',
                   color: colors.orange,
-                }}
-              >
+                }}>
                 WED.Sep 16
               </Typography>
             </Typography>
@@ -95,8 +91,7 @@ export default function CartItem({ title, price, dTime, sold }) {
                 fontWeight: 'bold',
                 marginBottom: '.5rem',
                 color: colors.gray,
-              }}
-            >
+              }}>
               Sold by
               <Typography
                 component='span'
@@ -108,13 +103,13 @@ export default function CartItem({ title, price, dTime, sold }) {
                   fontWeight: 'bold',
                   marginLeft: '.5rem',
                   color: colors.green,
-                }}
-              >
-                12344521
+                }}>
+                {product.vendor}
               </Typography>
             </Typography>
 
             <Button
+              onClick={() => removeItem(userToken, product.id, 1)}
               icon={
                 <DeleteOutlineIcon sx={{ fontSize: { xs: fonts.mobile8, md: fonts.mobile14 } }} />
               }
@@ -123,16 +118,14 @@ export default function CartItem({ title, price, dTime, sold }) {
                 fontSize: '14px',
                 fontWeight: '500',
                 marginBottom: '.3rem',
-              }}
-            >
+              }}>
               Remove
             </Button>
           </Box>
           <Flex
             align='center'
-            gap={8}
-          >
-            <Button>+</Button>
+            gap={8}>
+            <Button disabled={product.quantity == 1}>-</Button>
             <Typography
               component='p'
               sx={{
@@ -140,11 +133,10 @@ export default function CartItem({ title, price, dTime, sold }) {
                   xs: fonts.mobile8,
                   lg: fonts.mobile16,
                 },
-              }}
-            >
-              1
+              }}>
+              {product.quantity}
             </Typography>
-            <Button>-</Button>
+            <Button>+</Button>
           </Flex>
         </Box>
       </Flex>

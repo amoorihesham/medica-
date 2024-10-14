@@ -4,6 +4,7 @@ import allProductsReducer from './slices/allProductsSlice';
 import topProductsReducer from './slices/topProductsSlice';
 import hotDealsProductsReducer from './slices/hotDealsSlice';
 import partnersReducer from './slices/partnersSlice';
+import cartReducer from './slices/cartSlice';
 const store = configureStore({
   reducer: {
     auth: authReducer,
@@ -11,6 +12,7 @@ const store = configureStore({
     topProducts: topProductsReducer,
     hotDeals: hotDealsProductsReducer,
     partners: partnersReducer,
+    cart: cartReducer,
   },
 });
 
