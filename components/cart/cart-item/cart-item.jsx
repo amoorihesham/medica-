@@ -5,8 +5,11 @@ import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import { Flex, Button } from 'antd';
 import { colors, fonts } from '@/styles';
 import productImage from '@/assets/product/OIP.png';
-import { removeItem } from '@/utils/cartFuns';
+import { useDispatch } from 'react-redux';
+import { addCartItem, removeCartItem } from '@/redux/asyncs/cartAsync';
+import { toast } from 'react-toastify';
 export default function CartItem({ product, userToken }) {
+  const dispatch = useDispatch();
   return (
     <Box sx={{ padding: '1rem 0' }}>
       <Flex align='center'>
@@ -109,7 +112,10 @@ export default function CartItem({ product, userToken }) {
             </Typography>
 
             <Button
-              onClick={() => removeItem(userToken, product.id, 1)}
+              onClick={() => {
+                dispatch(removeCartItem({ userToken, cart_id: product.id, remove: 1 }));
+                toast.success('Product removed successfully');
+              }}
               icon={
                 <DeleteOutlineIcon sx={{ fontSize: { xs: fonts.mobile8, md: fonts.mobile14 } }} />
               }
@@ -125,7 +131,14 @@ export default function CartItem({ product, userToken }) {
           <Flex
             align='center'
             gap={8}>
-            <Button disabled={product.quantity == 1}>-</Button>
+            <Button
+              disabled={product.quantity == 1}
+              onClick={() => {
+                dispatch(removeCartItem({ userToken, cart_id: product.id, remove: 0 }));
+                toast.success('Product Quantity Updated successfully');
+              }}>
+              -
+            </Button>
             <Typography
               component='p'
               sx={{
@@ -136,7 +149,20 @@ export default function CartItem({ product, userToken }) {
               }}>
               {product.quantity}
             </Typography>
-            <Button>+</Button>
+            <Button
+              onClick={() => {
+                dispatch(
+                  addCartItem({
+                    userToken,
+                    item_id: product.id,
+                    store_id: product.vendor,
+                    quantity: 1,
+                  })
+                );
+                toast.success('Product Quantity Updated successfully');
+              }}>
+              +
+            </Button>
           </Flex>
         </Box>
       </Flex>

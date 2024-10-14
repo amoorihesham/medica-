@@ -11,16 +11,14 @@ import StateProvider from '@/components/Provider';
 import { getProduct, getSingleProduct } from '@/utils/productFunc';
 import Selector from '@/components/select/Selector';
 import { useEffect, useState } from 'react';
-import { api } from '@/utils/api';
-import { useDispatch } from 'react-redux';
-import { addCartItem } from '@/redux/asyncs/cartAsync';
+
 import AddToCart from './Buttons/add-to-cart/add-to-cart';
 const DynamicPage = ({ params }) => {
   const [select, setSelect] = useState(null);
   const [product, setproduct] = useState(null);
   const [vendor, setVendor] = useState(null);
   const [productsList, setproductsList] = useState(null);
-  const [storeId, setStoreId] = useState(vendor?.vendor_id);
+  const [storeId, setStoreId] = useState();
   const [quantity, setQuantity] = useState(1);
   const user = JSON.parse(localStorage.getItem('user')); // JSON.parse(cookiesStore.get('user')?.value) || null;
   //const productsList = await getProduct({allItems:1})
@@ -30,6 +28,7 @@ const DynamicPage = ({ params }) => {
       setproduct(product);
       setSelect(product.vendors[0]);
       setVendor(product.vendors[0]);
+      setStoreId(vendor?.vendor_id);
       const products = await getProduct({ vendor_id: product.vendors[0]?.vendor_id });
       setproductsList(products);
     };
@@ -62,6 +61,7 @@ const DynamicPage = ({ params }) => {
   //     console.log(error);
   //   }
   // };
+  console.log(vendor);
   return (
     <Box>
       <StateProvider>

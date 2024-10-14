@@ -28,7 +28,27 @@ export const addCartItem = createAsyncThunk(
         }
       );
       console.log(data?.data);
-      // return data?.data;
+    } catch (error) {
+      return thunkApi.rejectWithValue(error);
+    }
+  }
+);
+
+export const removeCartItem = createAsyncThunk(
+  'cart/remove-item',
+  async ({ userToken, cart_id, remove }, thunkApi) => {
+    try {
+      const { data } = await apiCart.post(
+        '/remove-item-cart',
+        { cart_id, remove },
+        {
+          headers: {
+            Authorization: `Bearer ${userToken}`,
+          },
+        }
+      );
+      console.log(data?.data);
+      thunkApi.dispatch(getCartData(userToken));
     } catch (error) {
       return thunkApi.rejectWithValue(error);
     }

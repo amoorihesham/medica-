@@ -4,7 +4,6 @@ import { getProduct } from '@/utils/productFunc';
 export async function generateStaticParams() {
   let products = await getProduct({ allItems: 1 });
   let array = products.map((product) => ({ id: product.id.toString() }));
-  console.log('array', array);
   return array;
 }
 
