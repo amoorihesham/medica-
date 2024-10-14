@@ -17,11 +17,10 @@ export default async function Home() {
   const topProductsList = await getProduct({ topProducts: 1 });
   const categoriesList = await getCategory();
   const brandsList = await getBrand();
-  // const gomla = await getGomla();
-  // const drug = await getDrug();
+   const gomla = await getGomla();
+   const drug = await getDrug();
   const banners = await getBanners();
-const filter = new Global([1,2,3])
-console.log("filter",filter.filterItem());
+
   return (
     <>
       <ScrollUp />
@@ -30,7 +29,7 @@ console.log("filter",filter.filterItem());
         <Slider banners={banners} />
         <CategoriesList categoriesList={categoriesList} />
         <Container maxWidth='xl'>
-          <GomlaMainBtn />
+          <GomlaMainBtn gomla={gomla}rug={drug} />
         </Container>
         <HotDealsList
           hotDeals={hotDealsList}

@@ -6,7 +6,6 @@ export const api = axios.create({
     'Cache-Control': 'no-cache',
   },
 });
-
 export const apiCart = axios.create({
   baseURL: 'https://ai.w-manage.org/api',
 });

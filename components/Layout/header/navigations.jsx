@@ -20,6 +20,7 @@ import {
   AddOutlined,
   LanguageOutlined,
 } from '@mui/icons-material';
+import DensityMediumIcon from '@mui/icons-material/DensityMedium';
 import { colors } from '@/styles';
 import { RegisterLoginBtn } from '@/components';
 import logo from '@/assets/branding/logo.png';
@@ -117,7 +118,7 @@ export default function Navigations() {
                 lg: 'none',
               },
             }}>
-            <AddOutlined />
+            <DensityMediumIcon />
           </IconButton>
           <ul className='hidden xl:flex items-center p-0 m-0 gap-5'>
             {user ? (
@@ -194,8 +195,7 @@ export default function Navigations() {
         onClose={() => setOpen(!open)}
         sx={{
           '& .MuiDrawer-paper': {
-            backgroundColor: 'white', // Change background color
-
+            backgroundColor: '#164b60', // Change background color
             width: '240px', // Custom width
             padding: '1rem', // Add padding
           },
@@ -203,14 +203,14 @@ export default function Navigations() {
         <ul className='flex flex-col gap-2'>
           {user ? (
             <>
-              <li className='hover:bg-mBlue hover:text-white transition-colors duration-300 rounded-md'>
+              <li className='hover:bg-gray-200 text-white hover:text-black transition-colors duration-300 rounded-md'>
                 <Link
                   href='/'
-                  className='hover:text-white flex items-center gap-1 py-2 px-3'>
+                  className=' flex items-center gap-1 py-2 px-3'>
                   <HomeOutlined /> Home
                 </Link>
               </li>
-              <li className='hover:bg-mBlue hover:text-white transition-colors duration-300 rounded-md'>
+              <li className='hover:bg-gray-200 text-white hover:text-black transition-colors duration-300 rounded-md'>
                 <Link
                   href='/cart'
                   className='flex items-center gap-1 py-2 px-3'>
@@ -218,7 +218,7 @@ export default function Navigations() {
                   My Cart
                 </Link>
               </li>
-              <li className='hover:bg-mBlue hover:text-white transition-colors duration-300 rounded-md'>
+              <li className='hover:bg-gray-200 text-white hover:text-black transition-colors duration-300 rounded-md'>
                 <Link
                   href='/orders'
                   className='flex items-center gap-1 py-2 px-3'>
@@ -226,7 +226,7 @@ export default function Navigations() {
                   My Orders
                 </Link>
               </li>
-              <li className='hover:bg-green-200 hover:text-black bg-green-300'>
+              <li className='hover:bg-green-200 hover:text-black  bg-green-300'>
                 <Link
                   href='/gomla'
                   className='flex items-center gap-1 py-2 px-3'>
@@ -234,7 +234,7 @@ export default function Navigations() {
                   Bulk Request
                 </Link>
               </li>
-              <li className='hover:bg-mBlue hover:text-white transition-colors duration-300 rounded-md'>
+              <li className='hover:bg-gray-200 text-white hover:text-black transition-colors duration-300 rounded-md'>
                 <button
                   className='flex items-center gap-1 py-2 px-3'
                   onClick={() => setOpenLang(true)}>
@@ -242,7 +242,7 @@ export default function Navigations() {
                   Language
                 </button>
               </li>
-              <li className='hover:bg-mBlue hover:text-white transition-colors duration-300 rounded-md'>
+              <li className='hover:bg-gray-200 text-white hover:text-black transition-colors duration-300 rounded-md'>
                 <Link
                   href='/profile'
                   className='flex items-center gap-1 py-2 px-3'>
@@ -252,7 +252,7 @@ export default function Navigations() {
             </>
           ) : (
             <>
-              <li className='hover:bg-mBlue hover:text-white transition-colors duration-300 rounded-md'>
+              <li className='hover:bg-gray-200 hover:text-white transition-colors duration-300 rounded-md'>
                 <button
                   className='flex items-center gap-1 py-2 px-3'
                   onClick={() => setOpenLang(true)}>

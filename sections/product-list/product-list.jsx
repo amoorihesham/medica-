@@ -13,14 +13,29 @@ const ProductList = ({ productList, title, url }) => {
   return (
     <Container
       maxWidth='xl'
-      sx={{ marginTop: '3rem' }}>
+      sx={{ marginTop: '3rem' }}> 
       <SectionHeading
         title={title}
         url={url}
       />
+         <Box
+        sx={{
+          overflowX: 'scroll',
+          whiteSpace: 'nowrap',
+          width: '100%',
+          display: 'flex', 
+          '&::-webkit-scrollbar': {
+            display: 'none',
+          },
+        
+        }}>
       <Box
         component='div'
-        className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5'>
+        sx={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          gap: '2rem',
+        }}>
         {productList?.map((product) => (
           <ProductCard
             product={product}
@@ -28,6 +43,7 @@ const ProductList = ({ productList, title, url }) => {
           />
         ))}
       </Box>
+        </Box>
     </Container>
   );
 };
