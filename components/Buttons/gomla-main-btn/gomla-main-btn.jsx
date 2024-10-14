@@ -32,7 +32,7 @@ export default function GomlaMainBtn({ gomla, drug }) {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          backgroundImage: `url(${gomla?.image})`,
+          backgroundImage: `url(${drug?.image})`,
           backgroundSize: 'contain',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',

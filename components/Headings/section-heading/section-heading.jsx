@@ -13,7 +13,7 @@ const SectionHeading = ({ title, url }) => {
       {url && (
         <Link
           href={url}
-          className=' font-semibold text-header_color mr-1'>
+          className='w-16 font-semibold text-header_color mr-1'>
           See All
         </Link>
       )}

@@ -15,7 +15,7 @@ const ProductCard = ({ product }) => {
     <>
       <Box
         component='div'
-        className={` bg-white w-[250px] border border-gray-100 relative rounded-md pb-2 shadow-md ${
+        className={` bg-white w-[250px] border  border-gray-100 relative rounded-md pb-2 shadow-md ${
           product?.in_stock && `hover:scale-105`
         } transition-all duration-500`}>
         <Typography

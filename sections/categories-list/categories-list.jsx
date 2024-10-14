@@ -12,7 +12,7 @@ const CategoriesList = ({ categoriesList }) => {
           overflowX: 'scroll',
           whiteSpace: 'nowrap',
           width: '100%',
-          display: 'flex',
+          display: 'flex', 
           '&::-webkit-scrollbar': {
             display: 'none',
           },

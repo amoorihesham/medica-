@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { setPartnersList } from '@/redux/slices/partnersSlice';
 import { PartnerCard, SectionHeading } from '@/components';
-import { Box } from '@mui/material';
+import { Box, Container } from '@mui/material';
 
 const PartnersList = ({ brands }) => {
   const dispatch = useDispatch();
@@ -11,7 +11,9 @@ const PartnersList = ({ brands }) => {
     dispatch(setPartnersList(brands));
   }, []);
   return (
-    <div className=' mx-7 mt-5 '>
+    <Container
+      maxWidth='xl'
+      sx={{ marginTop: '3rem' }}>
       <SectionHeading
         title='Our Partners'
         url={'/partners'}
@@ -32,7 +34,7 @@ const PartnersList = ({ brands }) => {
           </div>
         ))}
       </Box>
-    </div>
+      </Container> 
   );
 };
 
