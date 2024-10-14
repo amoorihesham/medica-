@@ -5,6 +5,7 @@ import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import { Flex, Button } from 'antd';
 import { colors, fonts } from '@/styles';
 import productImage from '@/assets/product/OIP.png';
+
 import { useDispatch } from 'react-redux';
 import { addCartItem, removeCartItem } from '@/redux/asyncs/cartAsync';
 import { toast } from 'react-toastify';
@@ -154,8 +155,8 @@ export default function CartItem({ product, userToken }) {
                 dispatch(
                   addCartItem({
                     userToken,
-                    item_id: product.id,
-                    store_id: product.vendor,
+                    item_id: product.item_id,
+                    store_id: product.vendor_id,
                     quantity: 1,
                   })
                 );

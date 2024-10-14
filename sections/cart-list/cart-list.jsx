@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 export default function CartList() {
   const { cart, loading, error } = useSelector((state) => state.cart);
-  console.log(cart);
+
   const dispatch = useDispatch();
   const user = JSON.parse(localStorage.getItem('user'));
   useEffect(() => {

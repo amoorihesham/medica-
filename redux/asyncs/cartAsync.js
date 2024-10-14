@@ -27,7 +27,7 @@ export const addCartItem = createAsyncThunk(
           },
         }
       );
-      console.log(data?.data);
+      thunkApi.dispatch(getCartData(userToken));
     } catch (error) {
       return thunkApi.rejectWithValue(error);
     }
