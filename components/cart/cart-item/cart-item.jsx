@@ -29,6 +29,7 @@ export default function CartItem({ product, userToken }) {
         />
         <Box
           sx={{
+            width: '100%',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
@@ -114,7 +115,7 @@ export default function CartItem({ product, userToken }) {
 
             <Button
               onClick={() => {
-                dispatch(removeCartItem({ userToken, cart_id: product.id, remove: 1 }));
+                dispatch(removeCartItem({ userToken, cart_id: product.cart_id, remove: 1 }));
                 toast.success('Product removed successfully');
               }}
               icon={
@@ -135,7 +136,7 @@ export default function CartItem({ product, userToken }) {
             <Button
               disabled={product.quantity == 1}
               onClick={() => {
-                dispatch(removeCartItem({ userToken, cart_id: product.id, remove: 0 }));
+                dispatch(removeCartItem({ userToken, cart_id: product.cart_id, remove: 0 }));
                 toast.success('Product Quantity Updated successfully');
               }}>
               -

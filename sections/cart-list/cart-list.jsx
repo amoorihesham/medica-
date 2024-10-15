@@ -7,7 +7,6 @@ import { useDispatch, useSelector } from 'react-redux';
 
 export default function CartList() {
   const { cart, loading, error } = useSelector((state) => state.cart);
-
   const dispatch = useDispatch();
   const user = JSON.parse(localStorage.getItem('user'));
   useEffect(() => {
@@ -46,7 +45,7 @@ export default function CartList() {
             cart?.items?.map((item) => (
               <CartItem
                 product={item}
-                key={item.id}
+                key={item.item_id}
                 userToken={user.token}
               />
             ))

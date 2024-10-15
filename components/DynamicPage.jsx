@@ -28,7 +28,7 @@ const DynamicPage = ({ params }) => {
       setproduct(product);
       setSelect(product.vendors[0]);
       setVendor(product.vendors[0]);
-      setStoreId(vendor?.vendor_id);
+      setStoreId(product.vendors[0].vendor_id);
       const products = await getProduct({ vendor_id: product.vendors[0]?.vendor_id });
       setproductsList(products);
     };
@@ -41,27 +41,7 @@ const DynamicPage = ({ params }) => {
     const products = await getProduct({ vendor_id: obj?.vendor_id });
     setproductsList(products);
   };
-  // const addToCart = async (item_id, store_id, quantity) => {
-  //   try {
-  //     const { data } = await api.post(
-  //       '/add-item',
-  //       {
-  //         item_id,
-  //         store_id,
-  //         quantity,
-  //       },
-  //       {
-  //         headers: {
-  //           Authorization: `Bearer ${user.token}`,
-  //         },
-  //       }
-  //     );
-  //     console.log(data);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-  console.log(vendor);
+
   return (
     <Box>
       <StateProvider>
@@ -168,6 +148,7 @@ const DynamicPage = ({ params }) => {
                   onClick={() => setQuantity((prev) => prev - 1)}></Button>
                 <Typography>{quantity}</Typography>
                 <Button
+                  disabled={vendor?.stock == quantity}
                   icon={<Add />}
                   onClick={() => setQuantity((prev) => prev + 1)}></Button>
               </Box>
