@@ -6,11 +6,13 @@ import { Box, Container, Typography } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 
 export default function CartList() {
+  const { user } = useSelector((state) => state.auth);
+  console.log(user);
   const { cart, loading, error } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
-  const user = JSON.parse(localStorage.getItem('user'));
+
   useEffect(() => {
-    dispatch(getCartData(user.token));
+    dispatch(getCartData(user?.token));
   }, []);
   if (loading) {
     return (

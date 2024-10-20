@@ -2,12 +2,13 @@
 import { addCartItem } from '@/redux/asyncs/cartAsync';
 import { colors } from '@/styles';
 import { Button } from '@mui/material';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 
 export default function AddToCart({ productId, storeId, quantity }) {
+  const { user } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
-  const user = JSON.parse(localStorage.getItem('user'));
+
   return (
     <Button
       variant='contained'

@@ -13,6 +13,7 @@ import Selector from '@/components/select/Selector';
 import { useEffect, useState } from 'react';
 
 import AddToCart from './Buttons/add-to-cart/add-to-cart';
+import { useSelector } from 'react-redux';
 const DynamicPage = ({ params }) => {
   const [select, setSelect] = useState(null);
   const [product, setproduct] = useState(null);
@@ -20,8 +21,7 @@ const DynamicPage = ({ params }) => {
   const [productsList, setproductsList] = useState(null);
   const [storeId, setStoreId] = useState();
   const [quantity, setQuantity] = useState(1);
-  const user = JSON.parse(localStorage.getItem('user')); // JSON.parse(cookiesStore.get('user')?.value) || null;
-  //const productsList = await getProduct({allItems:1})
+  console.log(vendor);
   useEffect(() => {
     const fetData = async () => {
       const product = await getSingleProduct({ id: params.id, allItems: 1 });
@@ -148,7 +148,7 @@ const DynamicPage = ({ params }) => {
                   onClick={() => setQuantity((prev) => prev - 1)}></Button>
                 <Typography>{quantity}</Typography>
                 <Button
-                  disabled={vendor?.stock == quantity}
+                  disabled={vendor?.stock <= quantity}
                   icon={<Add />}
                   onClick={() => setQuantity((prev) => prev + 1)}></Button>
               </Box>
