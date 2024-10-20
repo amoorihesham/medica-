@@ -11,6 +11,7 @@ import {
   List,
   ListItem,
   Button,
+  Box,
 } from '@mui/material';
 import {
   HomeOutlined,
@@ -19,6 +20,8 @@ import {
   AssignmentOutlined,
   AddOutlined,
   LanguageOutlined,
+  AddLocationOutlined,
+  LocationOn,
 } from '@mui/icons-material';
 import DensityMediumIcon from '@mui/icons-material/DensityMedium';
 import { colors } from '@/styles';
@@ -27,6 +30,7 @@ import logo from '@/assets/branding/logo.png';
 import { useDispatch, useSelector } from 'react-redux';
 import { setUser } from '@/redux/slices/authSlice';
 import { LanguagePopup } from '@/components/Popups';
+import { usePathname } from 'next/navigation';
 
 const styles = {
   link: {
@@ -65,6 +69,7 @@ const styles = {
   },
 };
 export default function Navigations() {
+  const curPath = usePathname();
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth);
   const [open, setOpen] = useState(false);
@@ -91,22 +96,33 @@ export default function Navigations() {
             gap: '1rem',
             alignItems: 'center',
           }}>
-          <Link
-            href='/'
-            className='flex items-end gap-2 hover:text-white'
-            style={{ flexGrow: '1' }}>
-            <Image
-              src={logo}
-              alt='Logo'
-              width={64}
-              height={64}
-            />
+          <Box
+            display='flex'
+            gap={5}>
+            <Link
+              href='/'
+              className='flex items-end gap-2 hover:text-white'
+              style={{ flexGrow: '1' }}>
+              <Image
+                src={logo}
+                alt='Logo'
+                width={64}
+                height={64}
+              />
+              <Typography
+                variant='body2'
+                component='p'>
+                MedicaPlus
+              </Typography>
+            </Link>
             <Typography
-              variant='body2'
-              component='p'>
-              MedicaPlus
+              display='flex'
+              alignItems='center'
+              gap='.1rem'>
+              <LocationOn />
+              Deliver to
             </Typography>
-          </Link>
+          </Box>
 
           <IconButton
             edge='start'
@@ -126,13 +142,21 @@ export default function Navigations() {
                 <li>
                   <Link
                     href='/'
-                    className='hover:text-white flex items-center gap-1 py-1 px-3'>
+                    className={
+                      curPath === '/'
+                        ? 'hover:text-white flex items-center gap-1 py-1 px-3 border-b'
+                        : 'hover:text-white flex items-center gap-1 py-1 px-3'
+                    }>
                     <HomeOutlined /> Home
                   </Link>
                 </li>
                 <li>
                   <Link
-                    className='hover:text-white flex items-center gap-1 py-1 px-3'
+                    className={
+                      curPath === '/cart'
+                        ? 'hover:text-white flex items-center gap-1 py-1 px-3 border-b'
+                        : 'hover:text-white flex items-center gap-1 py-1 px-3'
+                    }
                     href='/cart'>
                     <ShoppingCartOutlined />
                     My Cart
@@ -140,7 +164,11 @@ export default function Navigations() {
                 </li>
                 <li>
                   <Link
-                    className='hover:text-white flex items-center gap-1 py-1 px-3'
+                    className={
+                      curPath === '/orders'
+                        ? 'hover:text-white flex items-center gap-1 py-1 px-3 border-b'
+                        : 'hover:text-white flex items-center gap-1 py-1 px-3'
+                    }
                     href='/orders'>
                     <AssignmentOutlined />
                     My Orders
@@ -151,9 +179,7 @@ export default function Navigations() {
                     href='/gomla'
                     className='hover:text-white flex items-center gap-1 py-1 px-3 bg-[#A2FF86]'>
                     <AddOutlined className='text-[#363839]' />
-                    <span className='text-[#363839]' >
-                    Bulk Request
-                    </span>
+                    <span className='text-[#363839]'>Bulk Request</span>
                   </Link>
                 </li>
                 <li>
@@ -166,7 +192,11 @@ export default function Navigations() {
                 </li>
                 <li>
                   <Link
-                    className='hover:text-white flex items-center gap-1 py-1 px-3'
+                    className={
+                      curPath === '/profile'
+                        ? 'hover:text-white flex items-center gap-1 py-1 px-3 border-b'
+                        : 'hover:text-white flex items-center gap-1 py-1 px-3'
+                    }
                     href='/profile'>
                     <PersonOutlined /> Hi, {user.user.name}
                   </Link>

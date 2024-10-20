@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { Box, Button, Divider, Typography } from '@mui/material';
 import { FavoriteBorderOutlined } from '@mui/icons-material';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
-import product from '@/assets/product/OIP.png';
+import product from '@/assets/product/product.png';
 import Link from 'next/link';
 import { useSelector } from 'react-redux';
 import { AuthModal } from '@/components/Auth';
@@ -14,80 +14,42 @@ export default function HotDealCard({ hotDeal }) {
   const [open, setOpen] = useState(false);
   return (
     <>
-      <Box
-        component='div'
-        className=' bg-red-100 w-[250px]  border border-gray-100 relative rounded-md pb-2 shadow-md hover:-translate-y-4 duration-500 transition-all'>
-        <Typography
-          component='p'
-          className='absolute bg-green-500 px-2 py-1 text-xs text-white font-bold rounded-sm top-0 left-0'>
-          {hotDeal?.discount && hotDeal?.discount}% Discount
-        </Typography>
+      <Box padding='1rem'>
         <Box
-          component='div'
-          className='card-heading flex justify-between p-2'>
-          {user ? (
-            <Link href={`/products/${hotDeal.id}`}>
-              <Image
-                src={hotDeal?.image}
-                alt='hot deal image'
-                width={150}
-                height={150}
-              />
-            </Link>
-          ) : (
-            <Image
-              onClick={() => setOpen(true)}
-              src={hotDeal?.image}
-              alt='hot deal image'
-              width={200}
-              height={200}
-              className=' cursor-pointer'
-            />
-          )}
-
-          <Box>
-            <FavoriteBorderOutlined sx={{ color: '#164B60' }} />
-          </Box>
+          sx={{
+            bgcolor: '#A2FF86',
+            padding: '.6rem 1.3rem',
+            borderTopLeftRadius: '1rem',
+            borderTopRightRadius: '1rem',
+            boxShadow: '0px 7px 5px 0px rgb(0 0 0 / 19%)',
+          }}>
+          <Typography>Health & Wellness deals</Typography>
         </Box>
-        <Divider sx={{ marginInline: '8px' }} />
         <Box
-          component='div'
-          className='card-body  px-2'>
-          {user ? (
-            <Link href={`/products/${hotDeal.id}`}>
-              <Typography
-                component='h5'
-                className='text-xl mt-2 text-normal uppercase '>
-                {hotDeal?.name}
-              </Typography>
-            </Link>
-          ) : (
-            <Typography
-              component='h5'
-              className='text-xl mt-2 text-normal uppercase '>
-              {hotDeal?.name}
-            </Typography>
-          )}
-          <Box
-            component='div'
-            className='product-details flex justify-between mt-1 items-end'>
-            {user ? (
-              <Typography
-                component='p'
-                className='font-bold mt-10 text-header_color'>
-                Start from: {hotDeal?.start_price && hotDeal?.start_price}EGP
-              </Typography>
-            ) : (
-              <button onClick={() => setOpen(true)}>Price</button>
-            )}
-            <Button
-              variant='link'
-              className=' hover:text-mBlue text-header_color justify-end p-0'>
-              <KeyboardArrowRightIcon sx={{ fontSize: '24px', padding: '0' }} />
-            </Button>
-          </Box>
+          display='flex'
+          justifyContent='center'
+          marginTop='1rem'
+          borderBottom={1}
+          borderColor={'#1B6B93'}>
+          <Image
+            src={product}
+            alt='Product image'
+            style={{ maxWidth: '100%' }}
+          />
+        </Box>
+        <Box
+          sx={{
+            marginTop: '.5rem',
+            padding: '.3rem 1rem ',
+            borderRadius: '6px',
+            boxShadow: '1px 5px 5px 0px rgb(0 0 0 / 19%)',
+            bgcolor: '#FFF7F7',
+          }}>
+          <Typography fontFamily={400}>Man care </Typography>
+          <Typography fontWeight={400}>Up to 20% off</Typography>
         </Box>
       </Box>
+
       <AuthModal
         open={open}
         setOpen={setOpen}

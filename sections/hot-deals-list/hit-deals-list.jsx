@@ -15,37 +15,38 @@ const HotDealsList = ({ hotDeals, title, url }) => {
 
   return (
     <Container
-      maxWidth='xl'    
+      maxWidth='xl'
       sx={{ marginTop: spacing.sectionmargin }}>
       <SectionHeading
         title={title}
         url={url}
       />
       <StateProvider>
-      <Box
-        sx={{
-          overflowX: 'scroll',
-          whiteSpace: 'nowrap',
-          width: '100%',
-          display: 'flex', 
-          '&::-webkit-scrollbar': {
-            display: 'none',
-          },
-        }}>
         <Box
-          component='div'
           sx={{
+            overflowX: 'scroll',
+            whiteSpace: 'nowrap',
+            width: '100%',
             display: 'flex',
-            justifyContent: 'space-between',
-            gap: '2rem',
+            '&::-webkit-scrollbar': {
+              display: 'none',
+            },
           }}>
-          {hotDeals?.map((hotDeal) => (
+          <Box
+            component='div'
+            sx={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              gap: '2rem',
+            }}>
+            <HotDealCard />
+            {/* {hotDeals?.map((hotDeal) => (
             <HotDealCard
               key={hotDeal.id}
               hotDeal={hotDeal}
             />
-          ))}
-        </Box>
+          ))} */}
+          </Box>
         </Box>
       </StateProvider>
     </Container>
