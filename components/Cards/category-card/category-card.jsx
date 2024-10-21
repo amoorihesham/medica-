@@ -29,7 +29,7 @@ const CategoryCard = ({ category }) => {
             textAlign: 'center',
             marginTop: '.5rem',
           }}>
-          {category.name}
+          {category?.name}
         </Typography>
       </Box>
     </Box>

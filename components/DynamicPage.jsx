@@ -7,13 +7,11 @@ import HorizontalRuleIcon from '@mui/icons-material/HorizontalRule';
 import { ProductList } from '@/sections';
 import { SeeMoreBtn } from '@/components';
 import { colors } from '@/styles';
-import StateProvider from '@/components/Provider';
 import { getProduct, getSingleProduct } from '@/utils/productFunc';
 import Selector from '@/components/select/Selector';
 import { useEffect, useState } from 'react';
-
 import AddToCart from './Buttons/add-to-cart/add-to-cart';
-import { useSelector } from 'react-redux';
+
 const DynamicPage = ({ params }) => {
   const [select, setSelect] = useState(null);
   const [product, setproduct] = useState(null);
@@ -21,7 +19,6 @@ const DynamicPage = ({ params }) => {
   const [productsList, setproductsList] = useState(null);
   const [storeId, setStoreId] = useState();
   const [quantity, setQuantity] = useState(1);
-  console.log(vendor);
   useEffect(() => {
     const fetData = async () => {
       const product = await getSingleProduct({ id: params.id, allItems: 1 });
@@ -44,81 +41,80 @@ const DynamicPage = ({ params }) => {
 
   return (
     <Box>
-      <StateProvider>
-        <Container
-          maxWidth='xl'
-          sx={{ marginTop: '2rem' }}>
+      <Container
+        maxWidth='xl'
+        sx={{ marginTop: '2rem' }}>
+        <Box
+          component='div'
+          className='flex flex-col md:flex-row justify-between gap-5  items-center '>
           <Box
             component='div'
-            className='flex flex-col md:flex-row justify-between gap-5  items-center '>
-            <Box
-              component='div'
-              className='flex  flex-grow '>
-              <Image
-                src={product?.image}
-                alt='Product'
-                width={350}
-                height={519}
-              />
-              <FavoriteOutlined />
-            </Box>
+            className='flex  flex-grow '>
+            <Image
+              src={product?.image}
+              alt='Product'
+              width={350}
+              height={519}
+            />
+            <FavoriteOutlined />
+          </Box>
 
+          <Box
+            component='div'
+            className='flex-grow pr-20'>
+            <Selector
+              vendors={product?.vendors}
+              press={press}
+              select={select}
+              setStore={setStoreId}
+            />
+            <Typography
+              variant='h2'
+              component='h1'
+              sx={{ fontSize: '30px', fontWeight: '700' }}>
+              {product?.name}
+            </Typography>
+            <Typography
+              variant='body2'
+              component='p'
+              sx={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '.5rem',
+                color: '#C6C3C3',
+                fontSize: '16px',
+                fontWeight: '700',
+                margin: '.5rem 0',
+                marginBottom: '1rem',
+              }}>
+              Sold by
+              <Typography
+                sx={{ color: '#5FF529', fontweight: '700' }}
+                component='span'>
+                {vendor?.code}
+              </Typography>
+            </Typography>
+            <Typography
+              sx={{
+                backgroundColor: '#1B6B93',
+                fontWeight: '700',
+                fontSize: '14px',
+                color: 'white',
+                width: 'fit-content',
+                padding: '.2rem .5rem',
+                borderRadias: '6px',
+                margin: '.5rem 0',
+                marginBottom: '1rem',
+              }}>
+              Medicin
+            </Typography>
             <Box
               component='div'
-              className='flex-grow pr-20'>
-              <Selector
-                vendors={product?.vendors}
-                press={press}
-                select={select}
-                setStore={setStoreId}
-              />
-              <Typography
-                variant='h2'
-                component='h1'
-                sx={{ fontSize: '30px', fontWeight: '700' }}>
-                {product?.name}
+              className='flex justify-between items-center max-w-96'>
+              <Typography sx={{ fontSize: '16px', fontWeight: '700', color: colors.primary }}>
+                EGP {vendor?.price}
               </Typography>
-              <Typography
-                variant='body2'
-                component='p'
-                sx={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '.5rem',
-                  color: '#C6C3C3',
-                  fontSize: '16px',
-                  fontWeight: '700',
-                  margin: '.5rem 0',
-                  marginBottom: '1rem',
-                }}>
-                Sold by
-                <Typography
-                  sx={{ color: '#5FF529', fontweight: '700' }}
-                  component='span'>
-                  {vendor?.code}
-                </Typography>
-              </Typography>
-              <Typography
-                sx={{
-                  backgroundColor: '#1B6B93',
-                  fontWeight: '700',
-                  fontSize: '14px',
-                  color: 'white',
-                  width: 'fit-content',
-                  padding: '.2rem .5rem',
-                  borderRadias: '6px',
-                  margin: '.5rem 0',
-                  marginBottom: '1rem',
-                }}>
-                Medicin
-              </Typography>
-              <Box
-                component='div'
-                className='flex justify-between items-center max-w-96'>
-                <Typography sx={{ fontSize: '16px', fontWeight: '700', color: colors.primary }}>
-                  EGP {vendor?.price}
-                </Typography>
-                {/* <Typography
+              {/* <Typography
                   sx={{
                     fontSize: '12px',
                     fontWeight: '700',
@@ -128,55 +124,47 @@ const DynamicPage = ({ params }) => {
                 >
                   EGP 900
                 </Typography> */}
-                <Typography sx={{ fontSize: '14px', fontWeight: '700', color: '#F48C15' }}>
-                  {vendor?.discount}% Discount
-                </Typography>
-              </Box>
-              <Divider sx={{ marginBlock: '2rem' }} />
+              <Typography sx={{ fontSize: '14px', fontWeight: '700', color: '#F48C15' }}>
+                {vendor?.discount}% Discount
+              </Typography>
+            </Box>
+            <Divider sx={{ marginBlock: '2rem' }} />
 
-              <Box
-                sx={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'flex-start',
-                  gap: '.5rem',
-                  marginTop: '1rem',
-                }}>
-                <Button
-                  disabled={quantity == 1}
-                  icon={<HorizontalRuleIcon />}
-                  onClick={() => setQuantity((prev) => prev - 1)}></Button>
-                <Typography>{quantity}</Typography>
-                <Button
-                  disabled={vendor?.stock <= quantity}
-                  icon={<Add />}
-                  onClick={() => setQuantity((prev) => prev + 1)}></Button>
-              </Box>
-              <Box sx={{ display: 'flex', justifyContent: 'center' }}>
-                <AddToCart
-                  productId={product?.id}
-                  storeId={storeId}
-                  quantity={quantity}
-                />
-              </Box>
+            <Box
+              sx={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'flex-start',
+                gap: '.5rem',
+                marginTop: '1rem',
+              }}>
+              <Button
+                disabled={quantity == 1}
+                icon={<HorizontalRuleIcon />}
+                onClick={() => setQuantity((prev) => prev - 1)}></Button>
+              <Typography>{quantity}</Typography>
+              <Button
+                disabled={vendor?.stock <= quantity}
+                icon={<Add />}
+                onClick={() => setQuantity((prev) => prev + 1)}></Button>
+            </Box>
+            <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+              <AddToCart
+                productId={product?.id}
+                storeId={storeId}
+                quantity={quantity}
+              />
             </Box>
           </Box>
+        </Box>
 
-          <StateProvider>
-            <ProductList
-              title='Similar From Same Vendor'
-              productList={productsList}
-            />
-          </StateProvider>
-          {/* <StateProvider>
-          <ProductList
-            title='Explore More'
-            productList={productsList}
-          />
-          </StateProvider> */}
-          <SeeMoreBtn url='/products' />
-        </Container>
-      </StateProvider>
+        <ProductList
+          title='Similar From Same Vendor'
+          productList={productsList}
+        />
+
+        <SeeMoreBtn url='/products' />
+      </Container>
     </Box>
   );
 };

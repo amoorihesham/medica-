@@ -1,50 +1,40 @@
 'use client';
-import { ProductCard, SectionHeading } from '@/components';
 import { Box, Container } from '@mui/material';
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { setProductsList } from '@/redux/slices/allProductsSlice';
+import { ProductCard, SectionHeading } from '@/components';
 
 const ProductList = ({ productList, title, url }) => {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(setProductsList(productList));
-  }, []);
   return (
-    <Container
-      maxWidth='xl'
-      sx={{ marginTop: '3rem' }}> 
+    <Box>
       <SectionHeading
         title={title}
         url={url}
       />
-         <Box
+      <Box
         sx={{
           overflowX: 'scroll',
           whiteSpace: 'nowrap',
           width: '100%',
-          display: 'flex', 
+          display: 'flex',
           '&::-webkit-scrollbar': {
             display: 'none',
           },
-        
         }}>
-      <Box
-        component='div'
-        sx={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          gap: '2rem',
-        }}>
-        {productList?.map((product) => (
-          <ProductCard
-            product={product}
-            key={product.id}
-          />
-        ))}
-      </Box>
+        <Box
+          component='div'
+          sx={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            gap: '2rem',
+          }}>
+          {productList?.map((product) => (
+            <ProductCard
+              product={product}
+              key={product.id}
+            />
+          ))}
         </Box>
-    </Container>
+      </Box>
+    </Box>
   );
 };
 

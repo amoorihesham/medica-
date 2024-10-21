@@ -3,7 +3,7 @@ import { colors } from '@/styles';
 import { Box, Button } from '@mui/material';
 import Link from 'next/link';
 
-export default function GomlaMainBtn({ gomla, drug }) {
+export default function GomlaMainBtn() {
   return (
     <Box
       sx={{
@@ -32,10 +32,10 @@ export default function GomlaMainBtn({ gomla, drug }) {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          backgroundImage: `url(${drug?.image})`,
-          backgroundSize: 'contain',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
+          // backgroundImage: `url(${drug?.image})`,
+          // backgroundSize: 'contain',
+          // backgroundPosition: 'center',
+          // backgroundRepeat: 'no-repeat',
           fontSize: '36px',
         }}>
         Drug store
@@ -54,10 +54,10 @@ export default function GomlaMainBtn({ gomla, drug }) {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          backgroundImage: `url(${gomla?.image})`,
-          backgroundSize: 'contain',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
+          // backgroundImage: `url(${gomla?.image})`,
+          // backgroundSize: 'contain',
+          // backgroundPosition: 'center',
+          // backgroundRepeat: 'no-repeat',
           fontSize: '36px',
         }}>
         Gomla now

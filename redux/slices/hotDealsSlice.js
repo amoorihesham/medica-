@@ -1,19 +1,29 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { getHotDealsAsync } from '../asyncs/hotDeals';
 
 const initialState = {
-  hotDealsProducts: [],
+  hotDeals: [],
   isLoading: false,
   error: null,
 };
 const hotDealsSlice = createSlice({
   name: 'hot-deals-products',
   initialState,
-  reducers: {
-    setProductsList: (state, action) => {
-      state.hotDealsProducts = action.payload;
-    },
+  reducers: {},
+  extraReducers: (builder) => {
+    builder
+      .addCase(getHotDealsAsync.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(getHotDealsAsync.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.hotDeals = action.payload;
+      })
+      .addCase(getHotDealsAsync.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      });
   },
 });
 
-export const { setProductsList } = hotDealsSlice.actions;
 export default hotDealsSlice.reducer;

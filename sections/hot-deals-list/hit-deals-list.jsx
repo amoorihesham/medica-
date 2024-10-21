@@ -8,15 +8,8 @@ import { setProductsList } from '@/redux/slices/hotDealsSlice';
 import StateProvider from '@/components/Provider';
 
 const HotDealsList = ({ hotDeals, title, url }) => {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(setProductsList(hotDeals));
-  }, []);
-
   return (
-    <Container
-      maxWidth='xl'
-      sx={{ marginTop: spacing.sectionmargin }}>
+    <Box>
       <SectionHeading
         title={title}
         url={url}
@@ -49,7 +42,7 @@ const HotDealsList = ({ hotDeals, title, url }) => {
           </Box>
         </Box>
       </StateProvider>
-    </Container>
+    </Box>
   );
 };
 

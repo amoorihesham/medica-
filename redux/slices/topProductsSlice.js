@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { getTopProductsAsync } from '../asyncs/topProducts';
 
 const initialState = {
   topProducts: [],
@@ -8,12 +9,21 @@ const initialState = {
 const topProductsSlice = createSlice({
   name: 'top-products',
   initialState,
-  reducers: {
-    setProductsList: (state, action) => {
-      state.topProducts = action.payload;
-    },
+  reducers: {},
+  extraReducers: (builder) => {
+    builder
+      .addCase(getTopProductsAsync.pending, (state) => {
+        state.isLoading = false;
+      })
+      .addCase(getTopProductsAsync.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.topProducts = action.payload;
+      })
+      .addCase(getTopProductsAsync.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      });
   },
 });
 
-export const { setProductsList } = topProductsSlice.actions;
 export default topProductsSlice.reducer;

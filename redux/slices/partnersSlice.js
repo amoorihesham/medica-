@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { getPartnersAsync } from '../asyncs/partners';
 
 const initialState = {
   partners: [],
@@ -8,12 +9,21 @@ const initialState = {
 const partnersSlice = createSlice({
   name: 'partners',
   initialState,
-  reducers: {
-    setPartnersList: (state, action) => {
-      state.partners = action.payload;
-    },
+  reducers: {},
+  extraReducers: (builder) => {
+    builder
+      .addCase(getPartnersAsync.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(getPartnersAsync.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.partners = action.payload;
+      })
+      .addCase(getPartnersAsync.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      });
   },
 });
 
-export const { setPartnersList } = partnersSlice.actions;
 export default partnersSlice.reducer;

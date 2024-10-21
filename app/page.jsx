@@ -1,53 +1,68 @@
-import { Container } from '@mui/material';
-import StateProvider from '@/components/Provider';
+'use client';
+import { Container, Stack } from '@mui/material';
 import { HotDealsList, PartnersList, ProductList, CategoriesList } from '@/sections';
 import { RedLine, Slider, GomlaMainBtn } from '@/components';
-import { getProduct } from '@/utils/productFunc';
-import { getCategory } from '@/utils/categoryFunc';
-import { getBrand } from '@/utils/brandFunc';
-import { getDrug, getGomla } from '@/utils/adsFunc';
-import { getBanners } from '@/utils/bannersFunc';
 import ScrollUp from '@/hook/ScrollUp';
-import { Global } from '@/utils/globale';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { setUser } from '@/redux/slices/authSlice';
+import { getBannersAsync } from '@/redux/asyncs/banners';
+import { getCategoriesAsync } from '@/redux/asyncs/categories';
+import { getHotDealsAsync } from '@/redux/asyncs/hotDeals';
+import { getProductsAsync } from '@/redux/asyncs/products';
+import { getTopProductsAsync } from '@/redux/asyncs/topProducts';
 
-
-export default async function Home() {
-  const productsList = await getProduct({ allItems: 1 });
-  const hotDealsList = await getProduct({ hotDeal: 1 });
-  const topProductsList = await getProduct({ topProducts: 1 });
-  const categoriesList = await getCategory();
-  const brandsList = await getBrand();
-   const gomla = await getGomla();
-   const drug = await getDrug();
-  const banners = await getBanners();
-
+export default function Home() {
+  const { banners } = useSelector((state) => state.banners);
+  const { categories } = useSelector((state) => state.categories);
+  const { hotDeals } = useSelector((state) => state.hotDeals);
+  const { topProducts } = useSelector((state) => state.topProducts);
+  const { products } = useSelector((state) => state.products);
+  const dispatch = useDispatch();
+  const ParllerFetches = async () => {
+    await dispatch(getBannersAsync()).unwrap();
+    await dispatch(getCategoriesAsync()).unwrap();
+    await dispatch(getHotDealsAsync()).unwrap();
+    await dispatch(getProductsAsync()).unwrap();
+    await dispatch(getTopProductsAsync()).unwrap();
+  };
+  useEffect(() => {
+    if (localStorage.getItem('user') !== null) {
+      dispatch(setUser(JSON.parse(localStorage.getItem('user'))));
+    }
+    ParllerFetches();
+  }, []);
   return (
     <>
       <ScrollUp />
       <RedLine title='Account Need To Be Activated' />
-      <StateProvider>
-        <Slider banners={banners} />
-        <CategoriesList categoriesList={categoriesList} />
-        <Container maxWidth='xl'>
-          <GomlaMainBtn gomla={gomla}rug={drug} />
-        </Container>
-        <HotDealsList
-          hotDeals={hotDealsList}
-          title='Hot Deals'
-          url='/hot-deals'
-        />
-        <PartnersList brands={brandsList} />
-        <ProductList
-          title='Top Products'
-          url={'/top-products'}
-          productList={topProductsList}
-        />
-        <ProductList
-          title='All Products'
-          url={'/products'}
-          productList={productsList}
-        />
-      </StateProvider>
+      <Container
+        maxWidth='xl'
+        sx={{ marginTop: '2.5rem' }}>
+        <Stack spacing={5}>
+          <Slider banners={banners} />
+          <CategoriesList categoriesList={categories} />
+          <GomlaMainBtn />
+          {!!hotDeals.length && (
+            <HotDealsList
+              hotDeals={hotDeals}
+              title='Hot Deals'
+              url='/hot-deals'
+            />
+          )}
+          <PartnersList />
+          <ProductList
+            title='Top Products'
+            url={'/top-products'}
+            productList={topProducts}
+          />
+          <ProductList
+            title='All Products'
+            url={'/products'}
+            productList={products}
+          />
+        </Stack>
+      </Container>
     </>
   );
 }

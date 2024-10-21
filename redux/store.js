@@ -5,14 +5,18 @@ import topProductsReducer from './slices/topProductsSlice';
 import hotDealsProductsReducer from './slices/hotDealsSlice';
 import partnersReducer from './slices/partnersSlice';
 import cartReducer from './slices/cartSlice';
+import bannersReducer from './slices/bannersSlice';
+import categoriesReducer from './slices/categoriesSlice';
 const store = configureStore({
   reducer: {
     auth: authReducer,
-    allProducts: allProductsReducer,
+    products: allProductsReducer,
     topProducts: topProductsReducer,
     hotDeals: hotDealsProductsReducer,
     partners: partnersReducer,
     cart: cartReducer,
+    banners: bannersReducer,
+    categories: categoriesReducer,
   },
 });
 
