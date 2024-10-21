@@ -1,20 +1,18 @@
-import { TopProductsList } from '@/sections';
-import { getProduct } from '@/utils/productFunc';
+'use client';
+import { Box, Container, Pagination } from '@mui/material';
+import { useSelector } from 'react-redux';
 import ScrollUp from '@/hook/ScrollUp';
-import StateProvider from '@/components/Provider';
-import { Box, Pagination } from '@mui/material';
+import { TopProductsList } from '@/sections';
 
-export default async function TopProductsPage() {
-  const topProductsList = await getProduct({ topProducts: 1 });
+export default function TopProductsPage() {
+  const { topProducts } = useSelector((state) => state.topProducts);
   return (
-    <>
+    <Container maxWidth='xl'>
       <ScrollUp />
-      <StateProvider>
-        <TopProductsList productsList={topProductsList} />
-        <Box sx={{ display: 'flex', justifyContent: 'center', marginBlock: '2rem' }}>
-          <Pagination count={10} />
-        </Box>
-      </StateProvider>
-    </>
+      <TopProductsList productsList={topProducts} />
+      <Box sx={{ display: 'flex', justifyContent: 'center', marginBlock: '2rem' }}>
+        <Pagination count={10} />
+      </Box>
+    </Container>
   );
 }

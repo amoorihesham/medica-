@@ -1,20 +1,10 @@
 'use client';
 import { ProductCard, SectionHeading } from '@/components';
-import { setProductsList } from '@/redux/slices/topProductsSlice';
 import { Box, Container } from '@mui/material';
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
 
 export default function TopProductsList({ productsList }) {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(setProductsList(productsList));
-  }, []);
-
   return (
-    <Container
-      maxWidth='xl'
-      sx={{ marginTop: '3rem' }}>
+    <Box>
       <SectionHeading title='Top Products' />
       <Box
         component='div'
@@ -26,6 +16,6 @@ export default function TopProductsList({ productsList }) {
           />
         ))}
       </Box>
-    </Container>
+    </Box>
   );
 }
