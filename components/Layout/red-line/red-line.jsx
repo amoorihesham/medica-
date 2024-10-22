@@ -5,10 +5,17 @@ const RedLine = ({ title }) => {
   return (
     <Box
       component='div'
-      sx={{ bgcolor: '#FF4646', height: '40px' }}
-    >
+      sx={{ bgcolor: '#FF4646', height: '40px' }}>
       <Container maxWidth='xl'>
-        <Box sx={{ display: 'flex', alignItems: 'center',justifyContent:'space-between',width: '100%', height: '40px' }}>
+        <Box
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '.5rem',
+            width: '100%',
+            height: '40px',
+          }}>
+          <ErrorOutlineIcon sx={{ color: 'white' }} />
           <Typography
             sx={{
               color: colors.primaryText,
@@ -17,11 +24,9 @@ const RedLine = ({ title }) => {
                 sm: '14px',
                 md: '16px',
               },
-            }}
-          >
+            }}>
             {title}
           </Typography>
-          <ErrorOutlineIcon sx={{ color: 'white' }} />
         </Box>
       </Container>
     </Box>

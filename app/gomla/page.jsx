@@ -1,5 +1,5 @@
-import { RedLine, Slider, SearchGomla, GomlaProductCard, SectionHeading } from '@/components';
-import { CategoriesList, ProductList } from '@/sections';
+import { Slider, SearchGomla, GomlaProductCard, SectionHeading } from '@/components';
+import { CategoriesList } from '@/sections';
 import { Box, Container, Pagination } from '@mui/material';
 
 const productsList = [
@@ -86,10 +86,8 @@ const categoriesList = [
 const Gomla = () => {
   return (
     <>
-      <RedLine title='Order Must Be At Least 5K.' />
       <Slider />
       <CategoriesList categorisList={categoriesList} />
-
       <Container
         maxWidth='xl'
         sx={{ marginTop: '2rem' }}>

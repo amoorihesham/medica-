@@ -13,6 +13,7 @@ import { getProductsAsync } from '@/redux/asyncs/products';
 import { getTopProductsAsync } from '@/redux/asyncs/topProducts';
 
 export default function Home() {
+  const { user } = useSelector((state) => state.auth);
   const { banners } = useSelector((state) => state.banners);
   const { categories } = useSelector((state) => state.categories);
   const { hotDeals } = useSelector((state) => state.hotDeals);
@@ -35,27 +36,33 @@ export default function Home() {
   return (
     <>
       <ScrollUp />
-      <RedLine title='Account Need To Be Activated' />
+      {+user?.status === 0 ? <RedLine title='Account Need To Be Activated' /> : null}
+
       <Container
         maxWidth='xl'
         sx={{ marginTop: '2.5rem' }}>
         <Stack spacing={5}>
           <Slider banners={banners} />
           <CategoriesList categoriesList={categories} />
-          <GomlaMainBtn />
-          {!!hotDeals.length && (
-            <HotDealsList
-              hotDeals={hotDeals}
-              title='Hot Deals'
-              url='/hot-deals'
-            />
+          {user && (
+            <>
+              <GomlaMainBtn />
+              {!!hotDeals.length && (
+                <HotDealsList
+                  hotDeals={hotDeals}
+                  title='Hot Deals'
+                  url='/hot-deals'
+                />
+              )}
+              <PartnersList />
+              <ProductList
+                title='Top Products'
+                url={'/top-products'}
+                productList={topProducts}
+              />
+            </>
           )}
-          <PartnersList />
-          <ProductList
-            title='Top Products'
-            url={'/top-products'}
-            productList={topProducts}
-          />
+
           <ProductList
             title='All Products'
             url={'/products'}

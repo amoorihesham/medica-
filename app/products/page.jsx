@@ -8,7 +8,6 @@ const Products = async () => {
   const topProductsList = await getProduct({ topProducts: 1 });
   return (
     <Box>
-      <RedLine title='Order More Than 500L.E To Have Free Shipping.' />
       <Container maxWidth='xl'>
         <StateProvider>
           <ProductList
