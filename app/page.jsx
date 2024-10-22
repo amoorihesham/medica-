@@ -23,9 +23,11 @@ export default function Home() {
   const ParllerFetches = async () => {
     await dispatch(getBannersAsync()).unwrap();
     await dispatch(getCategoriesAsync()).unwrap();
-    await dispatch(getHotDealsAsync()).unwrap();
     await dispatch(getProductsAsync()).unwrap();
-    await dispatch(getTopProductsAsync()).unwrap();
+    if (user) {
+      await dispatch(getHotDealsAsync()).unwrap();
+      await dispatch(getTopProductsAsync()).unwrap();
+    }
   };
   useEffect(() => {
     if (localStorage.getItem('user') !== null) {
