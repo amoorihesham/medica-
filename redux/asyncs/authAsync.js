@@ -1,11 +1,24 @@
+import { api } from '@/utils/api';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
 
-export const authRegister = createAsyncThunk('auth/register', async (userInfo, thunkApi) => {
+export const Register = createAsyncThunk('auth/register', async (formData, { rejectWithValue }) => {
   try {
-    // const { data } = await axios.post('https://ai.w-manage.org/api/register', userInfo);
-    // return data?.data;
+    const { data } = await api.post('/register', formData);
   } catch (error) {
-    return thunkApi.rejectWithValue(error);
+    return rejectWithValue(error);
+  }
+});
+
+export const Login = createAsyncThunk('auth/login', async (formData, { rejectWithValue }) => {
+  try {
+    const { data } = await api.post('/login', formData);
+    const savedUser = {
+      token: data?.data.token,
+      ...data?.data?.user,
+    };
+    localStorage.setItem('userData', JSON.stringify(savedUser));
+    return savedUser;
+  } catch (error) {
+    return rejectWithValue(error);
   }
 });

@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { authRegister } from '../asyncs/authAsync';
+import { Login, Register } from '../asyncs/authAsync';
 
 const initialState = {
   user: null,
@@ -16,17 +16,28 @@ const authSlice = createSlice({
     logout: (state) => {
       state.user = null;
       localStorage.clear();
-      window.location.reload();
     },
   },
   extraReducers: (builder) => {
     builder
-      .addCase(authRegister.pending, (state) => (state.isLoading = true))
-      .addCase(authRegister.fulfilled, (state, action) => {
+      .addCase(Register.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(Register.fulfilled, (state, action) => {
+        state.isLoading = false;
+      })
+      .addCase(Register.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
+      .addCase(Login.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(Login.fulfilled, (state, action) => {
         state.isLoading = false;
         state.user = action.payload;
       })
-      .addCase(authRegister.rejected, (state, action) => {
+      .addCase(Login.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
       });

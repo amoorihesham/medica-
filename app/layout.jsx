@@ -12,6 +12,11 @@ const lato = Lato({
   weight: ['100', '300', '400', '700'],
 });
 
+export const metadata = {
+  title: 'Medica - Health & Wellness',
+  description:
+    'Medica is a premium online health and wellness platform, offering a wide range of products and services.',
+};
 const getCategories = async () => {
   try {
     const { data } = await api.get('/category');

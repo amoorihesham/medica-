@@ -38,7 +38,7 @@ const DynamicPage = ({ params }) => {
     const products = await getProduct({ vendor_id: obj?.vendor_id });
     setproductsList(products);
   };
-
+  console.log(vendor);
   return (
     <Box>
       <Container
@@ -149,11 +149,13 @@ const DynamicPage = ({ params }) => {
                 onClick={() => setQuantity((prev) => prev + 1)}></Button>
             </Box>
             <Box sx={{ display: 'flex', justifyContent: 'center' }}>
-              <AddToCart
-                productId={product?.id}
-                storeId={storeId}
-                quantity={quantity}
-              />
+              {vendor?.stock === 0 ? null : (
+                <AddToCart
+                  productId={product?.id}
+                  storeId={storeId}
+                  quantity={quantity}
+                />
+              )}
             </Box>
           </Box>
         </Box>

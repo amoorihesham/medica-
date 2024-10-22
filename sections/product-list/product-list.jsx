@@ -1,5 +1,5 @@
 'use client';
-import { Box, Container } from '@mui/material';
+import { Box } from '@mui/material';
 import { ProductCard, SectionHeading } from '@/components';
 
 const ProductList = ({ productList, title, url }) => {

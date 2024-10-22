@@ -2,15 +2,16 @@
 import { SubmitButton } from '@/components/Buttons';
 import { CheckInput, SelectInput } from '@/components/Inputs';
 import CustomInput from '@/components/Inputs/try/TryInput';
-import { setUser } from '@/redux/slices/authSlice';
+import { Register } from '@/redux/asyncs/authAsync';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 
 const SignupForm = ({ setLogin }) => {
-  const [error, setError] = useState(null);
+  const { isLoading, error } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
   const [govs, setGovs] = useState([]);
 
   const {
@@ -43,18 +44,17 @@ const SignupForm = ({ setLogin }) => {
   }, []);
   const onSubmit = async (formData) => {
     try {
-      const { data } = await axios.post('https://ai.w-manage.org/api/register', formData);
+      await dispatch(Register(formData)).unwrap();
       toast.success('Registration successfully');
-      setError('');
       reset();
       setLogin(true);
     } catch (error) {
-      setError(error.response.data.data[0]);
+      console.log(error.message);
     }
   };
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      {error && <p className='text-md font-light text-red-500 text-center'>{error}</p>}
+      {error && <p className='text-md font-light text-red-500 text-center'>{error?.message}</p>}
       <div className='w-80 mx-auto'>
         <CustomInput
           name='name'
@@ -155,7 +155,10 @@ const SignupForm = ({ setLogin }) => {
           errors={errors}
           text='I agree with Privacy Policy and Terms and Conditions'
         />
-        <SubmitButton text='sign up' />
+        <SubmitButton
+          text='sign up'
+          isLoading={isLoading}
+        />
       </div>
     </form>
   );

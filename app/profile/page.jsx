@@ -14,12 +14,13 @@ import {
   Person,
   Phone,
 } from '@mui/icons-material';
-import { Box, Button, Container, Divider, Stack, Typography } from '@mui/material';
+import { Container, Divider, Stack, Typography } from '@mui/material';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 export default function ProfilePage() {
+  const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
   const [openDetails, setOpenDetails] = useState(false);
   const router = useRouter();
@@ -89,8 +90,8 @@ export default function ProfilePage() {
             </div>
             <div
               onClick={() => {
-                localStorage.clear();
-                window.location.replace('/');
+                dispatch(logout());
+                router.push('/');
               }}
               className='text-sm flex items-center justify-between cursor-pointer hover:bg-gray-100 p-2 transition-colors duration-200 text-red-600'>
               <span className='flex items-center gap-2'>

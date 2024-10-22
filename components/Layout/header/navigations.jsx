@@ -60,7 +60,7 @@ const styles = {
   language: {
     display: 'flex',
     alignItems: 'center',
-    justifyContnet: 'center',
+    justifyContent: 'center',
     fontSize: '16px',
     padding: '0',
     margin: '0',
@@ -76,8 +76,8 @@ export default function Navigations() {
   const [openLang, setOpenLang] = useState(false);
 
   useEffect(() => {
-    if (localStorage.getItem('user') != null) {
-      dispatch(setUser(JSON.parse(localStorage.getItem('user'))));
+    if (localStorage.getItem('userData') != null) {
+      dispatch(setUser(JSON.parse(localStorage.getItem('userData'))));
     }
   }, []);
   return (
@@ -198,7 +198,7 @@ export default function Navigations() {
                         : 'hover:text-white flex items-center gap-1 py-1 px-3'
                     }
                     href='/profile'>
-                    <PersonOutlined /> Hi, {user.user.name}
+                    <PersonOutlined /> Hi, {user?.name}
                   </Link>
                 </li>
               </>
@@ -276,7 +276,7 @@ export default function Navigations() {
                 <Link
                   href='/profile'
                   className='flex items-center gap-1 py-2 px-3'>
-                  <PersonOutlined /> Hi, {user.user.name}
+                  <PersonOutlined /> Hi, {user?.name}
                 </Link>
               </li>
             </>
