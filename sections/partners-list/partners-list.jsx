@@ -20,7 +20,7 @@ const PartnersList = ({ partners }) => {
           },
         }}
         className=' flex mt-3 gap-5'>
-        {!partners.length && <p>No partners found.</p>}
+        {!partners?.length && <p>No partners found.</p>}
         {partners?.map((brand) => (
           <PartnerCard
             {...brand}
