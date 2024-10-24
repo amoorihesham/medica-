@@ -1,6 +1,7 @@
+import Link from 'next/link';
+import { Box, Container, Typography } from '@mui/material';
 import { CartSummary } from '@/components';
-import { colors } from '@/styles';
-import { Box, Button, Container, Typography } from '@mui/material';
+
 export default function Checkout() {
   return (
     <Box>
@@ -91,14 +92,9 @@ export default function Checkout() {
               <label htmlFor='save'>Save This Information To next time.</label>
             </Box>
             <Box sx={{ display: 'flex', justifyContent: 'center', marginTop: '2rem' }}>
-              <Button
-                variant='contained'
-                sx={{ bgcolor: colors.primary }}
-                className='w-1/2 mx-auto'
-                type='link'
-                href='place-order'>
-                Next
-              </Button>
+              <button className='w-1/2 mx-auto text-center text-white py-2 rounded-md uppercase bg-mBlue block hover:shadow-lg transition-shadow duration-300'>
+                Place Order
+              </button>
             </Box>
           </form>
           <CartSummary />

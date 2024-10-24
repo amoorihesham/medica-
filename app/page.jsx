@@ -1,16 +1,22 @@
 'use client';
 import { Container, Stack } from '@mui/material';
-import { HotDealsList, PartnersList, ProductList, CategoriesList } from '@/sections';
+import {
+  HotDealsList,
+  PartnersList,
+  ProductList,
+  CategoriesList,
+  TopProductsList,
+} from '@/sections';
 import { RedLine, Slider, GomlaMainBtn } from '@/components';
 import ScrollUp from '@/hook/ScrollUp';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
-import { setUser } from '@/redux/slices/authSlice';
+import { useCallback, useEffect } from 'react';
 import { getBannersAsync } from '@/redux/asyncs/banners';
 import { getCategoriesAsync } from '@/redux/asyncs/categories';
 import { getHotDealsAsync } from '@/redux/asyncs/hotDeals';
 import { getProductsAsync } from '@/redux/asyncs/products';
 import { getTopProductsAsync } from '@/redux/asyncs/topProducts';
+import { getPartnersAsync } from '@/redux/asyncs/partners';
 
 export default function Home() {
   const { user } = useSelector((state) => state.auth);
@@ -19,22 +25,22 @@ export default function Home() {
   const { hotDeals } = useSelector((state) => state.hotDeals);
   const { topProducts } = useSelector((state) => state.topProducts);
   const { products } = useSelector((state) => state.products);
+  const { partners } = useSelector((state) => state.partners);
   const dispatch = useDispatch();
-  const ParllerFetches = async () => {
+  const ParllerFetches = useCallback(async () => {
     await dispatch(getBannersAsync()).unwrap();
     await dispatch(getCategoriesAsync()).unwrap();
     await dispatch(getProductsAsync()).unwrap();
     if (user) {
       await dispatch(getHotDealsAsync()).unwrap();
       await dispatch(getTopProductsAsync()).unwrap();
+      await dispatch(getPartnersAsync()).unwrap();
     }
-  };
+  }, [user, dispatch]);
+
   useEffect(() => {
-    if (localStorage.getItem('user') !== null) {
-      dispatch(setUser(JSON.parse(localStorage.getItem('user'))));
-    }
     ParllerFetches();
-  }, []);
+  }, [ParllerFetches]);
   return (
     <>
       <ScrollUp />
@@ -43,33 +49,18 @@ export default function Home() {
       <Container
         maxWidth='xl'
         sx={{ marginTop: '2.5rem' }}>
-        <Stack spacing={5}>
+        <Stack spacing={4}>
           <Slider banners={banners} />
           <CategoriesList categoriesList={categories} />
           {user && (
             <>
               <GomlaMainBtn />
-              {!!hotDeals.length && (
-                <HotDealsList
-                  hotDeals={hotDeals}
-                  title='Hot Deals'
-                  url='/hot-deals'
-                />
-              )}
-              <PartnersList />
-              <ProductList
-                title='Top Products'
-                url={'/top-products'}
-                productList={topProducts}
-              />
+              {!!hotDeals.length && <HotDealsList hotDeals={hotDeals} />}
+              <PartnersList partners={partners} />
+              <TopProductsList productList={topProducts} />
             </>
           )}
-
-          <ProductList
-            title='All Products'
-            url={'/products'}
-            productList={products}
-          />
+          <ProductList productList={products} />
         </Stack>
       </Container>
     </>

@@ -1,16 +1,13 @@
 import { Lato } from 'next/font/google';
-import { CssBaseline } from '@mui/material';
+import { CssBaseline, ThemeProvider } from '@mui/material';
 import { Footer, Header, CategoriesNavbar } from '@/components';
 import StateProvider from '@/components/Provider';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import './globals.css';
 import { api } from '@/utils/api';
-
-const lato = Lato({
-  subsets: ['latin'],
-  weight: ['100', '300', '400', '700'],
-});
+import themeConfig from '@/utils/themeConfig';
+import '@fontsource/lato';
+import './globals.css';
 
 export const metadata = {
   title: 'Medica - Health & Wellness',
@@ -30,9 +27,7 @@ export default async function RootLayout({ children }) {
   const categories = await getCategories();
 
   return (
-    <html
-      lang='en'
-      className={lato.className}>
+    <html lang='en'>
       <body>
         <ToastContainer
           position='top-right'
@@ -44,10 +39,12 @@ export default async function RootLayout({ children }) {
 
         <CssBaseline />
         <StateProvider>
-          <Header />
-          <CategoriesNavbar categories={categories} />
+          <ThemeProvider theme={themeConfig}>
+            <Header />
+            <CategoriesNavbar categories={categories} />
 
-          {children}
+            {children}
+          </ThemeProvider>
         </StateProvider>
         <Footer />
       </body>

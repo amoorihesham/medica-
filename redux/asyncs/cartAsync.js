@@ -8,6 +8,7 @@ export const getCartData = createAsyncThunk('cart/get-data', async (userToken, t
         Authorization: `Bearer ${userToken}`,
       },
     });
+
     return data?.data;
   } catch (error) {
     return thunkApi.rejectWithValue(error);

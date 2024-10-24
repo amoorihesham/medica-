@@ -9,13 +9,13 @@ const CategoriesNavbar = ({ categories }) => {
   const [subCategory, setSubCategory] = useState(null);
   const [subCategories, setSubCategories] = useState(null);
   const open = Boolean(anchorEl);
-useEffect(() => {
-  const fetData = async () => {
-    const subcategories = await getSubCategory();
-    setSubCategories(subcategories);
-  };
-  fetData();
-},[])
+  useEffect(() => {
+    const fetData = async () => {
+      const subcategories = await getSubCategory();
+      setSubCategories(subcategories);
+    };
+    fetData();
+  }, []);
   const handleClick = async ({ event, category }) => {
     setAnchorEl(event.currentTarget);
     const { id } = category;
@@ -57,7 +57,7 @@ useEffect(() => {
               },
             }}>
             {categories?.map((category) => (
-              <div key={category.id}  >
+              <div key={category.id}>
                 <Button
                   key={category.id}
                   sx={{
@@ -68,8 +68,7 @@ useEffect(() => {
                   aria-controls={open ? 'simple-menu' : undefined}
                   aria-haspopup='true'
                   // onMouseEnter={(event)=>handleClick({event,category})}
-                  onClick={(event) => handleClick({ event, category })}
-                  >
+                  onClick={(event) => handleClick({ event, category })}>
                   {category.name}
                 </Button>
                 <Menu

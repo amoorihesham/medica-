@@ -1,9 +1,7 @@
 'use client';
-import { colors } from '@/styles';
-import { Box, Button } from '@mui/material';
-import { useRouter } from 'next/navigation';
-
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { Box, Button } from '@mui/material';
 
 export default function SearchGomla() {
   const [term, setTerm] = useState('');
@@ -18,6 +16,8 @@ export default function SearchGomla() {
         display: 'flex',
         justifyContent: 'start',
         alignItems: 'center',
+        gap: '.5rem',
+
         marginBlock: '1rem',
       }}>
       <input
@@ -29,7 +29,6 @@ export default function SearchGomla() {
       />
       <Button
         variant='contained'
-        sx={{ bgcolor: colors.primary }}
         onClick={handleClick}>
         Serach
       </Button>

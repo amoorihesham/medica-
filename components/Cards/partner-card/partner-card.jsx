@@ -1,26 +1,30 @@
-import { Box } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 
-const PartnerCard = ({ img }) => {
+const PartnerCard = ({ image, name }) => {
   return (
     <Box
-      sx={{
-        display: 'flex',
-        justifyContent: 'center',
-        backgroundColor: '#C6C3C3',
-        backgroundImage: `url(${img})`,
-        backgroundSize: 'contain',
-        backgroundPosition: 'center',
-        width: '150px',
-        borderRadius: '100000px',
-        height: '150px',
-      }}>
-      {/* <Image
-        src={img}
-        width={100}
-        height={100}
-        alt='Pulse Oximeter'
-        style={{backgroundColor: '#C6C3C3',objectFit: 'cover', borderRadius: '100000px'}}
-      /> */}
+      display='flex'
+      flexDirection='column'
+      justifyContent='center'
+      alignItems='center'
+      gap={1}>
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          backgroundColor: '#C6C3C3',
+          backgroundImage: `url(${image})`,
+          backgroundSize: 'contain',
+          backgroundPosition: 'center',
+          width: '110px',
+          borderRadius: '100000px',
+          height: '110px',
+        }}></Box>
+      <Typography
+        variant='h6'
+        textTransform='uppercase'>
+        {name}
+      </Typography>
     </Box>
   );
 };

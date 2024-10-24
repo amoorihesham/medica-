@@ -1,47 +1,40 @@
 'use client';
-import { Box, Container } from '@mui/material';
+import { Box } from '@mui/material';
 import { SectionHeading, HotDealCard } from '@/components';
-import { spacing } from '@/styles';
-import { useDispatch } from 'react-redux';
-import { useEffect } from 'react';
-import { setProductsList } from '@/redux/slices/hotDealsSlice';
-import StateProvider from '@/components/Provider';
 
-const HotDealsList = ({ hotDeals, title, url }) => {
+const HotDealsList = ({ hotDeals }) => {
   return (
     <Box>
       <SectionHeading
-        title={title}
-        url={url}
+        title='Hot Deals'
+        url='/hot-deals'
       />
-      <StateProvider>
+
+      <Box
+        sx={{
+          overflowX: 'scroll',
+          whiteSpace: 'nowrap',
+          width: '100%',
+          display: 'flex',
+          '&::-webkit-scrollbar': {
+            display: 'none',
+          },
+        }}>
         <Box
+          component='div'
           sx={{
-            overflowX: 'scroll',
-            whiteSpace: 'nowrap',
-            width: '100%',
             display: 'flex',
-            '&::-webkit-scrollbar': {
-              display: 'none',
-            },
+            justifyContent: 'space-between',
+            gap: '2rem',
           }}>
-          <Box
-            component='div'
-            sx={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              gap: '2rem',
-            }}>
-            <HotDealCard />
-            {/* {hotDeals?.map((hotDeal) => (
+          {hotDeals?.map((hotDeal) => (
             <HotDealCard
               key={hotDeal.id}
               hotDeal={hotDeal}
             />
-          ))} */}
-          </Box>
+          ))}
         </Box>
-      </StateProvider>
+      </Box>
     </Box>
   );
 };

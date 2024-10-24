@@ -1,20 +1,40 @@
 'use client';
+import { Box } from '@mui/material';
 import { ProductCard, SectionHeading } from '@/components';
-import { Box, Container } from '@mui/material';
 
-export default function TopProductsList({ productsList }) {
+export default function TopProductsList({ productList }) {
   return (
     <Box>
-      <SectionHeading title='Top Products' />
-      <Box
-        component='div'
-        className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5'>
-        {productsList?.map((product) => (
-          <ProductCard
-            product={product}
-            key={product.id}
-          />
-        ))}
+      <Box>
+        <SectionHeading
+          title='Top Products'
+          url='/top-products'
+        />
+        <Box
+          sx={{
+            overflowX: 'scroll',
+            whiteSpace: 'nowrap',
+            width: '100%',
+            display: 'flex',
+            '&::-webkit-scrollbar': {
+              display: 'none',
+            },
+          }}>
+          <Box
+            component='div'
+            sx={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              gap: '2rem',
+            }}>
+            {productList?.map((product) => (
+              <ProductCard
+                product={product}
+                key={product.id}
+              />
+            ))}
+          </Box>
+        </Box>
       </Box>
     </Box>
   );

@@ -10,6 +10,7 @@ module.exports = {
     extend: {
       colors: {
         mBlue: '#164B60',
+        sBlue: '#1B6B93',
         mGreen: '#A2FF86',
         mpink: '#FFF7F7',
         header_color: '#164B60',

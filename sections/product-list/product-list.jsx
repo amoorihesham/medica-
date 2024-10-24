@@ -2,12 +2,12 @@
 import { Box } from '@mui/material';
 import { ProductCard, SectionHeading } from '@/components';
 
-const ProductList = ({ productList, title, url }) => {
+const ProductList = ({ productList }) => {
   return (
     <Box>
       <SectionHeading
-        title={title}
-        url={url}
+        title='All Products'
+        url='/products'
       />
       <Box
         sx={{

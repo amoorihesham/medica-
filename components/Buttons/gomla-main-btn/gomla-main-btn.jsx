@@ -1,7 +1,5 @@
 'use client';
-import { colors } from '@/styles';
 import { Box, Button } from '@mui/material';
-import Link from 'next/link';
 
 export default function GomlaMainBtn() {
   return (
@@ -19,47 +17,15 @@ export default function GomlaMainBtn() {
         columnGap: '1rem',
       }}>
       <Button
+        variant='drugStore'
         type='link'
-        href='/products'
-        sx={{
-          backgroundColor: colors.red,
-          padding: '1rem 2rem',
-          color: colors.primaryText,
-          borderRadius: '24px',
-          width: '100%',
-          height: '224px',
-          fontWeight: '700',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          // backgroundImage: `url(${drug?.image})`,
-          // backgroundSize: 'contain',
-          // backgroundPosition: 'center',
-          // backgroundRepeat: 'no-repeat',
-          fontSize: '36px',
-        }}>
+        href='/products'>
         Drug store
       </Button>
       <Button
+        variant='gomlaStore'
         type='link'
-        href='/gomla'
-        sx={{
-          backgroundColor: colors.yellow,
-          padding: '1rem 2rem',
-          color: colors.primaryText,
-          borderRadius: '24px',
-          width: '100%',
-          height: '224px',
-          fontWeight: '700',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          // backgroundImage: `url(${gomla?.image})`,
-          // backgroundSize: 'contain',
-          // backgroundPosition: 'center',
-          // backgroundRepeat: 'no-repeat',
-          fontSize: '36px',
-        }}>
+        href='/gomla'>
         Gomla now
       </Button>
     </Box>

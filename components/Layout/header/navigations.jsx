@@ -85,7 +85,6 @@ export default function Navigations() {
       <AppBar
         component='nav'
         sx={{
-          backgroundColor: colors.primary,
           boxShadow: 'unset',
           position: 'unset',
         }}>
@@ -115,13 +114,16 @@ export default function Navigations() {
                 MedicaPlus
               </Typography>
             </Link>
-            <Typography
-              display='flex'
-              alignItems='center'
-              gap='.1rem'>
-              <LocationOn />
+            <Button
+              variant='text'
+              color='secondary'
+              size='small'
+              sx={{
+                textTransform: 'capitalize',
+              }}
+              startIcon={<LocationOn />}>
               Deliver to
-            </Typography>
+            </Button>
           </Box>
 
           <IconButton
@@ -144,21 +146,21 @@ export default function Navigations() {
                     href='/'
                     className={
                       curPath === '/'
-                        ? 'hover:text-white flex items-center gap-1 py-1 px-3 border-b'
-                        : 'hover:text-white flex items-center gap-1 py-1 px-3'
+                        ? 'hover:text-white flex items-center gap-1 py-1 px-3 border-b text-sm'
+                        : 'hover:text-white flex items-center gap-1 py-1 px-3 text-sm'
                     }>
-                    <HomeOutlined /> Home
+                    <HomeOutlined fontSize='small' /> Home
                   </Link>
                 </li>
                 <li>
                   <Link
                     className={
                       curPath === '/cart'
-                        ? 'hover:text-white flex items-center gap-1 py-1 px-3 border-b'
-                        : 'hover:text-white flex items-center gap-1 py-1 px-3'
+                        ? 'hover:text-white flex items-center gap-1 py-1 px-3 border-b text-sm'
+                        : 'hover:text-white flex items-center gap-1 py-1 px-3 text-sm'
                     }
                     href='/cart'>
-                    <ShoppingCartOutlined />
+                    <ShoppingCartOutlined fontSize='small' />
                     My Cart
                   </Link>
                 </li>
@@ -166,11 +168,11 @@ export default function Navigations() {
                   <Link
                     className={
                       curPath === '/orders'
-                        ? 'hover:text-white flex items-center gap-1 py-1 px-3 border-b'
-                        : 'hover:text-white flex items-center gap-1 py-1 px-3'
+                        ? 'hover:text-white flex items-center gap-1 py-1 px-3 border-b text-sm'
+                        : 'hover:text-white flex items-center gap-1 py-1 px-3 text-sm'
                     }
                     href='/orders'>
-                    <AssignmentOutlined />
+                    <AssignmentOutlined fontSize='small' />
                     My Orders
                   </Link>
                 </li>
@@ -184,9 +186,9 @@ export default function Navigations() {
                 </li>
                 <li>
                   <button
-                    className='hover:text-white flex items-center gap-1 py-1 px-3'
+                    className='hover:text-white flex items-center gap-1 py-1 px-3 text-sm'
                     onClick={() => setOpenLang(true)}>
-                    <LanguageOutlined />
+                    <LanguageOutlined fontSize='small' />
                     Language
                   </button>
                 </li>
@@ -194,11 +196,11 @@ export default function Navigations() {
                   <Link
                     className={
                       curPath === '/profile'
-                        ? 'hover:text-white flex items-center gap-1 py-1 px-3 border-b'
-                        : 'hover:text-white flex items-center gap-1 py-1 px-3'
+                        ? 'hover:text-white flex items-center gap-1 py-1 px-3 border-b text-sm'
+                        : 'hover:text-white flex items-center gap-1 py-1 px-3 text-sm'
                     }
                     href='/profile'>
-                    <PersonOutlined /> Hi, {user?.name}
+                    <PersonOutlined fontSize='small' /> Hi, {user?.name}
                   </Link>
                 </li>
               </>
@@ -206,9 +208,9 @@ export default function Navigations() {
               <>
                 <li>
                   <button
-                    className='hover:text-white flex items-center gap-1 py-1 px-3'
+                    className='hover:text-white flex items-center gap-1 py-1 px-3 text-sm'
                     onClick={() => setOpenLang(true)}>
-                    <LanguageOutlined />
+                    <LanguageOutlined fontSize='small' />
                     Language
                   </button>
                 </li>
@@ -276,15 +278,15 @@ export default function Navigations() {
                 <Link
                   href='/profile'
                   className='flex items-center gap-1 py-2 px-3'>
-                  <PersonOutlined /> Hi, {user?.name}
+                  <PersonOutlined fontSize='small' /> Hi, {user?.name}
                 </Link>
               </li>
             </>
           ) : (
             <>
-              <li className='hover:bg-gray-200 hover:text-white transition-colors duration-300 rounded-md'>
+              <li className='hover:bg-gray-200 hover:text-black text-white transition-colors duration-300 rounded-md'>
                 <button
-                  className='flex items-center gap-1 py-2 px-3'
+                  className='flex items-center gap-1 py-2 px-3 '
                   onClick={() => setOpenLang(true)}>
                   <LanguageOutlined />
                   Language

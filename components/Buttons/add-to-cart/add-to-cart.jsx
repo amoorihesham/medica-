@@ -13,8 +13,6 @@ export default function AddToCart({ productId, storeId, quantity }) {
     <Button
       variant='contained'
       style={{
-        backgroundColor: colors.primary,
-        color: colors.primaryText,
         width: '100%',
         height: '44px',
         margin: '2rem auto',

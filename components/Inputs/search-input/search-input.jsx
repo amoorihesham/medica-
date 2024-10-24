@@ -1,7 +1,6 @@
 'use client';
 import { SearchOutlined } from '@mui/icons-material';
 import { Box } from '@mui/material';
-import { Input, Button } from 'antd';
 
 const SearchInput = () => {
   return (
@@ -12,32 +11,23 @@ const SearchInput = () => {
         justifyContent: 'center',
         height: { xs: '60px', md: '100px' },
         width: '50%',
-      }}
-    >
-      <Input.Search
-        placeholder='search'
-        size='large'
-        prefix={
-          <SearchOutlined
-            fontSize='small'
-            sx={{ color: 'gray', marginTop: '3px' }}
-          />
-        }
-        enterButton={
-          <Button
-            style={{
-              backgroundColor: '#1B6B93',
-              color: 'white',
-              borderRaduis: '0',
-              border: 'none',
-              height: '40px',
-              marginLeft: '-10px',
-            }}
-          >
-            Search
-          </Button>
-        }
-      />
+      }}>
+      <Box
+        position='relative'
+        width='100%'>
+        <SearchOutlined
+          fontSize='small'
+          sx={{ position: 'absolute', top: '8px', left: '6px', color: '#9ca3af ' }}
+        />
+        <input
+          type='text'
+          placeholder='Search...'
+          className='w-full  bg-mpink py-2 px-7 rounded-l-md placeholder:text-sm placeholder:text-gray-400 outline-none'
+        />
+      </Box>
+      <button className='text-white text-sm font-bold bg-sBlue  px-3 h-10 rounded-r-md'>
+        Search
+      </button>
     </Box>
   );
 };
